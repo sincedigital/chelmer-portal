@@ -179,6 +179,10 @@ body {
   color: #96beba;
 }
 
+#dateHandler {
+	cursor: pointer;
+}
+
 .main-content {
   display: -webkit-box;
   display: -webkit-flex;
@@ -300,6 +304,10 @@ table#detailsTable.dataTable th {
 table#detailsTable.dataTable td {
 	padding-right: 5%;
 }
+table#detailsTable.dataTable td:nth-child(2) {
+	text-align: right;
+}
+
 
 
 .utility-page-wrap {
@@ -388,16 +396,14 @@ table#detailsTable.dataTable td {
     font-size: 16pt;
     line-height: 30px;
     font-weight: 100;
-    display: table;
 }
 
 #portfolio-makeup span {
-	display: table-cell;
+	display: inline-block;
 }
 
 .portfolio-row {
 	cursor: pointer;
-	display: table-row;
 }
 .portfolio-row:hover, .portfolio-row.expanded, .details {
 	background-color: #28464C;

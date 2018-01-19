@@ -20,6 +20,7 @@
   
   <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   
   <style>
 	.xxx { background: rgba(0,0,0,0.05); }
@@ -96,14 +97,14 @@
 }
 
 .range-labels {
-  margin: 18px -41px 0;
+  margin: 50px 0px;
   padding: 0;
   list-style: none;
 }
 .range-labels li {
   position: relative;
   float: left;
-  width: 90.25px;
+  width: 150px;
   text-align: center;
   color: #b2b2b2;
   font-size: 14px;
@@ -128,7 +129,7 @@
   background: #37adbf;
 }
 .range-labels .active.selected::before {
-  display: none;
+/*  display: none; */
 }
 
 
@@ -156,18 +157,16 @@
           <h1 class="heading-1" id="portfolioTotal"></h1>
           <div class="text-block">NZD</div>
         </div>
-        <p class="subhead-1"><strong class="bold-text">Mrs Smith Trust, 20 July 2017</strong> </p>
+        <p class="subhead-1"><strong class="bold-text">Mrs Smith Trust, <span id="date">19 January 2018</span> <i id="dateHandler" style="padding-left:10px" class="fa fa-calendar-o" aria-hidden="true"></i></strong> </p>
 
 <!-- div class="range">
   <input type="range" min="1" max="5" step="1" value="5">
 </div -->
 
 <ul class="range-labels">
-  <li>1 year ago</li>
-  <li>9 months ago</li>
-  <li>6 months ago</li>
-  <li>3 months ago</li>
-  <li class="active selected">Current</li>
+  <li data-portfolio="portfolio3" >1 year ago</li>
+  <li data-portfolio="portfolio2" >6 months ago</li>
+  <li data-portfolio="portfolio1" class="active selected">Current</li>
 </ul>
       </div>
     </div>
@@ -193,10 +192,12 @@
   </div>
   <script>
   
-  	var portfolio = {
-  			total: 3930587,
+  
+   	var portfolio1 = {
+			date: "19 January 2018",  			
+  			total: 1398759,
   			parts: [
-  				{name: "Equity", amount: 382290, holdings: [
+  				{name: "Equity", amount: 381421, holdings: [
   					{name: "AIA  Auckland International Airport Ltd Common Stock", value: 54720},
   					{name: "CEN  Contact Energy Ltd Common Stock", value: 42901},
   					{name: "FPH  Fisher & Paykel Healthcare Corp Ltd Common Stock", value: 52811},
@@ -207,15 +208,100 @@
   					{name: "VCT  Vector Ltd Common Stock", value: 40533.36}
   				]},
   				
-  				{name: "Fixed income", amount: 1082257},
-  				{name: "Property", amount: 586896},
-  				{name: "Cash", amount: 1222251, holdings: [
+  				{name: "Fixed income", amount: 168276, holdings: [
+  					
+					{name: "ANZ Bank NZ Ltd Fixed Rate Bonds @ 4.03% Mat 25/9/2020", value: 17328.49},
+					{name: "Westpac NZ Limited Fixed Rate Notes @5.545% Mat 20/9/2018", value: 15847.23},
+					{name: "Contact Energy Ltd Bonds 5.80% Mature 15/05/2019", value: 15735.53 },
+  					{name: "Bank of New Zealand RTD's @5.57% Mat 25/6/2019", value: 15780.00},
+  					{name: "NZ Govt Stock @ 6.00% Mat 15/05/21", value: 30875.97},
+  					{name: "NZ Local Gov Fund Agency Bond 6.00% Mat 15/05/2021", value: 17205.94},
+  					{name: "Fonterra Co-Op Group Bonds @4.42% Mat 7/3/2023", value: 17847.85},
+  					{name: "NZ Government Stock 5.50% Matures 15/04/2023", value: 37659.54}
+  				]},
+  				{name: "Property", amount: 120701.75, holdings: [
+  					{name: "SQEMF01  Schroder QEP Emerging Markets Fund", value: 120701.75}
+  				]},
+				{name: "Cash", amount: 71467, holdings: [
   					{name: "NZD Call Account", value:71467.00}
   				]},
   				{name: "Other", amount: 656893}
   				]
   	};
+  	
+  	var portfolio2 = {
+			date: "19 July 2017",  			
+  			total: 876225,
+  			parts: [
+  				{name: "Equity", amount: 270888, holdings: [
+  					{name: "AIA  Auckland International Airport Ltd Common Stock", value: 44720},
+  					{name: "CEN  Contact Energy Ltd Common Stock", value: 32901},
+  					{name: "FPH  Fisher & Paykel Healthcare Corp Ltd Common Stock", value: 42811},
+  					{name: "FBU  Fletcher Building Ltd Common Stock", value: 49807.07},
+  					{name: "FSF  Fonterra Shareholders' Fund Units", value: 48261.56},
+  					{name: "POT  Port of Tauranga Ltd Common Stock", value: 29344.10},
+  					{name: "SKC  SKYCITY Entertainment Group Ltd Common Stock", value: 23044.48},
+  				]},
+  				
+  				{name: "Fixed income", amount: 168276, holdings: [
+  					
+					{name: "ANZ Bank NZ Ltd Fixed Rate Bonds @ 4.03% Mat 25/9/2020", value: 17328.49},
+					{name: "Westpac NZ Limited Fixed Rate Notes @5.545% Mat 20/9/2018", value: 15847.23},
+					{name: "Contact Energy Ltd Bonds 5.80% Mature 15/05/2019", value: 15735.53 },
+  					{name: "Bank of New Zealand RTD's @5.57% Mat 25/6/2019", value: 15780.00},
+  					{name: "NZ Govt Stock @ 6.00% Mat 15/05/21", value: 30875.97},
+  					{name: "NZ Local Gov Fund Agency Bond 6.00% Mat 15/05/2021", value: 17205.94},
+  					{name: "Fonterra Co-Op Group Bonds @4.42% Mat 7/3/2023", value: 17847.85},
+  					{name: "NZ Government Stock 5.50% Matures 15/04/2023", value: 37659.54}
+  				]},
+  				{name: "Property", amount: 108701.75, holdings: [
+  					{name: "SQEMF01  Schroder QEP Emerging Markets Fund", value: 108701.75}
+  				]},
+				{name: "Cash", amount: 71467, holdings: [
+  					{name: "NZD Call Account", value:71467.00}
+  				]},
+  				{name: "Other", amount: 256893}
+  				]
+  	};
+  	
+  	var portfolio3 = {
+			date: "19 January 2017",  			
+  			total: 776224,
+  			parts: [
+  				{name: "Equity", amount: 270888, holdings: [
+  					{name: "AIA  Auckland International Airport Ltd Common Stock", value: 44720},
+  					{name: "CEN  Contact Energy Ltd Common Stock", value: 32901},
+  					{name: "FPH  Fisher & Paykel Healthcare Corp Ltd Common Stock", value: 42811},
+  					{name: "FBU  Fletcher Building Ltd Common Stock", value: 49807.07},
+  					{name: "FSF  Fonterra Shareholders' Fund Units", value: 48261.56},
+  					{name: "POT  Port of Tauranga Ltd Common Stock", value: 29344.10},
+  					{name: "SKC  SKYCITY Entertainment Group Ltd Common Stock", value: 23044.48},
+  				]},
+  				
+  				{name: "Fixed income", amount: 168276, holdings: [
+  					
+					{name: "ANZ Bank NZ Ltd Fixed Rate Bonds @ 4.03% Mat 25/9/2020", value: 17328.49},
+					{name: "Westpac NZ Limited Fixed Rate Notes @5.545% Mat 20/9/2018", value: 15847.23},
+					{name: "Contact Energy Ltd Bonds 5.80% Mature 15/05/2019", value: 15735.53 },
+  					{name: "Bank of New Zealand RTD's @5.57% Mat 25/6/2019", value: 15780.00},
+  					{name: "NZ Govt Stock @ 6.00% Mat 15/05/21", value: 30875.97},
+  					{name: "NZ Local Gov Fund Agency Bond 6.00% Mat 15/05/2021", value: 17205.94},
+  					{name: "Fonterra Co-Op Group Bonds @4.42% Mat 7/3/2023", value: 17847.85},
+  					{name: "NZ Government Stock 5.50% Matures 15/04/2023", value: 37659.54}
+  				]},
+  				{name: "Property", amount: 108701.75, holdings: [
+  					{name: "SQEMF01  Schroder QEP Emerging Markets Fund", value: 108701.75}
+  				]},
+				{name: "Cash", amount: 71467, holdings: [
+  					{name: "NZD Call Account", value:71467.00}
+  				]},
+  				{name: "Other", amount: 156892}
+  				]
+  	};
   
+  	var currentPortfolio = portfolio1;
+  	
+  	var palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641'];
   	
   	var greenShades = ['#B2CFCC', '#A9C9C6', '#94C3C0', '#96BEBA', '#89ADAA', '#7B9C99', '#6E8B88', '#607977', '#526866'];
 //  	var blueShades = ['#B2CFCC', '#A9C9C6', '#94C3C0', '#96BEBA', '#89ADAA', '#7B9C99'];
@@ -223,25 +309,30 @@
   	
   	
   	$(function() {
-  		$('input[type="range"]').rangeslider();
+  		//$('input[type="range"]').rangeslider();
 
-		updateUI(portfolio);
+  		$('#dateHandler').click(function() {
+  			$('.range-labels').toggle();
+  		});
+  		$('.range-labels').hide();
+  		
+  		$('.range-labels li').click(function() {
+  			$('.range-labels li').removeClass('active').removeClass('selected');
+  			$(this).addClass('active').addClass('selected');
+  			var portfolio = window[$(this).data('portfolio')];
+  			$('#date').text(portfolio.date);
+  			updateUI(portfolio);
+  		});
+  		
+		updateUI(currentPortfolio);
 		
 		
-		$('.portfolio-row').click(function(){
-			$('.details').remove();
-			var row = $(this);
-			if (row.hasClass('expanded')) {
-				row.removeClass('expanded');
-			} else {
-				$('.portfolio-row').removeClass('expanded');
-				row.addClass('expanded');
-				showDetails(row);
-			}
-		});
+
   	});
   	
   	function updateUI(portfolio) {
+  		currentPortfolio = portfolio;
+  		$('#portfolio-makeup').empty();
   		var maxPercentage = 0;
   		portfolio.parts.forEach(function(el) {
   			var perc = (el.amount * 100 / portfolio.total );
@@ -253,7 +344,7 @@
   		console.log("Max percentage: ", maxPercentage);
   		maxPercentage += 15;
   		
-  		$('#portfolioTotal').text(portfolio.total.formatMoney(0, '.', ','));
+  		$('#portfolioTotal').text(currentPortfolio.total.formatMoney(0, '.', ','));
   		var count = 0;
   		portfolio.parts.forEach(function(el) {
   			var perc = (el.amount * 100 / portfolio.total );
@@ -263,21 +354,34 @@
   	  				el.name+'</span><span class="portfolio-row-amount">'+
   	  				el.amount.formatMoney(0, '.', ',')+'</span>' +
   	  				'<span class="portfolio-row-bar">' + 
-  	  					'<span class="bar" style="background-color: '+greenShades[count]+'; width:'+relativeWidth+'%"></span>'+
+  	  					'<span class="bar" style="background-color: '+palette[count]+'; width:'+relativeWidth+'%"></span>'+
   	  					'<span class="portfolio-row-bar-perc">'+perc.toFixed(1) +'%</span></span></div>');
 			console.log(count);
-  	  		count+=2;
+  	  		count++;
   	  	});
 
-  		
+		$('.portfolio-row').click(function(){
+			$('.details').remove();
+			var row = $(this);
+			if (row.hasClass('expanded')) {
+				row.removeClass('expanded');
+			} else {
+				$('.portfolio-row').removeClass('expanded');
+				row.addClass('expanded');
+				showDetails(row);
+			}
+		});
   	}
   	
   	function showDetails(row) {
   		var table = "<table id='detailsTable' style=\"width:100%\"><thead><tr><th>ASSET NAME</th><th class='dt-head-right'>CURRENT (NZD)</th><th>% OF PORTFOLIO</th></tr></thead>";
   		table += "<tbody>";
   		
-  		var part = portfolio.parts.reduce(function(accum, current) {
+  		var which = 0;
+
+  		var part = currentPortfolio.parts.reduce(function(accum, current, idx) {
   			if (current.name === row.data('key')) {
+				which = idx;
   				return current;
   			}
   			return accum;
@@ -298,7 +402,7 @@
   		
   		var maxPercentage = 0;
   		part.holdings.forEach(function(el) {
-  			var perc = (el.value * 100 / portfolio.total );
+  			var perc = (el.value * 100 / currentPortfolio.total );
   			if (perc > maxPercentage) {
   				maxPercentage = perc;
   			}
@@ -306,25 +410,18 @@
   		
   		console.log("Max percentage: ", maxPercentage);
   		maxPercentage *= 2;
-  		
   		part.holdings.forEach(function(el) {
-  			var perc = (el.value * 100 / portfolio.total );
+  			var perc = (el.value * 100 / currentPortfolio.total );
   			var relativeWidth = perc / maxPercentage * 100;
   	  		t.row.add( [
   	            el.name,
   	            el.value.formatMoney(2, '.', ','),
-  	            perc.toFixed(2) +'%<span class="bar" style="margin-left: 10px; background-color: '+greenShades[0]+'; width:'+relativeWidth+'%"></span>'
+  	            perc.toFixed(2) +'%<span class="bar" style="margin-left: 10px; background-color: '+palette[which]+'; width:'+relativeWidth+'%"></span>'
   	        ] ).draw( false );
   		});
   	}
   	
 
- 	
-  	portfolio.parts.forEach(function(el) {
-  		console.log(el);
-  		
-  	});
-  	
   	Number.prototype.formatMoney = function(c, d, t){
 	var n = this, 
 	    c = isNaN(c = Math.abs(c)) ? 2 : c, 
