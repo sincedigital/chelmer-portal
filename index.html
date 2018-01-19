@@ -158,9 +158,9 @@
         </div>
         <p class="subhead-1"><strong class="bold-text">Mrs Smith Trust, 20 July 2017</strong> </p>
 
-<div class="range">
+<!-- div class="range">
   <input type="range" min="1" max="5" step="1" value="5">
-</div>
+</div -->
 
 <ul class="range-labels">
   <li>1 year ago</li>
@@ -209,7 +209,9 @@
   				
   				{name: "Fixed income", amount: 1082257},
   				{name: "Property", amount: 586896},
-  				{name: "Cash", amount: 1222251},
+  				{name: "Cash", amount: 1222251, holdings: [
+  					{name: "NZD Call Account", value:71467.00}
+  				]},
   				{name: "Other", amount: 656893}
   				]
   	};
@@ -271,7 +273,7 @@
   	}
   	
   	function showDetails(row) {
-  		var table = "<table id='detailsTable'><thead><tr><th>ASSET NAME</th><th>CURRENT (NZD)</th><th>% OF PORTFOLIO</th></tr></thead>";
+  		var table = "<table id='detailsTable' style=\"width:100%\"><thead><tr><th>ASSET NAME</th><th class='dt-head-right'>CURRENT (NZD)</th><th>% OF PORTFOLIO</th></tr></thead>";
   		table += "<tbody>";
   		
   		var part = portfolio.parts.reduce(function(accum, current) {
@@ -291,14 +293,27 @@
   			"paging":   false,
   	        "searching": false,
   	        "info":     false,
-  	      	"columnDefs": [ { "width": "50%", "targets": 0 } ]
+  	      	"columnDefs": [ { "width": "60%", "targets": 0 }, {"targets":1, align:"right", "decimals":2} ]
   		});
   		
+  		var maxPercentage = 0;
   		part.holdings.forEach(function(el) {
+  			var perc = (el.value * 100 / portfolio.total );
+  			if (perc > maxPercentage) {
+  				maxPercentage = perc;
+  			}
+  		});
+  		
+  		console.log("Max percentage: ", maxPercentage);
+  		maxPercentage *= 2;
+  		
+  		part.holdings.forEach(function(el) {
+  			var perc = (el.value * 100 / portfolio.total );
+  			var relativeWidth = perc / maxPercentage * 100;
   	  		t.row.add( [
   	            el.name,
-  	            el.value,
-  	            'Kittens have <i>fur</i>'
+  	            el.value.formatMoney(2, '.', ','),
+  	            perc.toFixed(2) +'%<span class="bar" style="margin-left: 10px; background-color: '+greenShades[0]+'; width:'+relativeWidth+'%"></span>'
   	        ] ).draw( false );
   		});
   	}
