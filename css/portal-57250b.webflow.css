@@ -309,6 +309,39 @@ table#detailsTable.dataTable td:nth-child(2) {
 }
 
 
+.range-labels {
+  margin: 50px 0px;
+  padding: 0;
+  list-style: none;
+}
+.range-labels li {
+  position: relative;
+  float: left;
+  width: 150px;
+  text-align: center;
+  color: #b2b2b2;
+  font-size: 14px;
+  cursor: pointer;
+}
+.range-labels li::before {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  left: 0;
+  content: "";
+  margin: 0 auto;
+  width: 9px;
+  height: 9px;
+  background: #b2b2b2;
+  border-radius: 50%;
+}
+.range-labels .active {
+  color: #37adbf;
+}
+.range-labels .selected::before {
+  background: #37adbf;
+}
+
 
 .utility-page-wrap {
   display: -webkit-box;
@@ -488,6 +521,9 @@ table#detailsTable.dataTable td:nth-child(2) {
 }
 
 @media (max-width: 767px) {
+	.range-labels li {
+	  width: 70px;
+	}
   .main-content-section {
     height: auto;
   }
