@@ -18,12 +18,119 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.js" integrity="sha256-ZhpcIWx8GPtl1VEkyV22X7GHSzX1NCdp6BvbXMDHI/g=" crossorigin="anonymous"></script>
   
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  
   <style>
 	.xxx { background: rgba(0,0,0,0.05); }
 	
-	
-	
-	
+.range {
+  position: relative;
+  width: 550px;
+  height: 5px;
+}
+
+.range input {
+  width: 100%;
+  position: absolute;
+  top: 2px;
+  height: 0;
+  -webkit-appearance: none;
+}
+.range input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: -8px 0  0;
+  border-radius: 50%;
+  background: #37adbf;
+  cursor: pointer;
+  border: 0 !important;
+}
+.range input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  margin: -8px 0  0;
+  border-radius: 50%;
+  background: #37adbf;
+  cursor: pointer;
+  border: 0 !important;
+}
+.range input::-ms-thumb {
+  width: 18px;
+  height: 18px;
+  margin: -8px 0  0;
+  border-radius: 50%;
+  background: #37adbf;
+  cursor: pointer;
+  border: 0 !important;
+}
+.range input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #b2b2b2;
+}
+.range input::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #b2b2b2;
+}
+.range input::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #b2b2b2;
+}
+.range input:focus {
+  background: none;
+  outline: none;
+}
+.range input::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.range-labels {
+  margin: 18px -41px 0;
+  padding: 0;
+  list-style: none;
+}
+.range-labels li {
+  position: relative;
+  float: left;
+  width: 90.25px;
+  text-align: center;
+  color: #b2b2b2;
+  font-size: 14px;
+  cursor: pointer;
+}
+.range-labels li::before {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  left: 0;
+  content: "";
+  margin: 0 auto;
+  width: 9px;
+  height: 9px;
+  background: #b2b2b2;
+  border-radius: 50%;
+}
+.range-labels .active {
+  color: #37adbf;
+}
+.range-labels .selected::before {
+  background: #37adbf;
+}
+.range-labels .active.selected::before {
+  display: none;
+}
+
 
 	
   </style>
@@ -31,18 +138,37 @@
 <body class="body">
   <div data-collapse="small" data-animation="default" data-duration="400" class="nav w-hidden-small w-hidden-tiny w-nav">
     <div class="nav-container w-container">
-      <nav role="navigation" class="nav-menu w-hidden-tiny w-clearfix w-nav-menu"><img src="images/logo_220.png"/><a href="#" class="nav-link w-nav-link">PORTFOLIOS</a><a href="#" class="nav-link w-nav-link">TRANSACTIONS</a><a href="#" class="nav-link w-nav-link">DOCUMENTS</a><a href="#" class="nav-link w-nav-link">SETTINGS</a><img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="60" height="60" class="image-2"></nav>
+      <nav role="navigation" class="nav-menu w-hidden-tiny w-clearfix w-nav-menu">
+      <img src="images/logo_220.png"/>
+      <div class="nav-links" style="padding-left:35%">
+      <a href="#" class="nav-link w-nav-link">PORTFOLIOS</a>
+      <a href="#" class="nav-link w-nav-link">TRANSACTIONS</a>
+      <a href="#" class="nav-link w-nav-link">DOCUMENTS</a>
+      <a href="#" class="nav-link w-nav-link">SETTINGS</a>
+      </div>
+      </nav>
     </div>
   </div>
   <div class="main-content-section">
     <div class="hero-wrap">
       <div class="main-content">
         <div class="div-block w-clearfix">
-          <h1 class="heading-1">$230,000,543</h1>
+          <h1 class="heading-1" id="portfolioTotal"></h1>
           <div class="text-block">NZD</div>
         </div>
         <p class="subhead-1"><strong class="bold-text">Mrs Smith Trust, 20 July 2017</strong> </p>
-        <input type="range" value="6500" step="25" min="1000" max="12600">
+
+<div class="range">
+  <input type="range" min="1" max="5" step="1" value="5">
+</div>
+
+<ul class="range-labels">
+  <li>1 year ago</li>
+  <li>9 months ago</li>
+  <li>6 months ago</li>
+  <li>3 months ago</li>
+  <li class="active selected">Current</li>
+</ul>
       </div>
     </div>
     <div id="portfolio-makeup">
@@ -70,7 +196,17 @@
   	var portfolio = {
   			total: 3930587,
   			parts: [
-  				{name: "Equity", amount: 382290},
+  				{name: "Equity", amount: 382290, holdings: [
+  					{name: "AIA  Auckland International Airport Ltd Common Stock", value: 54720},
+  					{name: "CEN  Contact Energy Ltd Common Stock", value: 42901},
+  					{name: "FPH  Fisher & Paykel Healthcare Corp Ltd Common Stock", value: 52811},
+  					{name: "FBU  Fletcher Building Ltd Common Stock", value: 59807.07},
+  					{name: "FSF  Fonterra Shareholders' Fund Units", value: 58261.56},
+  					{name: "POT  Port of Tauranga Ltd Common Stock", value: 39344.10},
+  					{name: "SKC  SKYCITY Entertainment Group Ltd Common Stock", value: 33044.48},
+  					{name: "VCT  Vector Ltd Common Stock", value: 40533.36}
+  				]},
+  				
   				{name: "Fixed income", amount: 1082257},
   				{name: "Property", amount: 586896},
   				{name: "Cash", amount: 1222251},
@@ -86,6 +222,24 @@
   	
   	$(function() {
   		$('input[type="range"]').rangeslider();
+
+		updateUI(portfolio);
+		
+		
+		$('.portfolio-row').click(function(){
+			$('.details').remove();
+			var row = $(this);
+			if (row.hasClass('expanded')) {
+				row.removeClass('expanded');
+			} else {
+				$('.portfolio-row').removeClass('expanded');
+				row.addClass('expanded');
+				showDetails(row);
+			}
+		});
+  	});
+  	
+  	function updateUI(portfolio) {
   		var maxPercentage = 0;
   		portfolio.parts.forEach(function(el) {
   			var perc = (el.amount * 100 / portfolio.total );
@@ -94,14 +248,16 @@
   			}
   		});
   		
+  		console.log("Max percentage: ", maxPercentage);
   		maxPercentage += 15;
-  		var count = 0;
   		
+  		$('#portfolioTotal').text(portfolio.total.formatMoney(0, '.', ','));
+  		var count = 0;
   		portfolio.parts.forEach(function(el) {
   			var perc = (el.amount * 100 / portfolio.total );
   			var relativeWidth = perc / maxPercentage * 100;
   			
-  	  		$('#portfolio-makeup').append('<div class="portfolio-row"><span class="portfolio-row-name">'+
+  	  		$('#portfolio-makeup').append('<div class="portfolio-row" data-key="'+el.name+'"><span class="portfolio-row-name">'+
   	  				el.name+'</span><span class="portfolio-row-amount">'+
   	  				el.amount.formatMoney(0, '.', ',')+'</span>' +
   	  				'<span class="portfolio-row-bar">' + 
@@ -110,8 +266,45 @@
 			console.log(count);
   	  		count+=2;
   	  	});
-  	});
+
+  		
+  	}
   	
+  	function showDetails(row) {
+  		var table = "<table id='detailsTable'><thead><tr><th>ASSET NAME</th><th>CURRENT (NZD)</th><th>% OF PORTFOLIO</th></tr></thead>";
+  		table += "<tbody>";
+  		
+  		var part = portfolio.parts.reduce(function(accum, current) {
+  			if (current.name === row.data('key')) {
+  				return current;
+  			}
+  			return accum;
+  		});
+  		
+  		console.log(part);
+		
+  		table += "</tbody></table>";
+  		
+  		$("<div class='details'>"+table+"</div>").insertAfter(row);
+  		
+  		var t = $('#detailsTable').DataTable({
+  			"paging":   false,
+  	        "searching": false,
+  	        "info":     false,
+  	      	"columnDefs": [ { "width": "50%", "targets": 0 } ]
+  		});
+  		
+  		part.holdings.forEach(function(el) {
+  	  		t.row.add( [
+  	            el.name,
+  	            el.value,
+  	            'Kittens have <i>fur</i>'
+  	        ] ).draw( false );
+  		});
+  	}
+  	
+
+ 	
   	portfolio.parts.forEach(function(el) {
   		console.log(el);
   		
@@ -128,6 +321,48 @@
 	   return '$' + s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 	 };
   	
+	 
+	 
+	 var sheet = document.createElement('style'),  
+	  $rangeInput = $('.range input'),
+	  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
+
+	document.body.appendChild(sheet);
+
+	var getTrackStyle = function (el) {  
+	  var curVal = el.value,
+	      val = (curVal - 1) * 20/*16.666666667*/,
+	      style = '';
+	  
+	  // Set active label
+	  $('.range-labels li').removeClass('active selected');
+	  
+	  var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');
+	  
+	  curLabel.addClass('active selected');
+	  curLabel.prevAll().addClass('selected');
+	  
+	  // Change background gradient
+	  for (var i = 0; i < prefs.length; i++) {
+	    style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #fff ' + val + '%, #fff 100%)}';
+	    style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}';
+	  }
+
+	  return style;
+	}
+
+	$rangeInput.on('input', function () {
+	  sheet.textContent = getTrackStyle(this);
+	});
+
+	// Change input value on label click
+	$('.range-labels li').on('click', function () {
+	  var index = $(this).index();
+	  
+	  $rangeInput.val(index + 1).trigger('input');
+	  
+	});
+	 
   </script>
   
   <script src="js/webflow.js" type="text/javascript"></script>
