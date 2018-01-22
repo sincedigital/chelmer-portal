@@ -491,7 +491,14 @@ table#detailsTable.dataTable td:nth-child(2) {
 .theme-color-5 {
 	background-color: rgb(182,190,192);
 }
+
+  #detailsTable {
+  	font-size: 0.8em;
+  }
 	
+table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
+    padding: 8px 5% 8px 10px;
+}
 
 @media (max-width: 991px) {
   .nav-link {
@@ -521,6 +528,13 @@ table#detailsTable.dataTable td:nth-child(2) {
 }
 
 @media (max-width: 767px) {
+	  #detailsTable {
+  	font-size: 0.7em;
+  }
+	
+	table#detailsTable.dataTable th {
+		font-size: 9pt;
+	}
 	.range-labels li {
 	  width: 70px;
 	}
