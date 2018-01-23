@@ -317,12 +317,12 @@
 	function loadPortfolio(portfolio) {
 		var name = portfolio.name;
 		var id = portfolio.portfolio;
-		var asAtDate = portfolio.hasOwnProperty('asAtDate') ? portfolio.asAtDate() : new Date().toISOString().substring(0, 10);
+		var asAtDate = portfolio.hasOwnProperty('asAtDate') ? portfolio.asAtDate : new Date().toISOString().substring(0, 10);
 		
 		var token = getCookie('chelmer');
 		showLoading();
 		$.ajax({
-			url: chelmer.baseUrl + '/api/v1/aggregation/portfolio/holdings?sessionId='+token+'&requestedOnBehalfOf=chris%40sincedigital.co&portfoliosCodes='+id,//+'&asAtDate='+asAtDate,
+			url: chelmer.baseUrl + '/api/v1/aggregation/portfolio/holdings?sessionId='+token+'&requestedOnBehalfOf=chris%40sincedigital.co&portfoliosCodes='+id+'&asAtDate='+asAtDate,
 			success: function(json) {
 				var portfolio = json.data[0];
 				var loadedPortfolio = {"parts":[], total:0};
