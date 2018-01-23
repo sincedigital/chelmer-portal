@@ -45,6 +45,10 @@
       <a href="#" class="nav-link w-nav-link">DOCUMENTS</a>
       <a href="#" class="nav-link w-nav-link">SETTINGS</a>
       </div>
+      <div class="userlist">
+      <ul>
+      </ul>
+      </div>
       </nav>
     </div>
   </div>
@@ -55,7 +59,7 @@
           <h1 class="heading-1" id="portfolioTotal"></h1>
           <div class="text-block">NZD</div>
         </div>
-        <p class="subhead-1"><strong class="bold-text">Mrs Smith Trust, <span id="date">19 January 2018</span> <i id="dateHandler" style="padding-left:10px" class="fa fa-calendar-o" aria-hidden="true"></i></strong> </p>
+        <p class="subhead-1"><strong class="bold-text"><span id="portfolioName"></span>, <span id="date">19 January 2018</span> <i id="dateHandler" style="padding-left:10px" class="fa fa-calendar-o" aria-hidden="true"></i></strong> </p>
 
 <!-- div class="range">
   <input type="range" min="1" max="5" step="1" value="5">
@@ -89,6 +93,12 @@
 
   </div>
   </div>
+  
+  <div id="loading">
+<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+  </div>
+  
   <div id="login">
   
 <form id="loginForm">
@@ -99,7 +109,7 @@
   <label>Password <span>*</span></label>
   <input type="password" name="password" id="loginPassword"/>
   <div class="help">Use the password supplied to authenticate to the Fusion portal</div>
-  <input type="submit" value="Login"/>
+  <button type="submit" id="loginSubmit">Login</button> 
 </form>
   
   </div>
@@ -111,6 +121,16 @@
 		  sessionValidate: "/security/validate/sessions/"
   }
 
+  
+  var portfolios = [
+	{name: "Ms Sherry Wang", portfolio: 990046340},
+	{name: "Mr Michael Smith", portfolio: 990041720},
+	{name: "Mr William Boggs", portfolio: 990011110},
+	{name: "William & Nina Boggs", portfolio: 990026967}
+	
+  ];
+  
+  
   
    	var portfolio1 = {
 			date: "19 January 2018",  			
@@ -236,35 +256,83 @@
 			$('#wrapper').hide();
 			$('#loading').show();
 	  		$('#login').hide();
+	  		console.log('checking token validity ',token);
 			$.ajax({
 				url: chelmer.baseUrl + chelmer.sessionValidate + token,
 				success: function(json) {
-					if (json.valid && json.valid === 'true') {
+					console.log(json);
+					console.log(json.valid);
+					if (json.valid && json.valid === true) {
 						$('#wrapper').show();
 						$('#loading').hide();
 				  		$('#login').hide();
 					} else {
 						$('#loading').hide();
 				  		$('#login').show();
+				  		$('#wrapper').hide();
 					}
 				}
 			});
 		}
+	}
+	
+	function loadPortfolio(name, id) {
+		var token = getCookie('chelmer');
+		$.ajax({
+			url: chelmer.baseUrl + '/api/v1/aggregation/portfolio/holdings?sessionId='+token+'&requestedOnBehalfOf=chris%40sincedigital.co&portfoliosCodes='+id,
+			success: function(json) {
+				var portfolio = json.data[0];
+				var loadedPortfolio = {"parts":[], total:0};
+				loadedPortfolio.date = portfolio.asAtDate;
+				
+				portfolio.holdings.forEach(function(el) {
+					var group = loadedPortfolio.parts.filter(function(part) {
+						return part.name === el.mkt;
+					});
+					if (group.length == 0) {
+						group = {"name": el.mkt, "holdings":[], "amount":0};
+						loadedPortfolio.parts.push(group);
+					} else {
+						group = group[0];
+					}
+					
+					group.holdings.push({"name": el.name, value: el.mV});
+					loadedPortfolio.total += el.mV;
+					group.amount += el.mV;
+				});
+				
+				updateUI(loadedPortfolio);
+				
+				console.log(loadedPortfolio);
+			}
+		});
 	}
   	
   	$(function() {
   		
   		checkAuth();
   		
+  		loadPortfolio(portfolios[0].name, portfolios[0].portfolio);
+  		
   		$('#loginForm').on('submit', function(e) {
   			e.preventDefault();
+  			$('#loginSubmit').html('Authenticating... <i class="fa fa-circle-o-notch fa-spin "></i>');
+
   			$.ajax({
   				url: chelmer.baseUrl + chelmer.login,
   				type: "POST",
   				contentType: "application/json; charset=utf-8",
   				data: JSON.stringify({"username":$('#loginForm')[0].username.value, "password":$('#loginForm')[0].password.value}),
   				success: function(data) {
-  					console.log(data);
+  					if (data.tokenId) {
+  						setCookie('chelmer', data.tokenId, 2);
+  						$('#loading').hide();
+				  		$('#login').hide();
+				  		$('#wrapper').show();
+  					}
+  				},
+  				error: function(xhr, status, errorThrown) {
+  					jQuery('#loginSubmit').html('Invalid username or password. Try again.');
   				}
   			});
   			return false;

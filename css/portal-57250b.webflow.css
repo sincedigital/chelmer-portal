@@ -500,6 +500,15 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
     padding: 8px 5% 8px 10px;
 }
 
+#loading {
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+ 	margin-top: -25px;
+  	margin-left: -25px;
+	color: rgb(124,179,172);
+}
+
 @media (max-width: 991px) {
   .nav-link {
     height: 122%;
