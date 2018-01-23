@@ -156,6 +156,31 @@ body {
   font-weight: 300;
 }
 
+.nav-link span.icon {
+	text-align: center;
+	display: block;
+}
+
+.svg-icon {
+	stroke:white;
+	fill: #13343b
+}
+.svg-icon.filled {
+	fill: white;
+}
+
+
+a:hover .svg-icon {
+	stroke: #96beba;
+}
+a:hover .svg-icon.filled {
+	fill: #96beba;
+}
+.svg-mask {
+	stroke: #13343b;
+	fill: #13343b; 
+}
+
 .nav-link {
   display: inline-block;
 /*  height: 122%;*/

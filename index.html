@@ -40,9 +40,34 @@
       <nav role="navigation" class="nav-menu w-hidden-tiny w-clearfix w-nav-menu">
       <img src="images/logo_220.png"/>
       <div class="nav-links" style="padding-left:35%">
-      <a href="#" class="nav-link w-nav-link">PORTFOLIOS</a>
-      <a href="#" class="nav-link w-nav-link">TRANSACTIONS</a>
-      <a href="#" class="nav-link w-nav-link">DOCUMENTS</a>
+      <a href="#" class="nav-link w-nav-link"><span class="icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+		<g>
+  		<ellipse ry="14.5" rx="14.5" id="svg_1" cy="20" cx="20" stroke-width="5" stroke="#fff" fill="#13343b" class="svg-icon"></ellipse>
+		<rect id="svg_4" height="16" width="4" y="0" x="18" stroke-width="5" class="svg-mask"></rect>
+  		<rect id="svg_5" height="4" width="4" y="25" x="28" stroke-width="5" class="svg-mask" transform="translate(0) rotate(45 26 30)"></rect>
+ 		</g>
+	  </svg>
+      </span>PORTFOLIOS</a>
+      <a href="#" class="nav-link w-nav-link">
+      <span class="icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+ <g>
+  <path class="svg-icon filled" stroke-width="1.5" d="M28.61 6.962 34.963 11.901 28.61 16.84 28.61 13.37 9.207 13.37 9.207 10.431 28.61 10.431V6.961Z" id="svg_16" />
+  <path class="svg-icon filled" stroke-width="1.5" d="M11.39 33.038 5.037 28.099 11.39 23.16 11.39 26.63 30.793 26.63 30.793 29.569 11.39 29.569 11.39 33.039Z" id="svg_17"/>
+ </g>
+</svg>
+      
+      </span>
+      TRANSACTIONS</a>
+      <a href="#" class="nav-link w-nav-link"><span class="icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+ <g>
+  <path class="svg-icon filled" stroke-width="1.5" d="M35.625 10.625q.313.313 .625.804h-10.536v-10.536q.491.312 .804.625zm-10.625 3.661h12.143v23.571q0 .893-.625 1.518t-1.518.625h-30q-.893 0-1.518-.625t-.625-1.518v-35.714q0-.893.625-1.518t1.518-.625h17.857v12.143q0 .893.625 1.518t1.518.625zm3.571 16.429v-1.429q0-.312-.201-.513t-.513-.201h-15.714q-.312 0-.513.201t-.201.513v1.429q0 .313.201 .513t.513.201h15.714q.313 0 .513-.201t.201-.513zm0-5.714v-1.429q0-.312-.201-.513t-.513-.201h-15.714q-.312 0-.513.201t-.201.513v1.429q0 .313.201 .513t.513.201h15.714q.313 0 .513-.201t.201-.513zm0-5.714v-1.429q0-.312-.201-.513t-.513-.201h-15.714q-.312 0-.513.201t-.201.513v1.429q0 .313.201 .513t.513.201h15.714q.313 0 .513-.201t.201-.513z" id="svg_16" />
+ </g>
+</svg></span>
+      
+      DOCUMENTS</a>
       <a href="#" class="nav-link w-nav-link">SETTINGS</a>
       </div>
       <div class="userlist">
@@ -66,9 +91,9 @@
 </div -->
 
 <ul class="range-labels">
-  <li data-portfolio="portfolio3" >1 year ago</li>
-  <li data-portfolio="portfolio2" >6 months ago</li>
-  <li data-portfolio="portfolio1" class="active selected">Current</li>
+  <li data-months-ago="12" >1 year ago</li>
+  <li data-months-ago="6" >6 months ago</li>
+  <li data-months-ago="0" class="active selected">Current</li>
 </ul>
       </div>
     </div>
@@ -256,30 +281,48 @@
 			$('#wrapper').hide();
 			$('#loading').show();
 	  		$('#login').hide();
-	  		console.log('checking token validity ',token);
 			$.ajax({
 				url: chelmer.baseUrl + chelmer.sessionValidate + token,
 				success: function(json) {
-					console.log(json);
-					console.log(json.valid);
 					if (json.valid && json.valid === true) {
-						$('#wrapper').show();
-						$('#loading').hide();
-				  		$('#login').hide();
+						showLoading();
+						loadPortfolio(portfolios[0]);
 					} else {
-						$('#loading').hide();
-				  		$('#login').show();
-				  		$('#wrapper').hide();
+						showLogin();
 					}
+				},
+				error: function() {
+					showLogin();
 				}
 			});
 		}
 	}
 	
-	function loadPortfolio(name, id) {
+	function showLogin() {
+		$('#loading').hide();
+  		$('#login').show();
+  		$('#wrapper').hide();
+	}
+	function showApp() {
+		$('#loading').hide();
+  		$('#login').hide();
+  		$('#wrapper').show();
+	}
+	function showLoading() {
+		$('#loading').show();
+  		$('#login').hide();
+  		$('#wrapper').hide();
+	}
+	
+	function loadPortfolio(portfolio) {
+		var name = portfolio.name;
+		var id = portfolio.portfolio;
+		var asAtDate = portfolio.hasOwnProperty('asAtDate') ? portfolio.asAtDate() : new Date().toISOString().substring(0, 10);
+		
 		var token = getCookie('chelmer');
+		showLoading();
 		$.ajax({
-			url: chelmer.baseUrl + '/api/v1/aggregation/portfolio/holdings?sessionId='+token+'&requestedOnBehalfOf=chris%40sincedigital.co&portfoliosCodes='+id,
+			url: chelmer.baseUrl + '/api/v1/aggregation/portfolio/holdings?sessionId='+token+'&requestedOnBehalfOf=chris%40sincedigital.co&portfoliosCodes='+id,//+'&asAtDate='+asAtDate,
 			success: function(json) {
 				var portfolio = json.data[0];
 				var loadedPortfolio = {"parts":[], total:0};
@@ -296,14 +339,13 @@
 						group = group[0];
 					}
 					
-					group.holdings.push({"name": el.name, value: el.mV});
-					loadedPortfolio.total += el.mV;
-					group.amount += el.mV;
+					group.holdings.push({"name": el.name, value: el.baseMv});
+					loadedPortfolio.total += el.baseMv;
+					group.amount += el.baseMv;
 				});
 				
 				updateUI(loadedPortfolio);
-				
-				console.log(loadedPortfolio);
+				showApp();
 			}
 		});
 	}
@@ -312,7 +354,7 @@
   		
   		checkAuth();
   		
-  		loadPortfolio(portfolios[0].name, portfolios[0].portfolio);
+  		
   		
   		$('#loginForm').on('submit', function(e) {
   			e.preventDefault();
@@ -326,9 +368,8 @@
   				success: function(data) {
   					if (data.tokenId) {
   						setCookie('chelmer', data.tokenId, 2);
-  						$('#loading').hide();
-				  		$('#login').hide();
-				  		$('#wrapper').show();
+						showLoading();
+						loadPortfolio(portfolios[0]);
   					}
   				},
   				error: function(xhr, status, errorThrown) {
@@ -344,11 +385,14 @@
   		$('.range-labels').hide();
   		
   		$('.range-labels li').click(function() {
-  			$('.range-labels li').removeClass('active').removeClass('selected');
-  			$(this).addClass('active').addClass('selected');
-  			var portfolio = window[$(this).data('portfolio')];
-  			$('#date').text(portfolio.date);
-  			updateUI(portfolio);
+  			var date = new Date();
+  			date = addMonths(date, 0 - $(this).data('monthsAgo'));
+  			
+  			portfolios[0].asAtDate = date.toISOString().substring(0, 10);
+  			loadPortfolio(portfolios[0]);
+  			console.log(date);
+
+  			//updateUI(portfolio);
   		});
   		
 		updateUI(currentPortfolio);
@@ -356,6 +400,11 @@
 		
 
   	});
+  	
+  	function addMonths(date, months) {
+  	  date.setMonth(date.getMonth() + months);
+  	  return date;
+  	}
   	
   	function updateUI(portfolio) {
   		currentPortfolio = portfolio;
@@ -383,7 +432,6 @@
   	  				'<span class="portfolio-row-bar">' + 
   	  					'<span class="bar" style="background-color: '+palette[count]+'; width:'+relativeWidth+'%"></span>'+
   	  					'<span class="portfolio-row-bar-perc">'+perc.toFixed(1) +'%</span></span></div>');
-			console.log(count);
   	  		count++;
   	  	});
 
