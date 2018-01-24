@@ -445,7 +445,7 @@ table#detailsTable.dataTable td:nth-child(2) {
   font-weight: 400;
 }
 
-#portfolio-makeup {
+#portfolio-makeup, #transactions {
     color: white;
     width: 100%;
     text-align: left;
