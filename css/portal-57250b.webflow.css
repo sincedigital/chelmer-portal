@@ -170,10 +170,10 @@ body {
 }
 
 
-a:hover .svg-icon {
+.nav-link:hover .svg-icon, .nav-link.active .svg-icon  {
 	stroke: #96beba;
 }
-a:hover .svg-icon.filled {
+.nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled  {
 	fill: #96beba;
 }
 .svg-mask {
@@ -185,9 +185,8 @@ a:hover .svg-icon.filled {
   display: inline-block;
 /*  height: 122%;*/
   margin-top: 3px;
-  margin-bottom: 17px;
   padding-top: 20px;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
   -webkit-box-flex: 0;
   -webkit-flex: 0 auto;
   -ms-flex: 0 auto;
@@ -199,8 +198,8 @@ a:hover .svg-icon.filled {
   cursor: pointer;
 }
 
-.nav-link:hover {
-  border-bottom: 1px solid #96beba;
+.nav-link:hover, .nav-link.active {
+  border-bottom: 3px solid #96beba;
   color: #96beba;
 }
 
@@ -525,14 +524,24 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
     padding: 8px 5% 8px 10px;
 }
 
-#loading {
-	position: fixed;
+#loading span, #loading i {
+	position: absolute;
   	top: 50%;
   	left: 50%;
  	margin-top: -25px;
   	margin-left: -25px;
 	color: rgb(124,179,172);
 }
+
+#loading {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(19, 52, 59, 0.9);
+    color: rgb(124,179,172);
+    z-index: 999;
+}
+
 
 @media (max-width: 991px) {
   .nav-link {
@@ -562,7 +571,10 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 }
 
 @media (max-width: 767px) {
-	  #detailsTable {
+  .bar {
+  	top: -15px;
+  }
+  #detailsTable {
   	font-size: 0.7em;
   }
 	

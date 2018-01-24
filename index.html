@@ -38,16 +38,16 @@
   <div data-collapse="small" data-animation="default" data-duration="400" class="nav w-hidden-small w-hidden-tiny w-nav">
     <div class="nav-container w-container">
       <nav role="navigation" class="nav-menu w-hidden-tiny w-clearfix w-nav-menu">
-      <img src="images/logo_220.png"/>
+      <img src="images/logo_220x90.png"/>
       <div class="nav-links" style="padding-left:35%">
-      <a href="#" class="nav-link w-nav-link"><span class="icon">
-      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
-		<g>
-  		<ellipse ry="14.5" rx="14.5" id="svg_1" cy="20" cx="20" stroke-width="5" stroke="#fff" fill="#13343b" class="svg-icon"></ellipse>
-		<rect id="svg_4" height="16" width="4" y="0" x="18" stroke-width="5" class="svg-mask"></rect>
-  		<rect id="svg_5" height="4" width="4" y="25" x="28" stroke-width="5" class="svg-mask" transform="translate(0) rotate(45 26 30)"></rect>
- 		</g>
-	  </svg>
+      <a href="#" class="nav-link w-nav-link active"><span class="icon">
+	      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+			<g>
+	  		<ellipse ry="14.5" rx="14.5" id="svg_1" cy="20" cx="20" stroke-width="5" stroke="#fff" fill="#13343b" class="svg-icon"></ellipse>
+			<rect id="svg_4" height="4" width="4" y="2" x="18" stroke-width="5" class="svg-mask"></rect>
+			<rect id="svg_5" height="4" width="4" y="25" x="28" stroke-width="5" class="svg-mask" transform="translate(0) rotate(45 26 30)"></rect>
+	 		</g>
+		  </svg>
       </span>PORTFOLIOS</a>
       <a href="#" class="nav-link w-nav-link">
       <span class="icon">
@@ -78,13 +78,18 @@
     </div>
   </div>
   <div class="main-content-section">
+    <div id="loading">
+		<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+		<span class="sr-only">Loading...</span>
+  	</div>
+  
     <div class="hero-wrap">
       <div class="main-content">
         <div class="div-block w-clearfix">
           <h1 class="heading-1" id="portfolioTotal"></h1>
           <div class="text-block">NZD</div>
         </div>
-        <p class="subhead-1"><strong class="bold-text"><span id="portfolioName"></span>, <span id="date">19 January 2018</span> <i id="dateHandler" style="padding-left:10px" class="fa fa-calendar-o" aria-hidden="true"></i></strong> </p>
+        <p class="subhead-1"><strong class="bold-text"><span id="portfolioName"></span>, <span id="date"></span> <i id="dateHandler" style="padding-left:10px" class="fa fa-calendar-o" aria-hidden="true"></i></strong> </p>
 
 <!-- div class="range">
   <input type="range" min="1" max="5" step="1" value="5">
@@ -119,10 +124,6 @@
   </div>
   </div>
   
-  <div id="loading">
-<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
-<span class="sr-only">Loading...</span>
-  </div>
   
   <div id="login">
   
@@ -157,7 +158,7 @@
   
   
   
-   	var portfolio1 = {
+   /* 	var portfolio1 = {
 			date: "19 January 2018",  			
   			total: 1398759,
   			parts: [
@@ -261,9 +262,9 @@
   				]},
   				{name: "Other", amount: 156892}
   				]
-  	};
+  	}; */
   
-  	var currentPortfolio = portfolio1;
+  	//var currentPortfolio = portfolio1;
   	
   	var palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641'];
   	
@@ -311,7 +312,7 @@
 	function showLoading() {
 		$('#loading').show();
   		$('#login').hide();
-  		$('#wrapper').hide();
+  		$('#wrapper').show();
 	}
 	
 	function loadPortfolio(portfolio) {
@@ -326,6 +327,7 @@
 			success: function(json) {
 				var portfolio = json.data[0];
 				var loadedPortfolio = {"parts":[], total:0};
+				
 				loadedPortfolio.date = portfolio.asAtDate;
 				
 				portfolio.holdings.forEach(function(el) {
@@ -392,10 +394,12 @@
   			loadPortfolio(portfolios[0]);
   			console.log(date);
 
+  			$('.range-labels li').removeClass('active selected');
+			$(this).addClass('active selected');  			
   			//updateUI(portfolio);
   		});
   		
-		updateUI(currentPortfolio);
+		//updateUI(currentPortfolio);
 		
 		
 
@@ -416,6 +420,8 @@
   				maxPercentage = perc;
   			}
   		});
+  		
+  		$('#date').text(formatDate(new Date(portfolio.date)));
   		
   		console.log("Max percentage: ", maxPercentage);
   		maxPercentage += 15;
@@ -510,46 +516,6 @@
   	
 	 
 	 
-	 var sheet = document.createElement('style'),  
-	  $rangeInput = $('.range input'),
-	  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
-
-	document.body.appendChild(sheet);
-
-	var getTrackStyle = function (el) {  
-	  var curVal = el.value,
-	      val = (curVal - 1) * 20/*16.666666667*/,
-	      style = '';
-	  
-	  // Set active label
-	  $('.range-labels li').removeClass('active selected');
-	  
-	  var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');
-	  
-	  curLabel.addClass('active selected');
-	  curLabel.prevAll().addClass('selected');
-	  
-	  // Change background gradient
-	  for (var i = 0; i < prefs.length; i++) {
-	    style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #fff ' + val + '%, #fff 100%)}';
-	    style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}';
-	  }
-
-	  return style;
-	}
-
-	$rangeInput.on('input', function () {
-	  sheet.textContent = getTrackStyle(this);
-	});
-
-	// Change input value on label click
-	$('.range-labels li').on('click', function () {
-	  var index = $(this).index();
-	  
-	  $rangeInput.val(index + 1).trigger('input');
-	  
-	});
-	
 	
 	function setCookie(cname, cvalue, exhours) {
 	  var d = new Date();
@@ -562,6 +528,21 @@
 	  var value = "; " + document.cookie;
 	  var parts = value.split("; " + name + "=");
 	  if (parts.length == 2) return parts.pop().split(";").shift();
+	}
+	
+	function formatDate(date) {
+	  var monthNames = [
+	    "January", "February", "March",
+	    "April", "May", "June", "July",
+	    "August", "September", "October",
+	    "November", "December"
+	  ];
+
+	  var day = date.getDate();
+	  var monthIndex = date.getMonth();
+	  var year = date.getFullYear();
+
+	  return day + ' ' + monthNames[monthIndex] + ' ' + year;
 	}
 	 
   </script>

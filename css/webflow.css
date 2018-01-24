@@ -535,7 +535,7 @@ textarea.w-select {
     display: inherit !important;
   }
   .w-hidden-small {
-    display: none !important;
+    /*display: none !important;*/
   }
   .w-row,
   .w-container .w-row {
@@ -1581,7 +1581,7 @@ textarea.w-select {
 }
 @media screen and (max-width: 767px) {
   .w-nav[data-collapse="small"] .w-nav-menu {
-    display: none;
+    /*display: none;*/
   }
   .w-nav[data-collapse="small"] .w-nav-button {
     display: block;
