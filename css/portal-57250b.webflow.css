@@ -332,6 +332,13 @@ table#detailsTable.dataTable td:nth-child(2) {
 	text-align: right;
 }
 
+div.nav-links {
+	padding-left: 25%;
+}
+a.w-nav-link {
+	padding-left: 18px;
+	padding-right: 18px;
+}
 
 .range-labels {
   margin: 50px 0px;
@@ -499,6 +506,7 @@ table#detailsTable.dataTable td:nth-child(2) {
 }
 #dashboard {
 	width: 60%;
+	min-width: 900px;
 }
 .w-col-dashboard {
 	margin:5px;
@@ -585,6 +593,10 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 
 
 @media (max-width: 991px) {
+#dashboard {
+	width: 100%;
+	min-width: 100%;
+}
   .nav-link {
     height: 122%;
     margin-left: 0px;
