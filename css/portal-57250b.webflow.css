@@ -593,10 +593,10 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 
 
 @media (max-width: 991px) {
-#dashboard {
-	width: 100%;
-	min-width: 100%;
-}
+	#dashboard {
+		width: 100%;
+		min-width: 100%;
+	}
   .nav-link {
     height: 122%;
     margin-left: 0px;
