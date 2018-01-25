@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Portal</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/portal-57250b.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/login.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"]  }});</script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.js" integrity="sha256-ZhpcIWx8GPtl1VEkyV22X7GHSzX1NCdp6BvbXMDHI/g=" crossorigin="anonymous"></script>
+  
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js" integrity="sha256-t3+U9BqykoMN9cqZmJ5Z53TvPv4V7S9AmjUcIWNNyxo=" crossorigin="anonymous"></script>
+  <style>
+	.xxx { background: rgba(0,0,0,0.05); }
+	
+
+
+
+
+	
+  </style>
+</head>
+<body class="body">
+  <div id="wrapper">
+  <div data-collapse="small" data-animation="default" data-duration="400" class="nav w-hidden-small w-hidden-tiny w-nav">
+    <div class="nav-container w-container">
+      <nav role="navigation" class="nav-menu w-hidden-tiny w-clearfix w-nav-menu">
+      <img src="images/logo_220x90.png"/>
+      <div class="nav-links" style="padding-left:35%">
+      
+      <a href="dashboard.html" class="nav-link w-nav-link active"><span class="icon">
+	      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+			<g>
+			  <path class="svg-icon filled" stroke-width="1.5" d="M8.571 25.714q0-1.183-.837-2.02t-2.02-.837-2.02.837-.837 2.02.837 2.02 2.02.837 2.02-.837.837-2.02zm4.286-10q0-1.183-.837-2.02t-2.02-.837-2.02.837-.837 2.02.837 2.02 2.02.837 2.02-.837.837-2.02zm9.554 10.737 2.254-8.527q.134-.58-.167-1.083t-.859-.658-1.071.145-.67.882l-2.254 8.527q-1.339.112-2.388.971t-1.406 2.199q-.446 1.719.446 3.259t2.612 1.987 3.259-.446 1.987-2.612q.357-1.339-.134-2.612t-1.607-2.031zm14.732-.737q0-1.183-.837-2.02t-2.02-.837-2.02.837-.837 2.02.837 2.02 2.02.837 2.02-.837.837-2.02zm-14.286-14.286q0-1.183-.837-2.02t-2.02-.837-2.02.837-.837 2.02.837 2.02 2.02.837 2.02-.837.837-2.02zm10 4.286q0-1.183-.837-2.02t-2.02-.837-2.02.837-.837 2.02.837 2.02 2.02.837 2.02-.837.837-2.02zm7.143 10q0 5.826-3.147 10.781-.424.647-1.205.647h-31.295q-.781 0-1.205-.647-3.147-4.933-3.147-10.781 0-4.062 1.585-7.768t4.263-6.384 6.384-4.263 7.768-1.585 7.768 1.585 6.384 4.263 4.263 6.384 1.585 7.768z" />
+	 		</g>
+		  </svg>
+      </span>DASHBOARD</a>
+      
+      <a href="index.html" class="nav-link w-nav-link"><span class="icon">
+	      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+			<g>
+	  		<ellipse ry="14.5" rx="14.5" id="svg_1" cy="20" cx="20" stroke-width="5" stroke="#fff" fill="#13343b" class="svg-icon"></ellipse>
+			<rect id="svg_4" height="4" width="4" y="2" x="18" stroke-width="5" class="svg-mask"></rect>
+			<rect id="svg_5" height="4" width="4" y="25" x="28" stroke-width="5" class="svg-mask" transform="translate(0) rotate(45 26 30)"></rect>
+	 		</g>
+		  </svg>
+      </span>PORTFOLIOS</a>
+      <a href="transactions.html" class="nav-link w-nav-link">
+      <span class="icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+ <g>
+  <path class="svg-icon filled" stroke-width="1.5" d="M28.61 6.962 34.963 11.901 28.61 16.84 28.61 13.37 9.207 13.37 9.207 10.431 28.61 10.431V6.961Z" id="svg_16" />
+  <path class="svg-icon filled" stroke-width="1.5" d="M11.39 33.038 5.037 28.099 11.39 23.16 11.39 26.63 30.793 26.63 30.793 29.569 11.39 29.569 11.39 33.039Z" id="svg_17"/>
+ </g>
+</svg>
+      
+      </span>
+      TRANSACTIONS</a>
+      <a href="#" class="nav-link w-nav-link"><span class="icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+ <g>
+  <path class="svg-icon filled" stroke-width="1.5" d="M35.625 10.625q.313.313 .625.804h-10.536v-10.536q.491.312 .804.625zm-10.625 3.661h12.143v23.571q0 .893-.625 1.518t-1.518.625h-30q-.893 0-1.518-.625t-.625-1.518v-35.714q0-.893.625-1.518t1.518-.625h17.857v12.143q0 .893.625 1.518t1.518.625zm3.571 16.429v-1.429q0-.312-.201-.513t-.513-.201h-15.714q-.312 0-.513.201t-.201.513v1.429q0 .313.201 .513t.513.201h15.714q.313 0 .513-.201t.201-.513zm0-5.714v-1.429q0-.312-.201-.513t-.513-.201h-15.714q-.312 0-.513.201t-.201.513v1.429q0 .313.201 .513t.513.201h15.714q.313 0 .513-.201t.201-.513zm0-5.714v-1.429q0-.312-.201-.513t-.513-.201h-15.714q-.312 0-.513.201t-.201.513v1.429q0 .313.201 .513t.513.201h15.714q.313 0 .513-.201t.201-.513z" id="svg_16" />
+ </g>
+</svg></span>
+      
+      DOCUMENTS</a>
+      <a href="#" class="nav-link w-nav-link"><span class="icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:30px; height:30px;">
+ <g>
+  <path class="svg-icon filled" stroke-width="1.5" d="M25.714 20q0-2.366-1.674-4.04t-4.04-1.674-4.04 1.674-1.674 4.04 1.674 4.04 4.04 1.674 4.04-1.674 1.674-4.04zm11.429-2.433v4.955q0 .268-.179.513t-.446.29l-4.129.625q-.424 1.205-.871 2.031.781 1.116 2.388 3.08.223 .268.223 .558t-.201.513q-.603.826-2.21 2.411t-2.098 1.585q-.268 0-.58-.201l-3.08-2.411q-.982.513-2.031.848-.357 3.036-.647 4.152-.156.625-.804.625h-4.955q-.312 0-.547-.19t-.257-.48l-.625-4.107q-1.094-.357-2.009-.826l-3.147 2.388q-.223.201-.558.201-.312 0-.558-.246-2.812-2.545-3.683-3.75-.156-.223-.156-.513 0-.268.179-.513.335-.469 1.138-1.484t1.205-1.574q-.603-1.116-.915-2.21l-4.085-.603q-.29-.045-.469-.279t-.179-.525v-4.955q0-.268.179-.513t.424-.29l4.152-.625q.313-1.027.871-2.054-.893-1.272-2.388-3.08-.223-.268-.223-.536 0-.223.201-.513.58-.804 2.199-2.4t2.109-1.596q.29 0 .58.223l3.08 2.388q.982-.513 2.031-.848.357-3.036.647-4.152.156-.625.804-.625h4.955q.313 0 .547.19t.257.48l.625 4.107q1.094.357 2.009.826l3.17-2.388q.201-.201.536-.201.29 0 .558.223 2.879 2.656 3.683 3.795.156 .179.156 .491 0 .268-.179.513-.335.469-1.138 1.484t-1.205 1.574q.58 1.116.915 2.188l4.085.625q.29.045 .469.279t.179.525z" />
+ </g>
+</svg>
+      </span>
+      
+      SETTINGS</a>
+      </div>
+      <div class="userlist">
+      <ul>
+      </ul>
+      </div>
+      </nav>
+    </div>
+  </div>
+  <div class="main-content-section">
+    <div id="loading">
+		<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+		<span class="sr-only">Loading...</span>
+  	</div>
+  
+    <div class="hero-wrap">
+      <div class="main-content">
+        <div class="div-block w-clearfix">
+        </div>
+      </div>
+    </div>
+    <div id="dashboard" >
+    <div class="w-col w-col-2"></div>
+    <div class="w-col w-col-4" >
+    	<div class=" w-col-dashboard">
+        	<h1>NET WORTH <span class="right">TODAY</span></h1>
+        	<h1 class="main">$1,686,915</h1>
+        	<div class="row row-positive">
+        	<div class="row-date">This month</div>
+        	<div class="row-amount">+$694,755</div>
+        	<div class="row-percent">+70.02%</div>
+        	</div>
+        	<div class="row row-negative">
+        	<div class="row-date">YEAR TO DATE</div>
+        	<div class="row-amount">-$50,755</div>
+        	<div class="row-percent">-5.02%</div>
+        	</div>
+        	</div>
+        	<div class=" w-col-dashboard">
+        	<h1>INVESTMENTS<span class="right">TODAY</span></h1>
+        	<p>Asset allocation</p>
+        	
+        	<canvas id="assetAllocation" width="300" height="150"></canvas>
+        	</div>
+        	</div>
+        	<div class="w-col w-col-4 ">
+        	<div class="w-col-dashboard">
+				<h1>Your gainers</h1>   
+				<canvas id="gainers" width="300" height="200"></canvas>     	
+
+				<h1>Your losers</h1>
+				<canvas id="losers" width="300" height="200"></canvas>     	
+        	</div>
+        	</div>
+        		
+    </div>
+  </div>
+  <div class="footer-top">
+    <div class="footer-top-wrap w-hidden-small w-hidden-tiny"></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-wrap">
+      <div class="legal w-hidden-small w-hidden-tiny">© 2018, COMPANY NAME. All Rights Reserved.</div>
+    </div>
+  </div>
+  <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
+    <div class="container w-container">
+      <div class="div-block-2"><a href="#" class="nav-link w-hidden-main w-hidden-medium w-nav-link">PORTFOLIOS</a><a href="#" class="nav-link w-hidden-main w-hidden-medium w-nav-link">TRANSACTIONS</a><a href="#" class="nav-link w-hidden-main w-hidden-medium w-nav-link">DOCUMENTS</a><a href="#" class="nav-link w-hidden-main w-hidden-medium w-nav-link">SETTINGS</a></div>
+    </div>
+  </div>
+  <div class="w-embed">
+
+  </div>
+  </div>
+  
+  
+  <div id="login">
+  
+<form id="loginForm">
+  <header>Login</header>
+  <label>Username <span>*</span></label>
+  <input type="text" name="username" id="loginUsername"/>
+  <div class="help">Use your Chelmer Fusion username</div>
+  <label>Password <span>*</span></label>
+  <input type="password" name="password" id="loginPassword"/>
+  <div class="help">Use the password supplied to authenticate to the Fusion portal</div>
+  <button type="submit" id="loginSubmit">Login</button> 
+</form>
+  
+  </div>
+  <script>
+  
+  var ctx = document.getElementById("assetAllocation");
+/*   var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["Hgh Yld Bnd", "Inv Real Estate", "Inv Grd Bnd", "International", "Other"],
+          datasets: [{
+              data: [37.04, 20.78, 18.88, 5.42, 17.88],
+          }]
+      },
+      "options": {
+          "scales": {
+              "yAxes": [{
+                  "ticks": {
+                      "beginAtZero": true
+                  }
+              }],
+              "xAxes":[]
+          }
+      }
+  });
+ */
+
+	var palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641'];
+	
+  new Chart(
+		  document.getElementById("assetAllocation"),
+		  {
+			"options": {
+				"legend": {
+					"position":"right"
+				}
+			},			  
+			  "type":"pie","data":{"labels":["Hgh Yld Bnd", "Inv Real Estate", "Inv Grd Bnd", "International", "Other"],"datasets":[{"label":"Asset Allocation","data":[37.04, 20.78, 18.88, 5.42, 17.88],"backgroundColor":[palette[0],palette[1],palette[2],palette[3],palette[4]]}]}});
+  
+  
+  var gainers = {
+          labels: ["ANZ Bank NZ Ltd Fixed Rate Bonds",
+      		"Bank of New Zealand RTD's", 
+    		"Contact Energy Ltd Bonds",
+    		"Fonterra Co-Op Group Bonds",
+    		"NZ Government Stock",
+    		"NZ Govt Stock",
+    		"NZ Local Gov Fund Agency Bond",
+    		"Westpac NZ Limited Fixed Rate Notes"],
+          datasets: [{
+              label: 'Dataset 1',
+              backgroundColor: "#00FF00",
+              borderColor: "#00FF00",
+              borderWidth: 1,
+              data: [
+                  10.1,
+                  8.7,
+                  8.6,
+                  6.2,
+                  5,
+                  4.2,
+                  4,
+                  4
+              ]
+          }]
+          
+
+      };
+  var losers = {
+          labels: ["ANZ Bank NZ Ltd Fixed Rate Bonds",
+      		"Bank of New Zealand RTD's", 
+    		"Contact Energy Ltd Bonds",
+    		"Fonterra Co-Op Group Bonds",
+    		"NZ Government Stock",
+    		"NZ Govt Stock",
+    		"NZ Local Gov Fund Agency Bond",
+    		"Westpac NZ Limited Fixed Rate Notes"],
+          datasets: [{
+              label: 'Dataset 1',
+              backgroundColor: "#FF0000",
+              borderColor: "#FF0000",
+              borderWidth: 1,
+              data: [
+                  -10.1,
+                  -8.7,
+                  -8.6,
+                  -6.2,
+                  -5,
+                  -4.2,
+                  -4,
+                  -4
+              ]
+          }]
+          
+
+      };
+  
+  window.gainersBar = new Chart(document.getElementById("gainers"), {
+      type: 'horizontalBar',
+      data: gainers,
+      options: {
+          // Elements options apply to all of the options unless overridden in a dataset
+          // In this case, we are setting the border of each horizontal bar to be 2px wide
+          elements: {
+              rectangle: {
+                  borderWidth: 2,
+              }
+          },
+          responsive: true,
+          legend: {
+        	  display: false/*,
+              position: 'left',*/
+          },
+          title: {
+              display: false,
+              text: 'Gainers'
+          }
+      }
+  });
+  
+  window.losersBar = new Chart(document.getElementById("losers"), {
+      type: 'horizontalBar',
+      data: losers,
+      options: {
+          // Elements options apply to all of the options unless overridden in a dataset
+          // In this case, we are setting the border of each horizontal bar to be 2px wide
+          elements: {
+              rectangle: {
+                  borderWidth: 2,
+              }
+          },
+          responsive: true,
+          legend: {
+        	  display: false/*,
+              position: 'left',*/
+          },
+          title: {
+              display: false,
+              text: 'Gainers'
+          }
+      }
+  });
+  
+  
+  var chelmer = {
+		  baseUrl: "http://chm-qa33-css.chelmer.co.nz:8080/webservice/rest",
+		  login: "/security/login",
+		  sessionValidate: "/security/validate/sessions/"
+  }
+
+  
+  var portfolios = [
+	{name: "Ms Sherry Wang", portfolio: 990046340},
+	{name: "Mr Michael Smith", portfolio: 990041720},
+	{name: "Mr William Boggs", portfolio: 990011110},
+	{name: "William & Nina Boggs", portfolio: 990026967}
+	
+  ];
+  
+  	var greenShades = ['#B2CFCC', '#A9C9C6', '#94C3C0', '#96BEBA', '#89ADAA', '#7B9C99', '#6E8B88', '#607977', '#526866'];
+//  	var blueShades = ['#B2CFCC', '#A9C9C6', '#94C3C0', '#96BEBA', '#89ADAA', '#7B9C99'];
+//https://coolors.co/13343b-b2cfcc-ced7cd-58595b-b6bec0  	
+  	function checkAuth() {
+		var token = getCookie('chelmer');
+		if (typeof (getCookie('chelmer')) === 'undefined') {
+			//no cookie, show login
+			$('#wrapper').hide();
+			$('#loading').hide();
+	  		$('#login').show();
+		} else {
+			$('#wrapper').hide();
+			$('#loading').show();
+	  		$('#login').hide();
+			$.ajax({
+				url: chelmer.baseUrl + chelmer.sessionValidate + token,
+				success: function(json) {
+					if (json.valid && json.valid === true) {
+						showLoading();
+						loadPortfolio(portfolios[0]);
+					} else {
+						showLogin();
+					}
+				},
+				error: function() {
+					showLogin();
+				}
+			});
+		}
+	}
+	
+	function showLogin() {
+		$('#loading').hide();
+  		$('#login').show();
+  		$('#wrapper').hide();
+	}
+	function showApp() {
+		$('#loading').hide();
+  		$('#login').hide();
+  		$('#wrapper').show();
+	}
+	function showLoading() {
+		$('#loading').show();
+  		$('#login').hide();
+  		$('#wrapper').show();
+	}
+	
+	showApp();
+	
+	function setCookie(cname, cvalue, exhours) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exhours * 60 * 60 * 1000));
+	  var expires = "expires=" + d.toGMTString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(name) {
+	  var value = "; " + document.cookie;
+	  var parts = value.split("; " + name + "=");
+	  if (parts.length == 2) return parts.pop().split(";").shift();
+	}
+	
+	 
+  </script>
+  
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>

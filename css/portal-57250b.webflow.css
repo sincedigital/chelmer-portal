@@ -497,8 +497,49 @@ table#detailsTable.dataTable td:nth-child(2) {
 	padding-left: 10px;
 	display: inline-block;
 }
+#dashboard {
+	width: 60%;
+}
+.w-col-dashboard {
+	margin:5px;
+	color: white;
+	background-color: rgb(150,190,186);
+	padding: 15px;
+}
+.w-col-dashboard + .w-col-dashboard {
+	margin-top: 30px;	
+}
 
-
+.w-col-dashboard h1 {
+	text-align: left;
+}
+.w-col-dashboard h1 span.right {
+	float: right;
+	color: rgb(88,89,91);
+	font-size: 0.9em;
+}
+.w-col-dashboard h1.main {
+	text-align: center;
+	font-size: 30px;
+}
+#dashboard div.row {
+	border-top: 1px rgb(88,89,91) solid;
+}
+#dashboard div.row div.row-date, #dashboard div.row div.row-amount, #dashboard div.row div.row-percent {
+	display: inline-block;
+	width: 30%;
+	text-align: right;
+}
+#dashboard div.row div.row-date {
+	color: white;
+	text-align: left;
+}
+div.row-positive div.row-amount, div.row-positive div.row-percent {
+	color: green;
+}
+div.row-negative div.row-amount, div.row-negative div.row-percent {
+	color: red;
+}
 
 .theme-color-1 {
 	background-color: rgb(19,52,59);
