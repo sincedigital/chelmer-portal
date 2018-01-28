@@ -1,0 +1,44 @@
+<div id="dashboard" >
+    <div class="w-col w-col-2"></div>
+    <div class="w-col w-col-4" >
+    	<div class=" w-col-dashboard">
+        	<h1>NET WORTH <span class="right">TODAY</span></h1>
+        	<h1 class="main">$1,686,915</h1>
+        	<div class="row row-positive">
+        	<div class="row-date">This month</div>
+        	<div class="row-amount">+$694,755</div>
+        	<div class="row-percent">+70.02%</div>
+        	</div>
+        	<div class="row row-negative">
+        	<div class="row-date">YEAR TO DATE</div>
+        	<div class="row-amount">-$50,755</div>
+        	<div class="row-percent">-5.02%</div>
+        	</div>
+        	</div>
+        	<div class=" w-col-dashboard">
+        	<h1>INVESTMENTS<span class="right">TODAY</span></h1>
+        	<p>Asset allocation</p>
+        	
+        	<canvas id="assetAllocation" width="300" height="150"></canvas>
+        	</div>
+        	</div>
+        	<div class="w-col w-col-4 ">
+        	<div class="w-col-dashboard">
+				<h1>Your gainers</h1>   
+				<canvas id="gainers" width="300" height="200"></canvas>     	
+
+				<h1>Your losers</h1>
+				<canvas id="losers" width="300" height="200"></canvas>     	
+        	</div>
+        	</div>
+        		
+    </div>
+<!-- 
+<h3>Top Portfolios</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let portfolio of portfolios" class="col-1-4"  routerLink="/detail/{{portfolio.id}}">
+    <div class="module hero">
+      <h4>{{portfolio.name}}</h4>
+    </div>
+  </a>
+</div> -->

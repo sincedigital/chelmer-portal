@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+
+<nav>
+	<a routerLink="/dashboard">Dashboard</a> <a routerLink="/portfolios">Portfolios</a>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a *ngIf="!authService.authenticated"
+			(click)="authService.login()">Log In</a></li>
+		<li><a (click)="authService.logout()"
+			*ngIf="authService.authenticated">Log Out</a></li>
+	</ul>
+</nav>

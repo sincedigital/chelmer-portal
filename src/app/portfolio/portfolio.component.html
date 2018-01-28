@@ -1,0 +1,11 @@
+<h2>My Portfolios</h2>
+<ul class="portfolios">
+  <li *ngFor="let portfolio of portfolios">
+  	<a routerLink="/detail/{{portfolio.id}}">
+  		<span class="badge">{{portfolio.id}}</span> {{portfolio.name}}
+  	</a>
+	  
+  </li>
+</ul>
+
+<app-portfolio-detail [portfolio]="selectedPortfolio"></app-portfolio-detail>
