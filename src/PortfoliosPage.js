@@ -9,13 +9,17 @@ import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
 import { Portfolios } from './components/Constants.js';
 
+import PortfolioMarket from './components/portfolio/PortfolioMarket.js';
+
 import './App.css';
 
 class PortfolioPage extends Component {
 
 	state = {
 			loading: true,
-			portfolio: []
+			portfolio: {
+				parts:[]
+			}
 	};
 	
 	constructor(props) {
@@ -32,7 +36,7 @@ class PortfolioPage extends Component {
 	
 	acceptPortfolio(data) {
 		var theGroups = [];
-		var loadedPortfolio = {"parts":theGroups, total:0};
+		var loadedPortfolio = {"parts":[], total:0};
 		for (var i=0; i<data.data.length; i++) {
 			var datachunk = data.data[i];
 			loadedPortfolio.date = new Date(datachunk.asAtDate);
@@ -53,7 +57,11 @@ class PortfolioPage extends Component {
 				loadedPortfolio.total += holding.baseMv;
 			}
 		}
-		
+
+		for (var key in theGroups) {
+			loadedPortfolio.parts.push(theGroups[key]);
+		};
+	
 		//Percentages
 		var maxPercentage = 0;
 		loadedPortfolio.parts.forEach(function(el) {
@@ -61,8 +69,12 @@ class PortfolioPage extends Component {
   			if (perc > maxPercentage) {
   				maxPercentage = perc;
   			}
+  			el.percentage = perc;
   		});
-		console.log(loadedPortfolio);
+		loadedPortfolio.parts.forEach(function(el) {
+			el.maxPercentage = maxPercentage;
+  		});
+		
 		this.setState({"portfolio": loadedPortfolio, "loading": false});
 	}
 	
@@ -79,7 +91,7 @@ class PortfolioPage extends Component {
             <div className="hero-wrap">
             <div className="main-content">
               <div className="div-block w-clearfix">
-                <h1 className="heading-1" id="portfolioTotal"><NumberFormat value={this.state.portfolio.total} displayType={'text'} thousandSeparator={true} prefix={'$'} /></h1>
+                <h1 className="heading-1" id="portfolioTotal"><NumberFormat value={this.state.portfolio.total} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2} fixedDecimalScale={true} /></h1>
                 <div className="text-block">NZD</div>
               </div>
               <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true"></i></strong> </p>
@@ -92,7 +104,11 @@ class PortfolioPage extends Component {
             </div>
           </div>
           <div id="portfolio-makeup">
-          
+          { this.state.portfolio.parts.map((part, index) => {
+        	  return (
+        		  <PortfolioMarket data={ part } index={ index } />
+        	  );	  		
+          })}
           </div>
         </div>
         <Footer />
