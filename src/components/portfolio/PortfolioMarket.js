@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NumberFormat from 'react-number-format';
-import { Palette } from '../Constants.js';
+import { Palette, Markets } from '../Constants.js';
 import MarketTable from './MarketTable.js';
 
 class PortfolioMarket extends Component {
@@ -38,7 +38,7 @@ class PortfolioMarket extends Component {
 		return (
 			<div>	
 			<div className={className} data-key={part.name} data-colour-index={index} onClick={this.toggleDetails}>
-			 <span className="portfolio-row-name">{part.name}</span>
+			 <span className="portfolio-row-name">{Markets[part.name]}</span>
 			 <span className="portfolio-row-amount"><NumberFormat value={part.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2} fixedDecimalScale={true} /></span>
 			 <span className="portfolio-row-bar">
 			 	<span className="bar" style={{"backgroundColor": Palette[index], "width": relativeWidth.toFixed(1) + "%"}} ></span>
