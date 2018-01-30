@@ -10,6 +10,7 @@ import Remote from './components/Remote.js';
 import { Portfolios } from './components/Constants.js';
 
 import PortfolioMarket from './components/portfolio/PortfolioMarket.js';
+import PortfolioDateFilters from './components/portfolio/PortfolioDateFilters.js';
 
 import './App.css';
 
@@ -19,7 +20,8 @@ class PortfolioPage extends Component {
 			loading: true,
 			portfolio: {
 				parts:[]
-			}
+			},
+			showDates: false
 	};
 	
 	constructor(props) {
@@ -32,6 +34,12 @@ class PortfolioPage extends Component {
 			this.acceptPortfolio.bind(this),
 			()=>{this.setState({loginRequired: true})}
 		);
+		
+		this.toggleFilters = this.toggleFilters.bind(this);
+	}
+
+	toggleFilters() {
+		this.setState({"showDates": !this.state.showDates});
 	}
 	
 	acceptPortfolio(data) {
@@ -94,13 +102,8 @@ class PortfolioPage extends Component {
                 <h1 className="heading-1" id="portfolioTotal"><NumberFormat value={this.state.portfolio.total} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={2} fixedDecimalScale={true} /></h1>
                 <div className="text-block">NZD</div>
               </div>
-              <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true"></i></strong> </p>
-
-      <ul className="range-labels">
-        <li data-months-ago="12" >1 year ago</li>
-        <li data-months-ago="6" >6 months ago</li>
-        <li data-months-ago="0" className="active selected">Current</li>
-      </ul>
+              <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
+              { this.state.showDates ? <PortfolioDateFilters /> : null }
             </div>
           </div>
           <div id="portfolio-makeup">
