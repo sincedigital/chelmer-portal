@@ -106,7 +106,7 @@ class PortfolioPage extends Component {
           <div id="portfolio-makeup">
           { this.state.portfolio.parts.map((part, index) => {
         	  return (
-        		  <PortfolioMarket data={ part } index={ index } />
+        		  <PortfolioMarket data={ part } index={ index } key={ part.name }/>
         	  );	  		
           })}
           </div>
