@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import NumberFormat from 'react-number-format';
-import LongDate from './components/LongDate.js';
 
 import Navigation from './components/Navigation.js';
-import Loading from './components/Loading.js';
+//import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
-import Remote from './components/Remote.js';
-import { Portfolios } from './components/Constants.js';
 
 import './App.css';
 
 class TransactionsPage extends Component {
 
+	/*
 	state = {
 			loading: true,
 			portfolio: []
@@ -21,7 +18,6 @@ class TransactionsPage extends Component {
 	constructor(props) {
 		super(props);
 		
-		/*
 		Remote.getHoldings(
 			//TODO make portfolio adjustable
 			Portfolios[0].portfolio, 
@@ -29,10 +25,8 @@ class TransactionsPage extends Component {
 			this.acceptPortfolio.bind(this),
 			()=>{this.setState({loginRequired: true})}
 		);
-		*/
 	}
 	
-	/*
 	acceptPortfolio(data) {
 		var theGroups = [];
 		var loadedPortfolio = {"parts":theGroups, total:0};
