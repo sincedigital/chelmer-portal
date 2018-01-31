@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Modal.css';
 
 const Modal = (props) => {
 	
@@ -16,6 +17,9 @@ const Modal = (props) => {
 		contentClassName += " Centered";
 	}
 	
+	if (props.allowNavigation) {
+		overlayClassName += " AllowNavigation";
+	}
 	return (
 		<div className={overlayClassName}>
 			<div className={contentClassName}>

@@ -584,42 +584,6 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
     z-index: 999;
 }
 
-.ModalOverlay {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(19, 52, 59, 0.9);
-    color: rgb(124,179,172);
-    z-index: 1999;
-}
-
-.Modal {
-	position: fixed;
-	border-radius: 10px;
-	border: solid rgb(63, 111, 120) 1px;
-	padding: 30px;
-	background-color: rgb(40, 70, 76);
-	margin: auto;
-}
-
-.Modal.Centered {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -60%);
-}
-
-.Modal.Full {
-	top: 70px;
-	left: 100px;
-	right: 100px;
-	bottom: 70px;
-}
-.ModalOverlay.ModalHidden, .Modal.ModalHidden {
-	display: none;
-}
-
 .calendar-outer {
 	position: relative;
 	width: 350px;
