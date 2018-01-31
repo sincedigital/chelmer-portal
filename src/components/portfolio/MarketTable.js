@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import DataTable from '../DataTable.js';
-import NumberFormat from 'react-number-format';
+import NumberFormat from '../NumberFormat.js';
 
 class MarketTable extends Component {
 	
@@ -18,12 +18,14 @@ class MarketTable extends Component {
 		var maxPercentage = 0;
 		this.props.data.holdings.map(holding=>{
 			maxPercentage = Math.max(maxPercentage, this.calculatePercentage(holding.value));
+			return 0;
 		});
 		
 		this.maxPercentage = maxPercentage * 2;
 	}		
 	
 	formatDollars(amount) {
+		/*
 		amount = amount || 0;
 		var dollars = amount.toFixed(2) + "";
 		
@@ -33,6 +35,8 @@ class MarketTable extends Component {
 		}
 		
 		return "$" + dollars;
+		*/
+		return NumberFormat({"value": amount, "places": 2});
 	}
 	
 	calculatePercentage(amount) {
