@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import AuthenticatedRoute from './components/AuthenticatedRoute.js';
 import Login from './components/Login.js';
 import Dashboard from './Dashboard.js';
@@ -12,7 +12,7 @@ import SettingsPage from './SettingsPage.js';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
       <div>
       	<Switch>
          <Route path="/login" component={Login} />
@@ -26,7 +26,7 @@ class App extends Component {
 	     </Route>
 	    </Switch>
       </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
