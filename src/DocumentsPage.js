@@ -4,16 +4,17 @@ import { Redirect } from 'react-router-dom';
 import Navigation from './components/Navigation.js';
 import Footer from './components/Footer.js';
 
+import PortfolioDateFilters from './components/portfolio/PortfolioDateFilters.js';
 import './App.css';
 
 class DocumentsPage extends Component {
 
-	/*
 	state = {
 			loading: true,
 			portfolio: []
 	};
 	
+	/*
 	constructor(props) {
 		super(props);
 		
@@ -71,6 +72,7 @@ class DocumentsPage extends Component {
     return (
       <div className="App">
         <Navigation url={this.props.match.url} />
+        <PortfolioDateFilters showing={false}/>
         <Footer />
       </div>
     );

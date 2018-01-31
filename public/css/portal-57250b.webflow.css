@@ -346,10 +346,6 @@ a.w-nav-link {
   list-style: none;
 }
 .range-labels li {
-  position: relative;
-  float: left;
-  width: 150px;
-  text-align: center;
   color: #b2b2b2;
   font-size: 14px;
   cursor: pointer;
@@ -624,10 +620,18 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 	display: none;
 }
 
+.calendar-outer {
+	position: relative;
+	width: 350px;
+	height: 250px;
+	float: right;
+}
+
 .react-calendar {
-	position: fixed;
-	margin: auto;
 	z-index: 1400;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 	background-color: rgb(19, 52, 59) !important;
 }
 

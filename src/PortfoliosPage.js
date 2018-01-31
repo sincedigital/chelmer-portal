@@ -30,19 +30,34 @@ class PortfolioPage extends Component {
 	
 	constructor(props) {
 		super(props);
-		
+				
+		this.toggleFilters = this.toggleFilters.bind(this);
+		this.toDate = this.toDate.bind(this);
+		this.toRelativeDate = this.toRelativeDate.bind(this);
+		this.toDate(new Date(), true);
+	}
+
+	toDate(date, initial) {
+		if (!initial) {
+			this.setState("loading: true");
+		}
 		Remote.getHoldings(
 			//TODO make portfolio adjustable
 			Portfolios[0].portfolio, 
-			new Date().toISOString().substring(0, 10),
+			date.toISOString().substring(0, 10),
 			this.acceptPortfolio.bind(this),
 			()=>{this.setState({loginRequired: true})},
 			()=>{this.setState({"timeout": true})}
 		);
-		
-		this.toggleFilters = this.toggleFilters.bind(this);
-	}
 
+	}
+	
+	toRelativeDate(months) {
+		var date = new Date();
+		date.setMonth(date.getMonth()-months);
+		this.toDate(date);
+	}
+	
 	toggleFilters() {
 		this.setState({"showDates": !this.state.showDates});
 	}
@@ -88,7 +103,7 @@ class PortfolioPage extends Component {
 			el.maxPercentage = maxPercentage;
   		});
 		
-		this.setState({"portfolio": loadedPortfolio, "loading": false});
+		this.setState({"portfolio": loadedPortfolio, "loading": false, "timeout": false});
 	}
 	
   render() {
@@ -108,7 +123,7 @@ class PortfolioPage extends Component {
                 <div className="text-block">NZD</div>
               </div>
               <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
-              { this.state.showDates ? <PortfolioDateFilters /> : null }
+              <PortfolioDateFilters showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate}/>
             </div>
           </div>
           <div id="portfolio-makeup">
