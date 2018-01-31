@@ -36,7 +36,9 @@ const Authentication = {
 					}
 				})
 				.then((data) => {
-					if (data.valid && data.valid === true) {
+					if (!data) 
+						failure();
+					else if (data.valid && data.valid === true) {
 						success();
 					} else {
 						failure();

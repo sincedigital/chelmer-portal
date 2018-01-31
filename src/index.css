@@ -1,3 +1,6 @@
 .hidden: {
 	display: none;
 }
+.ReactModal_Overlay {
+	z-index: 10000;	
+}
