@@ -10,6 +10,12 @@ const Modal = (props) => {
 		contentClassName += " ModalHidden";
 	}
 	
+	if (props.fullscreen) {
+		contentClassName += " Full";
+	} else {
+		contentClassName += " Centered";
+	}
+	
 	return (
 		<div className={overlayClassName}>
 			<div className={contentClassName}>

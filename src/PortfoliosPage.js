@@ -100,7 +100,7 @@ class PortfolioPage extends Component {
       <div className="App">
         <Navigation url={this.props.match.url} />
         <div className="main-content-section">
-        	{ this.state.loading === true ? <Loading /> : null }
+        	{ this.state.loading === true && this.state.timeout === false ? <Loading /> : null }
             <div className="hero-wrap">
             <div className="main-content">
               <div className="div-block w-clearfix">
