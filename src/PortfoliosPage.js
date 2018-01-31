@@ -135,7 +135,7 @@ class PortfolioPage extends Component {
           </div>
         </div>
         <Footer />
-        <Modal showing={this.state.timeout}>
+        <Modal showing={this.state.timeout} allowNavigation={true}>
         	<h1>Could not contact Chelmer</h1>
         	<p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>
         </Modal>
