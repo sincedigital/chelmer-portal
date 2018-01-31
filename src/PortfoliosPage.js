@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Modal from './components/Modal.js';
 
-import NumberFormat from 'react-number-format';
 import LongDate from './components/LongDate.js';
+import NumberFormat from './components/NumberFormat.js';
 
 import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';
@@ -104,7 +104,7 @@ class PortfolioPage extends Component {
             <div className="hero-wrap">
             <div className="main-content">
               <div className="div-block w-clearfix">
-                <h1 className="heading-1" id="portfolioTotal"><NumberFormat value={this.state.portfolio.total} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale={0} fixedDecimalScale={true} /></h1>
+                <h1 className="heading-1" id="portfolioTotal"><NumberFormat value={this.state.portfolio.total} prefix={'$'} places={0} /></h1>
                 <div className="text-block">NZD</div>
               </div>
               <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
