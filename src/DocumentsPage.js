@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Navigation from './components/Navigation.js';
 import Footer from './components/Footer.js';
 
-import PortfolioDateFilters from './components/portfolio/PortfolioDateFilters.js';
+import DateFilters from './components/DateFilters.js';
 import './App.css';
 
 class DocumentsPage extends Component {
@@ -72,7 +72,7 @@ class DocumentsPage extends Component {
     return (
       <div className="App">
         <Navigation url={this.props.match.url} />
-        <PortfolioDateFilters showing={false}/>
+        <DateFilters showing={true} relativeSuffix=" ago" showCurrent={true}/>
         <Footer />
       </div>
     );

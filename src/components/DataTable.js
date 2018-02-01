@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './DataTable.js';
 
 /*
  * Props:
@@ -9,6 +10,7 @@ import React, { Component } from 'react';
  * columns: array of column objects where:
  * 	column.header: header strings
  *  column.headerClassName : [optional] header class name
+ *  column.headerStyle : [optional] header style object
  *  column.sortable: booleans
  *  column.displayFunction: function from object to column value (string)
  *  column.sorter: [optional] function to sort objects
@@ -61,17 +63,17 @@ class DataTable extends Component {
 			<thead>
 				<tr role="row">
 					{ this.props.columns.map((column, index) => {
-						return (<th className={ column.headerClassName + " " + (column.initialSorted ? (column.sortForward ? "sorting_asc" : "sorting_desc") : "sorting")} style={column.style} key={column.header} onClick={(e)=>this.setSorting(index)}>{column.header}</th>);
+						return (<th className={ column.headerClassName + (column.sortable ? (" " + (column.initialSorted ? (column.sortForward ? "sorting_asc" : "sorting_desc") : "sorting")) : "")} style={column.headerStyle} key={column.header} onClick={ column.sortable ? (e)=>this.setSorting(index) : null}>{column.header}</th>);
 					})}
 				</tr>
 			</thead>
 			<tbody>
-				{ this.state.data.map(row => {
+				{ this.state.data.map((row, index) => {
 					return (
-						<tr role="row" key={row.name}>
+						<tr role="row" key={index}>
 						{ this.props.columns.map((column, index) =>{
 							return (
-								<td className={column.className} key={index}>{column.displayFunction(row)}</td>	
+								<td className={column.className} key={index} style={column.style}>{column.displayFunction(row)}</td>	
 							);
 						})}
 						</tr>

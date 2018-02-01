@@ -10,9 +10,10 @@ import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
 import { Portfolios } from './components/Constants.js';
-
+import { ToAPIDate } from './components/Functions.js';
 import PortfolioMarket from './components/portfolio/PortfolioMarket.js';
-import PortfolioDateFilters from './components/portfolio/PortfolioDateFilters.js';
+import DateFilters from './components/DateFilters.js';
+
 
 import './App.css';
 
@@ -34,18 +35,22 @@ class PortfolioPage extends Component {
 		this.toggleFilters = this.toggleFilters.bind(this);
 		this.toDate = this.toDate.bind(this);
 		this.toRelativeDate = this.toRelativeDate.bind(this);
+		this.acceptPortfolio = this.acceptPortfolio.bind(this);
+		
 		this.toDate(new Date(), true);
 	}
 
 	toDate(date, initial) {
 		if (!initial) {
-			this.setState("loading: true");
+			this.setState({"loading": true, "showDates": false});
 		}
+		console.log(date);
+		console.log(date.toISOString());
 		Remote.getHoldings(
 			//TODO make portfolio adjustable
 			Portfolios[0].portfolio, 
-			date.toISOString().substring(0, 10),
-			this.acceptPortfolio.bind(this),
+			ToAPIDate(date),
+			this.acceptPortfolio,
 			()=>{this.setState({loginRequired: true})},
 			()=>{this.setState({"timeout": true})}
 		);
@@ -112,7 +117,7 @@ class PortfolioPage extends Component {
 	  }
 
     return (
-      <div className="App">
+      <div>
         <Navigation url={this.props.match.url} />
         <div className="main-content-section">
         	{ this.state.loading === true && this.state.timeout === false ? <Loading /> : null }
@@ -123,7 +128,7 @@ class PortfolioPage extends Component {
                 <div className="text-block">NZD</div>
               </div>
               <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
-              <PortfolioDateFilters showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate}/>
+              <DateFilters header="View portfolio as at ..." showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} relativeSuffix=" ago" showCurrent={true}/>
             </div>
           </div>
           <div id="portfolio-makeup">

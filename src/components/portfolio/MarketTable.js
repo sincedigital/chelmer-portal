@@ -36,7 +36,7 @@ class MarketTable extends Component {
 		
 		return "$" + dollars;
 		*/
-		return NumberFormat({"value": amount, "places": 2});
+		return NumberFormat({"value": amount, "places": 2, prefix: "$"});
 	}
 	
 	calculatePercentage(amount) {
@@ -61,7 +61,6 @@ class MarketTable extends Component {
 	}
 	
 	render() {
-		console.log("Rendering MarketTable");
 		const part = this.props.data;
 				
 		const data = part.holdings;
@@ -101,7 +100,8 @@ class MarketTable extends Component {
 			displayFunction: holding => this.createBar(holding.value),
 			sorter: (a, b) => a.value - b.value,		//Sort is the same as above
 			style: {
-				width: "278px"
+				width: "278px",
+				"textAlign": "right"
 			}
 		});
 			

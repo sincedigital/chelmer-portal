@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-      <div>
+      <div className="App">
       	<Switch>
          <Route path="/login" component={Login} />
          <AuthenticatedRoute path="/dashboard" component={Dashboard} />

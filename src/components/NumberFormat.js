@@ -15,11 +15,16 @@ const NumberFormat = (props) => {
 		index = dollars.length;
 	}
 	
+	var negative = false;
+	if (dollars.indexOf("-") === 0) {
+		negative = true;
+		dollars = dollars.substring(1);
+	}
 	for (var i = index-3; i>0; i-=3) {
 		dollars = dollars.substring(0, i) + "," + dollars.substring(i); 
 	}
 	
-	return prefix + dollars + suffix;
+	return (negative ? "-" : "") + prefix + dollars + suffix;
 }
 
 export default NumberFormat;

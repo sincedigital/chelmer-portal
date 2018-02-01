@@ -1,120 +1,120 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
+import Modal from './components/Modal.js';
+
+import LongDate from './components/LongDate.js';
+import NumberFormat from './components/NumberFormat.js';
+
 import Navigation from './components/Navigation.js';
-//import Loading from './components/Loading.js';
+import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
+import Remote from './components/Remote.js';
+import { Portfolios } from './components/Constants.js';
+
+import DateFilters from './components/DateFilters.js';
+
+import NoTransactions from './components/transactions/NoTransactions.js';
+import TransactionTable from './components/transactions/TransactionTable.js';
 
 import './App.css';
 
 class TransactionsPage extends Component {
 
-	/*
 	state = {
 			loading: true,
-			portfolio: []
+			timeout: false,
+			loginRequired: false,
+			showDates: false,
+			transactions: []
 	};
 	
 	constructor(props) {
 		super(props);
+
+		this.state.endDate = new Date();
+		var date = new Date();
+		date.setMonth(date.getMonth()-3);
+		this.state.startDate = date;
 		
-		Remote.getHoldings(
-			//TODO make portfolio adjustable
+		this.acceptTransactions = this.acceptTransactions.bind(this);
+		this.toDateRange = this.toDateRange.bind(this);
+		this.toRelativeDate = this.toRelativeDate.bind(this);
+		this.toDate = this.toDate.bind(this);
+		this.toggleDates = this.toggleDates.bind(this);
+		
+		this.toDateRange(this.state.startDate, this.state.endDate, true);
+	}
+	
+	toDateRange(start, end, initial) {
+		if (!initial) {
+			const state = {
+				"startDate": start,
+				"endDate": end,
+				"loading": true,
+				"showDates": false
+			}
+			this.setState(state);
+		}
+		
+		Remote.getTransactions(
 			Portfolios[0].portfolio, 
-			new Date().toISOString().substring(0, 10),
-			this.acceptPortfolio.bind(this),
-			()=>{this.setState({loginRequired: true})}
+			start.toISOString().substring(0, 10),
+			end.toISOString().substring(0, 10),
+			this.acceptTransactions,
+			()=>{this.setState({loginRequired: true})},
+			()=>{this.setState({"timeout": true})}
 		);
 	}
 	
-	acceptPortfolio(data) {
-		var theGroups = [];
-		var loadedPortfolio = {"parts":theGroups, total:0};
-		for (var i=0; i<data.data.length; i++) {
-			var datachunk = data.data[i];
-			loadedPortfolio.date = new Date(datachunk.asAtDate);
-			
-			for (var j=0; j<datachunk.holdings.length; j++) {
-				var holding = datachunk.holdings[j];
-				var group = holding.mkt;
-				
-				var theGroup = theGroups[group];
-				if (theGroup == null) {
-					theGroup = {"name": group, "holdings":[], "amount":0, "expanded": false};
-					theGroups[group] = theGroup;
-				}
-				
-				theGroup.holdings.push({"name": holding.name, value: holding.baseMv});
-				theGroup.amount += holding.baseMv;
-				
-				loadedPortfolio.total += holding.baseMv;
-			}
-		}
-		
-		//Percentages
-		var maxPercentage = 0;
-		loadedPortfolio.parts.forEach(function(el) {
-  			var perc = (el.amount * 100 / loadedPortfolio.total );
-  			if (perc > maxPercentage) {
-  				maxPercentage = perc;
-  			}
-  		});
-		console.log(loadedPortfolio);
-		this.setState({"portfolio": loadedPortfolio, "loading": false});
+	acceptTransactions(data) {
+		console.log(data);
+		this.setState({"transactions": data.data, "loading": false, "timeout": false});
 	}
 	
-	*/
-  render() {
-	  if (this.state.loginRequired) {
-		  return (<Redirect to={this.props.match.url} />);
-	  }
-
-    return (
-      <div className="App">
-        <Navigation url={this.props.match.url} />
-		<div className="hero-wrap">
-		<div className="main-content">
-			<div className="div-block w-clearfix">
-				<h1 className="heading-1" id="portfolioTotal">Transactions</h1>
-
-			</div>
-			<p className="subhead-1">
-				Explanatory text?
-			</p>
-
-		</div>
-	</div>
-	<div id="transactions">
-	<table id="detailsTable" className="dataTable no-footer width100" role="grid">
-		<thead>
-			<tr>
-				<th>Description</th>
-				<th>Type</th>
-				<th>Date</th>
-				<th>Quantity</th>
-				<th>Local Amount</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td className="sell"><span className="headline">BXB.AU</span><span className="descriptor">Brambles Ltd</span></td>
-				<td>Shares Contract</td>
-				<td>30 May 2016</td>
-				<td>-3,000</td>
-				<td>-</td>
-			</tr>
-		</tbody>
-	</table>
-	<div id="row-header">
-	<span>Description</span>
-	</div>
+	toRelativeDate(months) {
+		var start = new Date();
+		start.setMonth(start.getMonth()-months);
+		
+		this.toDateRange(start, new Date());
+	}
 	
-	</div>
+	toDate(date) {
+		this.toDateRange(date[0], date[1]);
+	}
+	
+	toggleDates() {
+		this.setState({"showDates": !this.state.showDates});
+	}
+	
+	render() {
+		  if (this.state.loginRequired) {
+			  return (<Redirect to={this.props.match.url} />);
+		  }
 
-
-        <Footer />
-      </div>
-    );
+	    return (
+	      <div className="App">
+	        <Navigation url={this.props.match.url} />
+	        <div className="main-content-section">
+	        	{ this.state.loading === true && this.state.timeout === false ? <Loading /> : null }
+	            <div className="hero-wrap">
+	            <div className="main-content">
+	              <div className="div-block w-clearfix">
+	                <div className="text-block">NZD</div>
+	              </div>
+	              <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.startDate} /> - <LongDate date={this.state.endDate} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
+	              <DateFilters showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View transactions for" />
+	              { this.state.transactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.transactions} />}
+	            </div>
+	          </div>
+	        </div>
+	        <Footer />
+	        <Modal showing={this.state.timeout} allowNavigation={true}>
+	        	<h1>Could not contact Chelmer</h1>
+	        	<p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>
+	        </Modal>
+	      </div>
+	    );
   }
 }
 

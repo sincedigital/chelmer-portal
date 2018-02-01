@@ -41,7 +41,7 @@ pre {
 
 body {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  color: #333;
+  color: white;
   font-size: 14px;
   line-height: 23px;
 }
@@ -323,13 +323,10 @@ table#detailsTable.dataTable tbody tr {
 }
 table#detailsTable.dataTable th {
 	font-size: 12pt;
-	padding-right: 5%;
+	padding-right: 5px;
 }
 table#detailsTable.dataTable td {
-	padding-right: 5%;
-}
-table#detailsTable.dataTable td:nth-child(2) {
-	text-align: right;
+	padding-right: 5px;
 }
 
 div.nav-links {
@@ -347,8 +344,7 @@ a.w-nav-link {
 }
 .range-labels li {
   color: #b2b2b2;
-  font-size: 14px;
-  cursor: pointer;
+   cursor: pointer;
 }
 .range-labels li::before {
   position: absolute;
@@ -583,14 +579,6 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
     color: rgb(124,179,172);
     z-index: 999;
 }
-
-.calendar-outer {
-	position: relative;
-	width: 350px;
-	height: 250px;
-	float: right;
-}
-
 .react-calendar {
 	z-index: 1400;
 	position: absolute;
@@ -616,7 +604,7 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 button.react-calendar__tile--active:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]) {
 	background-color: rgb(40, 70, 76);
 }
-button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hasActive:not([disabled]):hover {
+button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hover:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]):hover {
 	background-color: #346870 !important;
 }
 button.react-calendar__navigation__label {

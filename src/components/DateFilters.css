@@ -1,0 +1,27 @@
+.Dates {
+	width: 700px;
+	height: 300px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.calendar-outer {
+	position: relative;
+	width: 350px;
+	height: 250px;
+	float: right;
+}
+
+.Dates ul {
+	margin: 0 20px;
+	padding: 0;
+}
+.Dates ul li {
+	font-size: 16pt;
+	padding: 2px 0;
+	list-style: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAANCAYAAAB7AEQGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gIBATURnGesXwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAtUlEQVQY02MUNrFmIASYGBgYGIRN4v7P7Sr4n6DI+h+nos8/vjB8Z1ZkiMzJZsCmkImBgYHh15V1jEXzDzLcZsCukAnGwKeQCVkHLoVM6Pb/urKOsWjtZYaP3IoMkZkxDI4MDP8xFDGIOP9vCNBi4P/7imH3shUM+xkYGJnQFbSVeTMYc79l2D27j6HnwndGVOtwKEAowqMAEeL6agxqOBQwMDAwMELijpWBh4uB4cu331jjDgAgK1VCMUFfVQAAAABJRU5ErkJggg==);
+	padding-left: 5px;
+}
+.Dates h1 {
+	color: white;
+}

@@ -2,7 +2,8 @@ const Chelmer = {
 	baseUrl: "http://chm-qa33-css.chelmer.co.nz:8080/webservice/rest",
 	login: "/security/login",
 	sessionValidate: "/security/validate/sessions/",
-	holdings: "/api/v1/aggregation/portfolio/holdings"
+	holdings: "/api/v1/aggregation/portfolio/holdings",
+	transactions: "/api/v1/aggregation/transactions"
 }
 
 const Portfolios = [

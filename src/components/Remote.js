@@ -13,6 +13,17 @@ const Remote = {
 		this.remoteRequest(url, handler, unauthorised, timeout);
 	},
 
+	getTransactions: function(id, start, end, handler, unauthorised, timeout) {
+		const url = Chelmer.baseUrl + Chelmer.transactions 
+			+ "?sessionId=" + Authentication.getSessionToken()
+			+ "&requestedOnBehalfOf=" + Authentication.getLoginName()
+			+ "&portfoliosCodes=" + id
+			+ "&startDate=" + start
+			+ "&endDate=" + end;
+		
+		this.remoteRequest(url, handler, unauthorised, timeout);
+	},
+	
 	remoteRequest: function(url, handler, unauthorised, timeout) {
 		Authentication.checkAuthentication(() => {
 			console.log(url);
