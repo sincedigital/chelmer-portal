@@ -1,10 +1,28 @@
+.DatesOuter {
+	position: relative;
+	overflow:hidden;
+	width: 700px;
+	height: 300px;
+	margin-bottom: -300px;
+}
 .Dates {
+	background-color: rgb(40, 70, 76);
+	border: solid white 1px;
+	border-radius: 4px;
+	padding: 10px;
+	z-index: 1300;
+	position: relative;
 	width: 700px;
 	height: 300px;
 	margin: 0 auto;
 	text-align: left;
+	margin-top: -300px;
+	-webkit-transition: margin-top 500ms ease-in-out;
+	transition: margin-top 500ms ease-in-out;
 }
-
+.Dates.Showing {
+	margin-top: 0px;
+}
 .calendar-outer {
 	position: relative;
 	width: 350px;

@@ -487,6 +487,8 @@ a.w-nav-link {
   position: relative;
   overflow: hidden;
   padding-right: 10px;
+  z-index: 900;
+  
 }
 
 #portfolio-makeup span.portfolio-row-bar-perc {
