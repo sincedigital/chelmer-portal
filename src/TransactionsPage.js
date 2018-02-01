@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import Modal from './components/Modal.js';
 
-import LongDate from './components/LongDate.js';
+import DateFormat from './components/DateFormat.js';
 import NumberFormat from './components/NumberFormat.js';
 
 import Navigation from './components/Navigation.js';
@@ -102,7 +102,7 @@ class TransactionsPage extends Component {
 	              <div className="div-block w-clearfix">
 	                <div className="text-block">NZD</div>
 	              </div>
-	              <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.startDate} /> - <LongDate date={this.state.endDate} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
+	              <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat fullMonthName={true} date={this.state.startDate} /> - <DateFormat fullMonthName={true} date={this.state.endDate} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
 	              <DateFilters showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View transactions for" />
 	              { this.state.transactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.transactions} />}
 	            </div>

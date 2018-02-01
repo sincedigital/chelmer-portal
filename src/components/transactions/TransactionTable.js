@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import DataTable from '../DataTable.js';
 import NumberFormat from '../NumberFormat.js';
-import LongDate from '../LongDate.js';
+import DateFormat from '../DateFormat.js';
 
 class TransactionTable extends Component {
 	
@@ -55,14 +55,15 @@ class TransactionTable extends Component {
 		
 		//Date
 		columns.push({
-			header: "POSTED DATE",
+			header: "DATE",
 			sortable: true,
 			initialSorted: true,
-			displayFunction: transaction => LongDate({"date": new Date(transaction.postedDate)}),
-			sorter: (a, b) => a.postedDate.localeCompare(b.postedDate),
+			displayFunction: transaction => DateFormat({"date": new Date(transaction.tradeDate)}),
+			sorter: (a, b) => b.tradeDate.localeCompare(a.tradeDate),
 			style: {
 				width: "100px",
-				whiteSpace: "nowrap"
+				whiteSpace: "nowrap",
+				textAlign: "right"
 			}
 		});
 		

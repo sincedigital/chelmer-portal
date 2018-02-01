@@ -88,7 +88,8 @@ class MarketTable extends Component {
 			displayFunction: holding => this.formatDollars(holding.value),
 			sorter: (a, b) => a.value - b.value,
 			style: {
-				width: "260px"
+				width: "260px",
+				"textAlign": "right"
 			}
 		});
 			
@@ -100,8 +101,7 @@ class MarketTable extends Component {
 			displayFunction: holding => this.createBar(holding.value),
 			sorter: (a, b) => a.value - b.value,		//Sort is the same as above
 			style: {
-				width: "278px",
-				"textAlign": "right"
+				width: "278px"
 			}
 		});
 			

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Modal from './components/Modal.js';
 
-import LongDate from './components/LongDate.js';
+import DateFormat from './components/DateFormat.js';
 import NumberFormat from './components/NumberFormat.js';
 
 import Navigation from './components/Navigation.js';
@@ -127,7 +127,7 @@ class PortfolioPage extends Component {
                 <h1 className="heading-1" id="portfolioTotal"><NumberFormat value={this.state.portfolio.total} prefix={'$'} places={0} /></h1>
                 <div className="text-block">NZD</div>
               </div>
-              <p className="subhead-1"><strong className="bold-text"><span id="date"><LongDate date={this.state.portfolio.date} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
+              <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat date={this.state.portfolio.date} fullMonthName={true}/></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
               <DateFilters header="View portfolio as at ..." showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} relativeSuffix=" ago" showCurrent={true}/>
             </div>
           </div>

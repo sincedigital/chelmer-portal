@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 
-const LongDate = (props) => {
-	const monthNames = [
+const DateFormat = (props) => {
+	const longMonthNames = [
 	    "January", "February", "March",
 	    "April", "May", "June", "July",
 	    "August", "September", "October",
 	    "November", "December"
 	  ];
+	
+	const shortMonthNames = [
+		"Jan", "Feb", "Mar", "Apr",
+		"May", "Jun", "Jul", "Aug",
+		"Sep", "Oct", "Nov", "Dec"
+	];
 	
 	if (!props.date) {
 		return null;
@@ -18,10 +24,10 @@ const LongDate = (props) => {
 	var monthIndex = date.getMonth();
 	var year = date.getFullYear();
 	
-	var month = monthNames[monthIndex];
+	var month = props.fullMonthName ? longMonthNames[monthIndex] : shortMonthNames[monthIndex];
 	return (
 		<span>{day} {month} {year}</span>
 	);
 }
 
-export default LongDate;
+export default DateFormat;
