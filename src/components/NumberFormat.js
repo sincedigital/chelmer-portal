@@ -1,9 +1,15 @@
 const NumberFormat = (props) => {
 	
-	const amount = props.value || 0;
+	var amount = props.value || 0;
 	const places = props.places || 0;
 	const prefix = props.prefix || '';
 	const suffix = props.suffix || '';
+
+	var negative = false;
+	if (amount < 0) {
+		negative = true;
+		amount = -amount;
+	}
 
 	var dollars = "";
 	var index = 0;
@@ -15,11 +21,6 @@ const NumberFormat = (props) => {
 		index = dollars.length;
 	}
 	
-	var negative = false;
-	if (dollars.indexOf("-") === 0) {
-		negative = true;
-		dollars = dollars.substring(1);
-	}
 	for (var i = index-3; i>0; i-=3) {
 		dollars = dollars.substring(0, i) + "," + dollars.substring(i); 
 	}
