@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import DataTable from '../DataTable.js';
 import NumberFormat from '../NumberFormat.js';
+import HoldingPerformance from './HoldingPerformance.js';
 
 class MarketTable extends Component {
 	
@@ -22,7 +23,16 @@ class MarketTable extends Component {
 		});
 		
 		this.maxPercentage = maxPercentage * 2;
-	}		
+	
+		//Set the initial state in case it wasn't expanded (then it won't get prop updates)
+		this.state.performance = props.performance;
+	}
+		
+	
+	componentWillReceiveProps(props) {
+		this.setState({"performance": props.performance});
+	}
+
 	
 	formatDollars(amount) {
 		/*
@@ -53,8 +63,6 @@ class MarketTable extends Component {
 		const relativeWidth = percentage / this.maxPercentage * 100;
 		const barColour = this.props.barColour;
 		
-		console.log("Bar colour is " + this.props.barColour);
-		
 		const thespan = (<div>{percentage.toFixed(2)}%<span className="bar" style={{"marginLeft": "10px", "backgroundColor": barColour, "width": relativeWidth+'%'}}></span></div>);
 		
 		return thespan;
@@ -75,7 +83,7 @@ class MarketTable extends Component {
 			displayFunction: holding => holding.name,
 			sorter: (a, b) => a.name.localeCompare(b.name),
 			style: {
-				width: "878px"
+				width: "578px"
 			}
 		});
 	
@@ -90,6 +98,18 @@ class MarketTable extends Component {
 			style: {
 				width: "260px",
 				"textAlign": "right"
+			}
+		});
+			
+		//Performance
+		columns.push({
+			header: "PERFORMANCE",
+			headerClassName: "dt-head-right",
+			sortable: false,
+			initialSorted: false,
+			displayFunction: holding => (<HoldingPerformance holding={holding} performance={this.state.performance} />),
+			style: {
+				"width": "380px"
 			}
 		});
 			

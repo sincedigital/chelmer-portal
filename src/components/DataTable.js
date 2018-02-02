@@ -57,7 +57,6 @@ class DataTable extends Component {
 	}
 	
 	render() {
-		console.log("Rendering DataTable");
 		return (
 			<table style={{"width": "100%"}} role="grid" id={this.props.id} className={this.props.className}>
 			<thead>

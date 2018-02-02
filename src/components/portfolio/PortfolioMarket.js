@@ -12,13 +12,17 @@ class PortfolioMarket extends Component {
 		
 		this.toggleDetails = this.toggleDetails.bind(this);
 		this.state.expanded = this.props.data.expanded;
+		
+		this.state.performance = props.performance;
+	}
+	
+	componentWillReceiveProps(props) {
+		this.setState({"performance": props.performance});
 	}
 	
 	toggleDetails() {
-		console.log("Clicked!");
 		var expanded = this.state.expanded;
 		expanded = !expanded;
-		console.log("Expanded to " + expanded);
 		this.setState({"expanded": expanded});
 	}
  	
@@ -45,7 +49,7 @@ class PortfolioMarket extends Component {
 			 	<span className="portfolio-row-bar-perc"><NumberFormat value={part.percentage} suffix={'%'} places={1} /></span>
 			 </span>
 			</div>
-			{ this.state.expanded ? (<MarketTable data={this.props.data} barColour={Palette[index]} />) : null }
+			{ this.state.expanded ? (<MarketTable data={this.props.data} barColour={Palette[index]} performance={this.state.performance} />) : null }
 			</div>
 		);
 	}

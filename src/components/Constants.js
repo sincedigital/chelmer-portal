@@ -3,7 +3,8 @@ const Chelmer = {
 	login: "/security/login",
 	sessionValidate: "/security/validate/sessions/",
 	holdings: "/api/v1/aggregation/portfolio/holdings",
-	transactions: "/api/v1/aggregation/transactions"
+	transactions: "/api/v1/aggregation/transactions",
+	performance: "/api/v1/reporting/performance/PRReturnByAsset"
 }
 
 const Portfolios = [

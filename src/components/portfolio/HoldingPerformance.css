@@ -1,0 +1,11 @@
+.Performance div {
+	margin-left: 3px;
+	display: inline-block;
+	width: 50px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+}
+.Performance div div:nth-child(2) {
+	white-space: nowrap;
+}

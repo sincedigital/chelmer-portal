@@ -13,6 +13,18 @@ const Remote = {
 		this.remoteRequest(url, handler, unauthorised, timeout);
 	},
 
+	getPerformance: function(id, start, end, handler, unauthorised, timeout) {
+		const url = Chelmer.baseUrl + Chelmer.performance 
+			+ "?sessionId=" + Authentication.getSessionToken()
+			+ "&requestedOnBehalfOf=" + Authentication.getLoginName()
+			+ "&portfolioCode=" + id
+			+ "&startDate=" + start
+			+ "&endDate=" + end
+			+ "&reportingGroup=Asset%20Class";
+		
+		this.remoteRequest(url, handler, unauthorised, timeout);
+	},
+
 	getTransactions: function(id, start, end, handler, unauthorised, timeout) {
 		const url = Chelmer.baseUrl + Chelmer.transactions 
 			+ "?sessionId=" + Authentication.getSessionToken()
@@ -25,18 +37,31 @@ const Remote = {
 	},
 	
 	remoteRequest: function(url, handler, unauthorised, timeout) {
-		Authentication.checkAuthentication(() => {
-			console.log(url);
-			this.timeout(20000, fetch(url))
-			.then((resp)=>{return resp.json();})
-			.then((data)=>{
-				handler(data);
-			}).catch(e=>{
-				if (timeout) timeout(e);
+		if (!timeout) {
+			Authentication.checkAuthentication(() => {
+				console.log(url);
+				fetch(url)
+				.then((resp)=>{return resp.json();})
+				.then((data)=>{
+					handler(data);
+				});
+			}, ()=>{
+				unauthorised();
 			});
-		}, ()=>{
-			unauthorised();
-		});
+		} else {
+			Authentication.checkAuthentication(() => {
+				console.log(url);
+				this.timeout(20000, fetch(url))
+				.then((resp)=>{return resp.json();})
+				.then((data)=>{
+					handler(data);
+				}).catch(e=>{
+					if (timeout) timeout(e);
+				});
+			}, ()=>{
+				unauthorised();
+			});
+		}
 	},
 	
 	timeout: function(millis, promise) {
