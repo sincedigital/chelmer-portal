@@ -18,6 +18,10 @@ const Authentication = {
 				})
 			});
 		},
+		clearAuthenticationState() {
+			sessionStorage.clearItem("chelmer-token");
+			sessionStorage.clearItem("chelmer-username");
+		},
 		checkAuthentication(success, failure) {
 			failure = failure || {};
 			success = success || {};
@@ -31,16 +35,19 @@ const Authentication = {
 					if (response.ok) {
 						return response.json();
 					} else {
+						this.clearAuthenticationState();
 						failure();
 						return;
 					}
 				})
 				.then((data) => {
-					if (!data) 
+					if (!data) {
+						this.clearAuthenticationState();
 						failure();
-					else if (data.valid && data.valid === true) {
+					} else if (data.valid && data.valid === true) {
 						success();
 					} else {
+						this.clearAuthenticationState();
 						failure();
 					}
 				});
