@@ -566,7 +566,7 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 
 #loading span, #loading i {
 	position: absolute;
-  	top: 50%;
+  	top: 30%;
   	left: 50%;
  	margin-top: -25px;
   	margin-left: -25px;
@@ -574,9 +574,11 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
 }
 
 #loading {
-    position: absolute;
-    width: 80%;
-    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    left: 0px;
+ 	height: calc(100% - 100px);
     background-color: rgba(19, 52, 59, 0.9);
     color: rgb(124,179,172);
     z-index: 999;
