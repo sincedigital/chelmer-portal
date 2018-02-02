@@ -34,7 +34,7 @@ class TransactionsPage extends Component {
 
 		this.state.endDate = new Date();
 		var date = new Date();
-		date.setMonth(date.getMonth()-3);
+		date.setMonth(date.getMonth()-6);
 		this.state.startDate = date;
 		
 		this.acceptTransactions = this.acceptTransactions.bind(this);
