@@ -108,7 +108,7 @@ class PortfolioPage extends Component {
   		});
 		
 		this.setState({"portfolio": loadedPortfolio, "loading": false, "timeout": false, "performance": {}});
-		
+
 		//And now get performance data
 		const date = new Date(loadedPortfolio.date);
 		date.setMonth(date.getMonth()-1);
@@ -144,7 +144,6 @@ class PortfolioPage extends Component {
 	}
 	
 	storePerformance(data, label) {
-		console.log(data);
 		const performance = this.state.performance;
 		performance[label] = data.data;
 		this.setState({"performance": performance});
