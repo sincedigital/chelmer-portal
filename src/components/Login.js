@@ -28,11 +28,8 @@ class LoginPage extends Component {
 				this.setState({"buttonText": 'Invalid username or password. Please try again.'});
 			}
 		}).then((data) => {
-			console.log(data);
 			if (data.tokenId) {
-				console.log("Got a token.  Authenticating");
 				Authentication.authenticate(data);
-				console.log("Redirect is " + this.state.referrer);
 				var url = this.state.referrer || '/dashboard';
 				if (url === '/login' || url === '/')
 					url = '/dashboard';
@@ -40,7 +37,6 @@ class LoginPage extends Component {
 				this.setState({"redirectTo": url});
 			}
 		});
-		console.log("submitted");
 	}
 	
 	
