@@ -50,22 +50,7 @@ class MarketTable extends Component {
 			iconClass = "fas fa-level-down-alt";
 			color = "red";
 		}
-		return (<div>{this.formatDollars(currentPrice)} <i style={{color: color}} className={iconClass}></i></div>);
-	}
-	
-	formatDollars(amount) {
-		/*
-		amount = amount || 0;
-		var dollars = amount.toFixed(2) + "";
-		
-		var index = dollars.indexOf(".");
-		for (var i = index-3; i>0; i-=3) {
-			dollars = dollars.substring(0, i) + "," + dollars.substring(i); 
-		}
-		
-		return "$" + dollars;
-		*/
-		return NumberFormat({"value": amount, "places": 2, prefix: "$"});
+		return (<div><NumberFormat value={currentPrice} places={2} prefix="$" />&nbsp;<i style={{color: color}} className={iconClass}></i></div>);
 	}
 	
 	calculatePercentage(amount) {
@@ -104,7 +89,7 @@ class MarketTable extends Component {
 			style: {
 				width: "578px"
 			},
-			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<p>To be loaded Ajaxily from somewhere</p>)});}
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<p>Details to be loaded from API</p>)});}
 		});
 	
 		//Current
@@ -113,10 +98,10 @@ class MarketTable extends Component {
 			headerClassName: "dt-head-right",
 			sortable: true,
 			initialSorted: false,
-			displayFunction: holding => this.formatDollars(holding.value),
+			displayFunction: holding => (<NumberFormat value={holding.value} places={2} prefix="$" />),
 			sorter: (a, b) => a.value - b.value,
 			style: {
-				width: "260px",
+				width: "160px",
 				"textAlign": "right"
 			}
 		});
@@ -135,12 +120,15 @@ class MarketTable extends Component {
 		
 		columns.push({
 			header: "COST PRICE",
+			headerStyle: {
+				whiteSpace: "nowrap"
+			},
 			sortable: true,
 			initialSorted: false, 
-			displayFunction: holding => this.formatDollars(holding.costPrice),
+			displayFunction: holding => (<NumberFormat value={holding.costPrice} places={2} prefix="$" />),
 			sorter: (a, b) => a.costPrice - b.costPrice,
 			style: {
-				width: "30px",
+				width: "100px",
 				"textAlign": "right"
 			},
 			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
@@ -148,12 +136,15 @@ class MarketTable extends Component {
 
 		columns.push({
 			header: "CURRENT PRICE",
+			headerStyle: {
+				whiteSpace: "nowrap"
+			},
 			sortable: true,
 			initialSorted: false, 
 			displayFunction: holding => this.showChange(holding.costPrice, holding.currentPrice),
 			sorter: (a, b) => a.currentPrice - b.currentPrice,
 			style: {
-				width: "30px",
+				width: "100px",
 				"textAlign": "right"
 			},
 			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Recharts, { PieChart, Pie, Cell, Legend, Sector } from 'recharts';
 import './App.css';
 
 import DateFormat from './components/DateFormat.js';
@@ -10,7 +10,7 @@ import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
-import { Portfolios } from './components/Constants.js';
+import { Portfolios, Palette, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
 
 import './Dashboard.css';
@@ -23,13 +23,8 @@ class Dashboard extends Component {
 			date: new Date(),
 			parts:[]
 		},
-		mtd: {
-			unloaded: true
-		},
-		ytd: {
-			unloaded: true
-		},
-		timeout: false
+		timeout: false,
+		activeSegment: -1
 	};
 	
 	constructor(props) {
@@ -38,10 +33,10 @@ class Dashboard extends Component {
 		this.load = this.load.bind(this);
 		
 		this.acceptPortfolio = this.acceptPortfolio.bind(this);
-		this.acceptMTDPortfolio = this.acceptMTDPortfolio.bind(this);
-		this.acceptYTDPortfolio = this.acceptYTDPortfolio.bind(this);
 		this.acceptMTDPerformance = this.acceptMTDPerformance.bind(this);
 		this.acceptYTDPerformance = this.acceptYTDPerformance.bind(this);
+		this.activateSegment = this.activateSegment.bind(this);
+		this.drawHighlight = this.drawHighlight.bind(this);
 		
 		this.load();
 	}
@@ -61,15 +56,6 @@ class Dashboard extends Component {
 		const month = new Date();
 		month.setDate(1);
 		
-		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
-			ToAPIDate(month),
-			this.acceptMTDPortfolio,
-			()=>{this.setState({loginRequired: true})},
-			()=>{this.setState({"timeout": true})}
-		);
-
 		Remote.getPerformance(
 			Portfolios[0].portfolio, 
 			ToAPIDate(month),
@@ -83,15 +69,6 @@ class Dashboard extends Component {
 		year.setMonth(0);
 		year.setDate(1);
 		
-		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
-			ToAPIDate(year),
-			this.acceptYTDPortfolio,
-			()=>{this.setState({loginRequired: true})},
-			()=>{this.setState({"timeout": true})}
-		);
-
 		Remote.getPerformance(
 			Portfolios[0].portfolio, 
 			ToAPIDate(year),
@@ -108,22 +85,48 @@ class Dashboard extends Component {
 		this.setState({"portfolio": PortfolioFromHoldings(data), "loading": false, "timeout": false});
 	}
 
-	acceptMTDPortfolio(data) {
-		this.setState({"mtd": PortfolioFromHoldings(data)});
-	}
-
-	acceptYTDPortfolio(data) {
-		this.setState({"ytd": PortfolioFromHoldings(data)});
-	}
-
 	acceptMTDPerformance(data) {
-		console.log("Month:")
-		console.log(data);
+		const length = data.data.length;
+		this.setState({"mtd": data.data[length-1]});
 	}
 	
 	acceptYTDPerformance(data) {
-		console.log("Year:")
-		console.log(data);
+		const length = data.data.length;
+		this.setState({"ytd": data.data[length-1]});
+	}
+	
+	activateSegment(data, index) {
+		this.setState({"activeSegment": index});
+	}
+	
+	drawHighlight(props) {
+		const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
+		    fill, payload, percent, value, stroke } = props;
+		    
+		    
+		return (<g>
+			<Sector 
+				cx={cx}
+			    cy={cy}
+			    startAngle={startAngle}
+			    endAngle={endAngle}
+			    innerRadius={outerRadius + 6}
+			    outerRadius={outerRadius + 10}
+			    fill={fill} />
+			<Sector 
+				cx={cx}
+			    cy={cy}
+			    startAngle={startAngle}
+			    endAngle={endAngle}
+			    innerRadius={innerRadius}
+			    outerRadius={outerRadius}
+			    fill={fill}
+				stroke={stroke}
+			/>
+			<text x={30} y={210} textAnchor="left" fill={fill} style={{"fontSize": "16px"}}>{payload.name}</text>
+			<text x={30} y={230} textAnchor="left" fill="white" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
+			<text x={30} y={250} textAnchor="left" fill="white" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
+		</g>);
 	}
 	
   render() {
@@ -134,22 +137,49 @@ class Dashboard extends Component {
 	  var thisYearProfitLoss = "";
 	  var thisYearPercentage = "";
 	  
-	  if (this.state.mtd.unloaded) {
+	  if (!this.state.mtd) {
 		  thisMonthProfitLoss = wait;
 		  thisMonthPercentage = wait;
 	  } else {
-		  thisMonthProfitLoss = (<NumberFormat value={this.state.portfolio.total - this.state.mtd.total} places={2} prefix="$" />);
-		  thisMonthPercentage = (<NumberFormat value={(this.state.portfolio.total - this.state.mtd.total)/this.state.mtd.total*100} places={2} suffix="%" />);
+		  const change = this.state.mtd.grossEndValue - this.state.mtd.grossStartValue; 
+		  thisMonthProfitLoss = (<NumberFormat value={change} places={2} prefix="$" explicitPositive={true} />);
+		  thisMonthPercentage = (<NumberFormat value={change/this.state.mtd.grossStartValue*100} places={2} suffix="%" explicitPositive={true} />);
 	  }
 	  
-	  if (this.state.ytd.unloaded) {
+	  if (!this.state.ytd) {
 		  thisYearProfitLoss = wait;
 		  thisYearPercentage = wait;
 	  } else {
-		  thisYearProfitLoss = (<NumberFormat value={this.state.portfolio.total - this.state.ytd.total} places={2} prefix="$" />);
-		  thisYearPercentage = (<NumberFormat value={(this.state.portfolio.total - this.state.ytd.total)/this.state.ytd.total*100} places={2} suffix="%" />);
+		  const change = this.state.ytd.grossEndValue - this.state.ytd.grossStartValue; 
+		  thisYearProfitLoss = (<NumberFormat value={change} places={2} prefix="$" explicitPositive={true} />);
+		  thisYearPercentage = (<NumberFormat value={change/this.state.ytd.grossStartValue*100} places={2} suffix="%" explicitPositive={true} />);
 	  }
-
+	  
+	  const pieData = [];
+	  const outerPie = [];
+	  
+	  this.state.portfolio.parts.map((entry, index)=>{
+		 const colour = Palette[index % Palette.length];
+		 
+		 pieData.push({
+			 name: Markets[entry.name],
+			 percentage: entry.percentage,
+			 value: entry.total,
+			 colour: colour
+		 }); 
+		 
+		 entry.holdings.map((holding, innerIndex)=>{
+			 outerPie.push({
+				 name: holding.name,
+				 percentage: holding.percentage,
+				 "holdingValue": holding.value,
+				 colour: colour
+			 });
+			 return null;
+		 });
+		 return null;
+	  });
+	  
 	 return (
       <div className="App">
         <Navigation url={this.props.match.url} />
@@ -165,7 +195,7 @@ class Dashboard extends Component {
             	<div id="networth">
             		<h1>Net Worth</h1>
             		<h2>Today</h2>
-            		<div>{this.state.portfolio.total}</div>
+            		<div><NumberFormat places={2} value={this.state.portfolio.total} prefix="$" /></div>
             		<div className="networth-table">
             			<div>This Month</div>
             			<div>{thisMonthProfitLoss}</div>
@@ -176,6 +206,21 @@ class Dashboard extends Component {
 	        			<div>{thisYearProfitLoss}</div>
 	        			<div>{thisYearPercentage}</div>
 	        		</div>
+            	</div>
+            	<div id="assetgraph">
+            		<PieChart width={400} height={300}>
+            			<Pie data={pieData} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
+            				{ pieData.map((entry, index)=>(
+            					<Cell key={"cell-" + index}	fill={entry.colour} />
+            				))}
+            			</Pie>
+            			<Pie data={outerPie} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={70} outerRadius={80} legendType="none" onMouseEnter={this.activateSegment} activeIndex={this.state.activeSegment} activeShape={this.drawHighlight}>
+	        				{ outerPie.map((entry, index)=>(
+	        					<Cell key={"ocell-" + index} fill={entry.colour} />
+	        				))}
+	        			</Pie>
+        				<Legend layout="vertical" align="right" verticalAlign="top"/>
+            		</PieChart>
             	</div>
             </div>
          </div>

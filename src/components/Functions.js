@@ -38,7 +38,7 @@ const PortfolioFromHoldings = function(data) {
 				currentPrice /= 100.;
 			}
 
-			theGroup.holdings.push({"name": holding.name, value: holding.baseMv, "costPrice": costPrice, "currentPrice": currentPrice });
+			theGroup.holdings.push({"name": holding.name, value: holding.baseMv, "costPrice": costPrice, "currentPrice": currentPrice, "percentage": holding.percent });
 			theGroup.amount += holding.baseMv;
 			
 			loadedPortfolio.total += holding.baseMv;

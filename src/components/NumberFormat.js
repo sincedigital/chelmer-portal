@@ -25,7 +25,7 @@ const NumberFormat = (props) => {
 		dollars = dollars.substring(0, i) + "," + dollars.substring(i); 
 	}
 	
-	return (negative ? "-" : "") + prefix + dollars + suffix;
+	return (negative ? "-" : (props.explicitPositive ? "+" : "")) + prefix + dollars + suffix;
 }
 
 export default NumberFormat;
