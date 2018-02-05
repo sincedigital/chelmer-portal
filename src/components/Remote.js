@@ -15,6 +15,7 @@ const Remote = {
 			+ "?sessionId=" + Authentication.getSessionToken()
 			+ "&requestedOnBehalfOf=" + Authentication.getLoginName()
 			+ "&portfoliosCodes=" + id
+			+ "&requestCost=true"
 			+ "&asAtDate=" + date;
 		
 		this.remoteRequest(url, data=>{this.addHoldingsToCache(id, date, data); handler(data);}, unauthorised, timeout);
@@ -34,6 +35,7 @@ const Remote = {
 			+ "&portfolioCode=" + id
 			+ "&startDate=" + start
 			+ "&endDate=" + end
+			+ "&currencyCode=NZD"
 			+ "&reportingGroup=Asset%20Class";
 		
 		this.remoteRequest(url, data=>{this.addPerformanceToCache(id, start, end, data); handler(data);}, unauthorised, timeout);
@@ -45,7 +47,8 @@ const Remote = {
 			+ "&requestedOnBehalfOf=" + Authentication.getLoginName()
 			+ "&portfoliosCodes=" + id
 			+ "&startDate=" + start
-			+ "&endDate=" + end;
+			+ "&endDate=" + end
+			+ "&itemsPerPage=10000"
 		
 		this.remoteRequest(url, handler, unauthorised, timeout);
 	},
@@ -67,6 +70,7 @@ const Remote = {
 	getPerformanceFromCache: function(id, start, end) {
 		var cache = this.getCache("performance-cache");
 		const key = id + start + end;
+		console.log("key is " + key);
 		return cache[key];
 	},
 	
