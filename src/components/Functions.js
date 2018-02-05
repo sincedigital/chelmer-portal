@@ -1,7 +1,7 @@
 const ToAPIDate = function(date) {
 	
 	var year = date.getFullYear();
-	var month = "" + (parseInt(date.getMonth())+1);
+	var month = "" + (parseInt(date.getMonth(), 10)+1);
 	if (month.length === 1) {
 		month = "0" + month;
 	}

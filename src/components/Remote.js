@@ -5,6 +5,7 @@ const Remote = {
 	getHoldings: function(id, date, handler, unauthorised, timeout) {
 		const data = this.getHoldingsFromCache(id, date);
 		if (data != null) {
+			console.log(data);
 			//Kind of a hack ... but if we don't breath this returns too fast and react hasn't mounted the page yet
 			setTimeout(()=>handler(data), 400);
 			return;
@@ -22,6 +23,7 @@ const Remote = {
 	getPerformance: function(id, start, end, handler, unauthorised, timeout) {
 		const data = this.getPerformanceFromCache(id, start, end);
 		if (data != null) {
+			console.log(data);
 			handler(data);
 			return;
 		}

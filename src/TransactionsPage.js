@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import Modal from './components/Modal.js';
 
 import DateFormat from './components/DateFormat.js';
-import NumberFormat from './components/NumberFormat.js';
 
 import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';

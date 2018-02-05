@@ -31,6 +31,7 @@ class DataTable extends Component {
 			}
 			//Also set the initial sort order....
 			column.sortForward = true;
+			return null;
 		});
 		
 		this.state.data = this.props.data;
