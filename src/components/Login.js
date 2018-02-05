@@ -7,7 +7,8 @@ import Authentication from './Authentication.js';
 class LoginPage extends Component {
 	
 	state = {
-		buttonText: "Login"
+		buttonText: "Login",
+		failedLogin: false
 	};
 	
 	constructor(props) {
@@ -25,10 +26,12 @@ class LoginPage extends Component {
 			if (response.ok) {
 				return response.json();
 			} else {
-				this.setState({"buttonText": 'Invalid username or password. Please try again.'});
+				//this.setState({"buttonText": 'Invalid username or password. Please try again.'});
+				this.setState({"failedLogin": true});
 			}
 		}).then((data) => {
-			if (data.tokenId) {
+//			console.log(data);
+			if (data && data.tokenId) {
 				Authentication.authenticate(data);
 				var url = this.state.referrer || '/dashboard';
 				if (url === '/login' || url === '/')
@@ -49,6 +52,9 @@ class LoginPage extends Component {
     	<div id="login">
     		<form id="loginForm" onSubmit={this.submitForm}>
     			<header>Login</header>
+    			{this.state.failedLogin && <div className="alert alert-danger" role="alert">
+	  			  Invalid username or password. Please try again.
+	  			</div>}
     			<label>Username <span>*</span></label>
     			<input type="text" name="username" id="loginUsername" onChange={(e)=>this.setState({"name": e.target.value})} />
     			<div className="help">Use your Chelmer Fusion username</div>
