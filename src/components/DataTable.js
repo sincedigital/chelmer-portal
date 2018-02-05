@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './DataTable.js';
+import './DataTable.css';
 
 /*
  * Props:
@@ -73,8 +73,13 @@ class DataTable extends Component {
 					return (
 						<tr role="row" key={index}>
 						{ this.props.columns.map((column, index) =>{
+							var className = column.className || "";
+							if (column.clickFunction) {
+								className += " DataTableClickable";
+							}
+						
 							return (
-								<td onClick={() => {column.clickFunction && column.clickFunction(row)}} className={column.className} key={index} style={column.style}>{column.displayFunction(row)}</td>	
+								<td onClick={() => {column.clickFunction && column.clickFunction(row)}} className={className} key={index} style={column.style}>{column.displayFunction(row)}</td>	
 							);
 						})}
 						</tr>
