@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 
+import Modal from '../Modal.js';
 import DataTable from '../DataTable.js';
 import NumberFormat from '../NumberFormat.js';
 import HoldingPerformance from './HoldingPerformance.js';
 
 class MarketTable extends Component {
 	
-	state = {}
+	state = {
+			details: false
+	}
 	
 	constructor(props) {
 		super(props);
@@ -84,7 +87,8 @@ class MarketTable extends Component {
 			sorter: (a, b) => a.name.localeCompare(b.name),
 			style: {
 				width: "578px"
-			}
+			},
+			clickFunction: holding => {this.setState({details: true, name: holding.name});console.log(holding);}
 		});
 	
 		//Current
@@ -128,7 +132,14 @@ class MarketTable extends Component {
 		return (
 			<div>
 			<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer" />	
+			{ this.state.details ? (<Modal shouldCloseOnOverlayClick={true} onRequestClose={() => this.setState({details : false})} showing={this.state.details} allowNavigation={true}>
+        	<h1 onClick={() => this.setState({details : false})}>{this.state.name}</h1>
+        	<p>TODO actually get the information about this asset.</p>
+        	</Modal>) : null }
+					
+				
 			</div>
+	        
 		);
 	}
 }
