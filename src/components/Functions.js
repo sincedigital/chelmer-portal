@@ -30,7 +30,7 @@ const PortfolioFromHoldings = function(data) {
 				theGroups[group] = theGroup;
 			}
 			
-			theGroup.holdings.push({"name": holding.name, value: holding.baseMv});
+			theGroup.holdings.push({"name": holding.name, value: holding.baseMv, percentage: holding.percent});
 			theGroup.amount += holding.baseMv;
 			
 			loadedPortfolio.total += holding.baseMv;
