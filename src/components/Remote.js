@@ -25,7 +25,8 @@ const Remote = {
 		const data = this.getPerformanceFromCache(id, start, end);
 		if (data != null) {
 			console.log(data);
-			handler(data);
+			//Kind of a hack ... but if we don't breath this returns too fast and react hasn't mounted the page yet
+			setTimeout(()=>handler(data), 400);
 			return;
 		}
 
