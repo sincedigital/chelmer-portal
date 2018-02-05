@@ -23,12 +23,6 @@ class Dashboard extends Component {
 			date: new Date(),
 			parts:[]
 		},
-		mtd: {
-			unloaded: true
-		},
-		ytd: {
-			unloaded: true
-		},
 		timeout: false
 	};
 	
@@ -38,8 +32,6 @@ class Dashboard extends Component {
 		this.load = this.load.bind(this);
 		
 		this.acceptPortfolio = this.acceptPortfolio.bind(this);
-		this.acceptMTDPortfolio = this.acceptMTDPortfolio.bind(this);
-		this.acceptYTDPortfolio = this.acceptYTDPortfolio.bind(this);
 		this.acceptMTDPerformance = this.acceptMTDPerformance.bind(this);
 		this.acceptYTDPerformance = this.acceptYTDPerformance.bind(this);
 		
@@ -61,15 +53,6 @@ class Dashboard extends Component {
 		const month = new Date();
 		month.setDate(1);
 		
-		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
-			ToAPIDate(month),
-			this.acceptMTDPortfolio,
-			()=>{this.setState({loginRequired: true})},
-			()=>{this.setState({"timeout": true})}
-		);
-
 		Remote.getPerformance(
 			Portfolios[0].portfolio, 
 			ToAPIDate(month),
@@ -83,15 +66,6 @@ class Dashboard extends Component {
 		year.setMonth(0);
 		year.setDate(1);
 		
-		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
-			ToAPIDate(year),
-			this.acceptYTDPortfolio,
-			()=>{this.setState({loginRequired: true})},
-			()=>{this.setState({"timeout": true})}
-		);
-
 		Remote.getPerformance(
 			Portfolios[0].portfolio, 
 			ToAPIDate(year),
@@ -108,22 +82,14 @@ class Dashboard extends Component {
 		this.setState({"portfolio": PortfolioFromHoldings(data), "loading": false, "timeout": false});
 	}
 
-	acceptMTDPortfolio(data) {
-		this.setState({"mtd": PortfolioFromHoldings(data)});
-	}
-
-	acceptYTDPortfolio(data) {
-		this.setState({"ytd": PortfolioFromHoldings(data)});
-	}
-
 	acceptMTDPerformance(data) {
-		console.log("Month:")
-		console.log(data);
+		const length = data.data.length;
+		this.setState({"mtd": data.data[length-1]});
 	}
 	
 	acceptYTDPerformance(data) {
-		console.log("Year:")
-		console.log(data);
+		const length = data.data.length;
+		this.setState({"ytd": data.data[length-1]});
 	}
 	
   render() {
@@ -134,20 +100,22 @@ class Dashboard extends Component {
 	  var thisYearProfitLoss = "";
 	  var thisYearPercentage = "";
 	  
-	  if (this.state.mtd.unloaded) {
+	  if (!this.state.mtd) {
 		  thisMonthProfitLoss = wait;
 		  thisMonthPercentage = wait;
 	  } else {
-		  thisMonthProfitLoss = (<NumberFormat value={this.state.portfolio.total - this.state.mtd.total} places={2} prefix="$" />);
-		  thisMonthPercentage = (<NumberFormat value={(this.state.portfolio.total - this.state.mtd.total)/this.state.mtd.total*100} places={2} suffix="%" />);
+		  const change = this.state.mtd.grossEndValue - this.state.mtd.grossStartValue; 
+		  thisMonthProfitLoss = (<NumberFormat value={change} places={2} prefix="$" explicitPositive={true} />);
+		  thisMonthPercentage = (<NumberFormat value={change/this.state.mtd.grossStartValue*100} places={2} suffix="%" explicitPositive={true} />);
 	  }
 	  
-	  if (this.state.ytd.unloaded) {
+	  if (!this.state.ytd) {
 		  thisYearProfitLoss = wait;
 		  thisYearPercentage = wait;
 	  } else {
-		  thisYearProfitLoss = (<NumberFormat value={this.state.portfolio.total - this.state.ytd.total} places={2} prefix="$" />);
-		  thisYearPercentage = (<NumberFormat value={(this.state.portfolio.total - this.state.ytd.total)/this.state.ytd.total*100} places={2} suffix="%" />);
+		  const change = this.state.ytd.grossEndValue - this.state.ytd.grossStartValue; 
+		  thisYearProfitLoss = (<NumberFormat value={change} places={2} prefix="$" explicitPositive={true} />);
+		  thisYearPercentage = (<NumberFormat value={change/this.state.ytd.grossStartValue*100} places={2} suffix="%" explicitPositive={true} />);
 	  }
 
 	 return (
