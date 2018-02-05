@@ -102,7 +102,7 @@ class TransactionsPage extends Component {
 	              <div className="div-block w-clearfix">
 	                <div className="text-block">NZD</div>
 	              </div>
-	              <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat fullMonthName={true} date={this.state.startDate} /> - <DateFormat fullMonthName={true} date={this.state.endDate} /></span> <i id="dateHandler" className="fa fa-calendar-o padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
+	              <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat fullMonthName={true} date={this.state.startDate} /> - <DateFormat fullMonthName={true} date={this.state.endDate} /></span> <i id="dateHandler" className="far fa-calendar-alt padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
 	              <DateFilters showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View transactions for" />
 	              { this.state.transactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.transactions} />}
 	            </div>
