@@ -8,7 +8,8 @@ import HoldingPerformance from './HoldingPerformance.js';
 class MarketTable extends Component {
 	
 	state = {
-			details: false
+			details: false,
+			modalContent: ''
 	}
 	
 	constructor(props) {
@@ -103,7 +104,7 @@ class MarketTable extends Component {
 			style: {
 				width: "578px"
 			},
-			clickFunction: holding => {this.setState({details: true, name: holding.name});console.log(holding);}
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<p>To be loaded Ajaxily from somewhere</p>)});}
 		});
 	
 		//Current
@@ -141,7 +142,8 @@ class MarketTable extends Component {
 			style: {
 				width: "30px",
 				"textAlign": "right"
-			}
+			},
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
 		});
 
 		columns.push({
@@ -153,7 +155,8 @@ class MarketTable extends Component {
 			style: {
 				width: "30px",
 				"textAlign": "right"
-			}
+			},
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
 		});
 			
 		//Percentage
@@ -173,7 +176,7 @@ class MarketTable extends Component {
 			<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer" />	
 			{ this.state.details ? (<Modal shouldCloseOnOverlayClick={true} onRequestClose={() => this.setState({details : false})} showing={this.state.details} allowNavigation={true}>
         	<h1 onClick={() => this.setState({details : false})}>{this.state.name}</h1>
-        	<p>TODO actually get the information about this asset.</p>
+        	{this.state.modalContent}
         	</Modal>) : null }
 					
 				
