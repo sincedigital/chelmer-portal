@@ -26,7 +26,8 @@ class TransactionTable extends Component {
 			sorter: (a, b) => a.asset.name.localeCompare(b.asset.name),
 			style: {
 				width: "678px"
-			}
+			},
+			clickFunction: transaction => console.log(transaction.asset.name)
 		});
 	
 		//Type

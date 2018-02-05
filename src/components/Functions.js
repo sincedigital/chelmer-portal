@@ -30,7 +30,15 @@ const PortfolioFromHoldings = function(data) {
 				theGroups[group] = theGroup;
 			}
 			
-			theGroup.holdings.push({"name": holding.name, value: holding.baseMv, percentage: holding.percent});
+			var costPrice = holding.tradeNet / holding.heldValues.NO;
+			var currentPrice = holding.tradePrice;
+
+			//FIXME hardcoding to convert Fixed Interest from cents to dollars
+			if (group === 'NZFI') {
+				currentPrice /= 100.;
+			}
+
+			theGroup.holdings.push({"name": holding.name, value: holding.baseMv, "costPrice": costPrice, "currentPrice": currentPrice, "percentage": holding.percent });
 			theGroup.amount += holding.baseMv;
 			
 			loadedPortfolio.total += holding.baseMv;
