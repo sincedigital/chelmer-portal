@@ -8,8 +8,8 @@ const Chelmer = {
 }
 
 const Portfolios = [
-	{name: "Ms Sherry Wang", portfolio: 990046340},
 	{name: "Mr Michael Smith", portfolio: 990041720},
+	{name: "Ms Sherry Wang", portfolio: 990046340},
 	{name: "Mr William Boggs", portfolio: 990011110},
 	{name: "William & Nina Boggs", portfolio: 990026967}
 	
