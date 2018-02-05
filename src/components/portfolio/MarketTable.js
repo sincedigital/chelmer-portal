@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
+import Modal from '../Modal.js';
 import DataTable from '../DataTable.js';
 import NumberFormat from '../NumberFormat.js';
 import HoldingPerformance from './HoldingPerformance.js';
 
 class MarketTable extends Component {
 	
-	state = {}
+	state = {
+			details: false,
+			modalContent: ''
+	}
 	
 	constructor(props) {
 		super(props);
@@ -33,6 +37,21 @@ class MarketTable extends Component {
 		this.setState({"performance": props.performance});
 	}
 
+	/**
+	 * Show the currentprice, with a comparison arrow based on the cost price
+	 */
+	showChange(costPrice, currentPrice) {
+		var iconClass;
+		var color;
+		if (currentPrice >= costPrice) {
+			iconClass = "fas fa-level-up-alt";
+			color = "green";
+		} else {
+			iconClass = "fas fa-level-down-alt";
+			color = "red";
+		}
+		return (<div>{this.formatDollars(currentPrice)} <i style={{color: color}} className={iconClass}></i></div>);
+	}
 	
 	formatDollars(amount) {
 		/*
@@ -84,7 +103,8 @@ class MarketTable extends Component {
 			sorter: (a, b) => a.name.localeCompare(b.name),
 			style: {
 				width: "578px"
-			}
+			},
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<p>To be loaded Ajaxily from somewhere</p>)});}
 		});
 	
 		//Current
@@ -101,7 +121,7 @@ class MarketTable extends Component {
 			}
 		});
 			
-		//Performance
+/*		//Performance
 		columns.push({
 			header: "PERFORMANCE",
 			headerClassName: "dt-head-right",
@@ -111,6 +131,32 @@ class MarketTable extends Component {
 			style: {
 				"width": "380px"
 			}
+		});*/
+		
+		columns.push({
+			header: "COST PRICE",
+			sortable: true,
+			initialSorted: false, 
+			displayFunction: holding => this.formatDollars(holding.costPrice),
+			sorter: (a, b) => a.costPrice - b.costPrice,
+			style: {
+				width: "30px",
+				"textAlign": "right"
+			},
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
+		});
+
+		columns.push({
+			header: "CURRENT PRICE",
+			sortable: true,
+			initialSorted: false, 
+			displayFunction: holding => this.showChange(holding.costPrice, holding.currentPrice),
+			sorter: (a, b) => a.currentPrice - b.currentPrice,
+			style: {
+				width: "30px",
+				"textAlign": "right"
+			},
+			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
 		});
 			
 		//Percentage
@@ -128,7 +174,14 @@ class MarketTable extends Component {
 		return (
 			<div>
 			<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer" />	
+			{ this.state.details ? (<Modal shouldCloseOnOverlayClick={true} onRequestClose={() => this.setState({details : false})} showing={this.state.details} allowNavigation={true}>
+        	<h1 onClick={() => this.setState({details : false})}>{this.state.name}</h1>
+        	{this.state.modalContent}
+        	</Modal>) : null }
+					
+				
 			</div>
+	        
 		);
 	}
 }

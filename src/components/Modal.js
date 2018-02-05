@@ -21,8 +21,8 @@ const Modal = (props) => {
 		overlayClassName += " AllowNavigation";
 	}
 	return (
-		<div className={overlayClassName}>
-			<div className={contentClassName}>
+		<div className={overlayClassName} onClick={props.onRequestClose}>
+			<div className={contentClassName} onClick={e => { e.stopPropagation(); }}>
 				{props.children}
 			</div>
 		</div>

@@ -17,6 +17,7 @@ import './DataTable.js';
  *  column.style: [optional] style object
  *  column.className: [optional] className for the cells
  *  column.initialSorted: boolean true if this is the initial sort of the data
+ *  column.clickFunction: [optional] function (taking object) to run when column clicked on
  */
 class DataTable extends Component {
 	
@@ -73,7 +74,7 @@ class DataTable extends Component {
 						<tr role="row" key={index}>
 						{ this.props.columns.map((column, index) =>{
 							return (
-								<td className={column.className} key={index} style={column.style}>{column.displayFunction(row)}</td>	
+								<td onClick={() => {column.clickFunction && column.clickFunction(row)}} className={column.className} key={index} style={column.style}>{column.displayFunction(row)}</td>	
 							);
 						})}
 						</tr>
