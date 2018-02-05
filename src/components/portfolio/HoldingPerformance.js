@@ -56,7 +56,7 @@ class Performance extends Component {
 		if (performance) {
 			var datum = null;
 			for (var i=0; i<performance.length; i++) {
-				if (performance[i].assetName == holding) {
+				if (performance[i].assetName === holding) {
 					datum = performance[i];
 					break;
 				}

@@ -1,0 +1,9 @@
+#dashboard>div {
+	width: 50%;
+	float: left;
+	margin-left: 10px;
+}
+
+#networth h1 {
+	text-transform: uppercase;
+}
