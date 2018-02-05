@@ -36,6 +36,21 @@ class MarketTable extends Component {
 		this.setState({"performance": props.performance});
 	}
 
+	/**
+	 * Show the currentprice, with a comparison arrow based on the cost price
+	 */
+	showChange(costPrice, currentPrice) {
+		var iconClass;
+		var color;
+		if (currentPrice >= costPrice) {
+			iconClass = "fas fa-level-up-alt";
+			color = "green";
+		} else {
+			iconClass = "fas fa-level-down-alt";
+			color = "red";
+		}
+		return (<div>{this.formatDollars(currentPrice)} <i style={{color: color}} className={iconClass}></i></div>);
+	}
 	
 	formatDollars(amount) {
 		/*
@@ -105,7 +120,7 @@ class MarketTable extends Component {
 			}
 		});
 			
-		//Performance
+/*		//Performance
 		columns.push({
 			header: "PERFORMANCE",
 			headerClassName: "dt-head-right",
@@ -114,6 +129,30 @@ class MarketTable extends Component {
 			displayFunction: holding => (<HoldingPerformance holding={holding} performance={this.state.performance} />),
 			style: {
 				"width": "380px"
+			}
+		});*/
+		
+		columns.push({
+			header: "COST PRICE",
+			sortable: true,
+			initialSorted: false, 
+			displayFunction: holding => this.formatDollars(holding.costPrice),
+			sorter: (a, b) => a.costPrice - b.costPrice,
+			style: {
+				width: "30px",
+				"textAlign": "right"
+			}
+		});
+
+		columns.push({
+			header: "CURRENT PRICE",
+			sortable: true,
+			initialSorted: false, 
+			displayFunction: holding => this.showChange(holding.costPrice, holding.currentPrice),
+			sorter: (a, b) => a.currentPrice - b.currentPrice,
+			style: {
+				width: "30px",
+				"textAlign": "right"
 			}
 		});
 			
