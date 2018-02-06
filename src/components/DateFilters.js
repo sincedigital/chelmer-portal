@@ -17,7 +17,7 @@ const DateFilters = (props) => {
 			<div style={{"width": "100%"}}>
 		<div className={outerClassName}>
 		<div className="Dates">
-		<div style={{"width": "700px", "margin": "-15px auto"}}>
+		<div className="DatesContainer">
 		<div className="calendar-outer">
 		<Calendar value={props.range ? null : (props.selectedDate || new Date())} locale="en-NZ" maxDate={new Date()} nextLabel={nextIcon} next2Label={next2Icon} prevLabel={prevIcon} prev2Label={prev2Icon} onChange={props.onAbsolute} selectRange={props.range} returnValue={props.range ? "range" : "start"} /></div>
 		<h1>{props.header || 'Select Date'}</h1>
