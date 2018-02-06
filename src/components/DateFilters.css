@@ -1,8 +1,8 @@
 .DatesOuter {
 	position: relative;
 	overflow:hidden;
-	width: 700px;
-	height: 50px;
+	width: 100%;
+	height: 0px;
 	margin-bottom: -300px;
 	/* This sets a 1s delay when _returning_ to base state */
 	transition-delay: 1s;
@@ -16,12 +16,11 @@
 }
 .Dates {
 	background-color: rgb(40, 70, 76);
-	border: solid white 1px;
-	border-radius: 4px;
+	opacity: 0.98;
 	padding: 10px;
 	z-index: 1300;
 	position: relative;
-	width: 700px;
+	width: 100%;
 	height: 300px;
 	margin-left: auto;
 	margin-right: auto;
@@ -32,6 +31,10 @@
 }
 .DatesOuter.Showing .Dates {
 	margin-top: 0px;
+}
+.DatesContainer {
+	width: "700px";
+	margin: "-15px auto";
 }
 .calendar-outer {
 	position: relative;
