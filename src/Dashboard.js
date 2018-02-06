@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Recharts, { PieChart, Pie, Cell, Legend, Sector } from 'recharts';
+import { PieChart, Pie, Cell, Legend, Sector } from 'recharts';
 import './App.css';
 
-import DateFormat from './components/DateFormat.js';
 import NumberFormat from './components/NumberFormat.js';
 
 import Modal from './components/Modal.js';
@@ -100,8 +99,8 @@ class Dashboard extends Component {
 	}
 	
 	drawHighlight(props) {
-		const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
-		    fill, payload, percent, value, stroke } = props;
+		const { cx, cy, innerRadius, outerRadius, startAngle, endAngle,
+		    fill, payload, stroke } = props;
 		    
 		    
 		return (<g>
