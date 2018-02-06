@@ -2,8 +2,17 @@
 	position: relative;
 	overflow:hidden;
 	width: 700px;
-	height: 300px;
+	height: 50px;
 	margin-bottom: -300px;
+	/* This sets a 1s delay when _returning_ to base state */
+	transition-delay: 1s;
+	-webkit-transition-delay: 1s;
+}
+.DatesOuter.Showing {
+	height: 300px;
+	/* This sets a 0s delay when moving _to_ showing state */
+	transition-delay: 0s;
+	-webkit-transition-delay: 0s;
 }
 .Dates {
 	background-color: rgb(40, 70, 76);
@@ -14,13 +23,14 @@
 	position: relative;
 	width: 700px;
 	height: 300px;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: left;
 	margin-top: -300px;
 	-webkit-transition: margin-top 500ms ease-in-out;
 	transition: margin-top 500ms ease-in-out;
 }
-.Dates.Showing {
+.DatesOuter.Showing .Dates {
 	margin-top: 0px;
 }
 .calendar-outer {

@@ -8,14 +8,15 @@ const DateFilters = (props) => {
 	const prevIcon = (<i className="fa fa-angle-left"></i>);
 	const prev2Icon = (<i className="fa fa-angle-double-left"></i>);
 
-	var className = "Dates"
+	var outerClassName = "DatesOuter"
 	if (props.showing) {
-		className += " Showing";
+		outerClassName += " Showing";
 	}
 
 	return (
-		<div className="DatesOuter">
-		<div className={className}>
+			<div>
+		<div className={outerClassName}>
+		<div className="Dates">
 		<div className="calendar-outer">
 		<Calendar value={props.range ? null : (props.selectedDate || new Date())} locale="en-NZ" maxDate={new Date()} nextLabel={nextIcon} next2Label={next2Icon} prevLabel={prevIcon} prev2Label={prev2Icon} onChange={props.onAbsolute} selectRange={props.range} returnValue={props.range ? "range" : "start"} /></div>
 		<h1>{props.header || 'Select Date'}</h1>
@@ -29,6 +30,7 @@ const DateFilters = (props) => {
         <li onClick={(e)=>props.onRelative(60)}>{props.relativePrefix}5 years{props.relativeSuffix}</li>
         { props.includeCurrent ? (<li onClick={(e)=>props.onRelative(0)}>{props.relativePrefix}Current</li>) : null }
       </ul>
+      </div>
       </div>
       </div>
       );
