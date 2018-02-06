@@ -4,6 +4,50 @@
 	padding-left: 10px;
 }
 
+#networth {
+	width: 300px;
+}
 #networth h1 {
 	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 24px;
+	float: left;
+	text-align: left;
+	margin:0;
+	padding: 0;
+}
+#networth h2 {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 20px;
+	text-align: right;
+	margin:0;
+	padding: 0;
+	line-height: 23px;
+}
+#networth .headline {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	margin: 7px 0 17px 0;
+}
+#networth .networth-table {
+	border-top: solid black 1px;
+	clear: both;
+}
+#networth .networth-table div {
+	float: left;
+	text-align: left;
+	font-size: 15px;
+}
+#networth .networth-table div:first-child {
+	width: 150px;
+}
+#networth .networth-table div:nth-child(2) {
+	width: 75px;
+	text-align: right;
+}
+#networth .networth-table div:nth-child(3) {
+	width: 75px;
+	text-align: right;
 }

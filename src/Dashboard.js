@@ -191,10 +191,11 @@ class Dashboard extends Component {
             	</div>
             </div>
             <div id="dashboard">
+            	<div id="left">
             	<div id="networth">
             		<h1>Net Worth</h1>
             		<h2>Today</h2>
-            		<div><NumberFormat places={2} value={this.state.portfolio.total} prefix="$" /></div>
+            		<div className="headline"><NumberFormat places={2} value={this.state.portfolio.total} prefix="$" /></div>
             		<div className="networth-table">
             			<div>This Month</div>
             			<div>{thisMonthProfitLoss}</div>
@@ -205,6 +206,7 @@ class Dashboard extends Component {
 	        			<div>{thisYearProfitLoss}</div>
 	        			<div>{thisYearPercentage}</div>
 	        		</div>
+            	</div>
             	</div>
             	<div id="assetgraph">
             		<PieChart width={400} height={300}>
