@@ -107,12 +107,10 @@ body {
   -ms-flex-align: center;
   align-items: center;
   font-family: Roboto, sans-serif;
-  color: #fff;
   font-weight: 700;
 }
 
 .subhead-1 {
-  color: #fff;
   font-size: 18px;
   line-height: 26px;
   font-weight: 300;
@@ -181,7 +179,6 @@ body {
   -ms-flex-align: center;
   align-items: center;
   background-color: transparent;
-  color: #fff;
 }
 
 .footer-top-wrap {
@@ -352,7 +349,6 @@ table#detailsTable.dataTable td {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #fff;
 }
 
 .div-block {
@@ -366,69 +362,13 @@ table#detailsTable.dataTable td {
   font-weight: 400;
 }
 
-#portfolio-makeup, #transactions {
-    color: white;
-    width: 100%;
-    text-align: left;
-    padding: 0 10%;
-    font-size: 16pt;
-    line-height: 30px;
-    font-weight: 100;
-}
 
-#portfolio-makeup span {
-	display: inline-block;
-}
-
-.portfolio-row {
-	cursor: pointer;
-}
-.portfolio-row:hover, .portfolio-row.expanded, .details {
-	background-color: #28464C;
-}
-.portfolio-row-name {
-	width: 30%;
-	padding: 10px;
-	
-}
-.portfolio-row-amount {
-	text-align: right;
-	width: 15%;
-	padding: 10px;
-}
-.portfolio-row-bar {
-	width: 50%;
-	padding-left: 20px;
-}
-
-#portfolio-makeup span.bar {
-	
-  display: inline-block;
-  height: 10px;
-
-  position: relative;
-  overflow: hidden;
-  padding-right: 10px;
-  z-index: 900;
-  
-}
-
-#portfolio-makeup span.bar.small {
-	height: 6px;
-	margin-bottom: 3px;
-}
-
-#portfolio-makeup span.portfolio-row-bar-perc {
-	padding-left: 10px;
-	display: inline-block;
-}
 #dashboard {
 	width: 60%;
 	min-width: 900px;
 }
 .w-col-dashboard {
 	margin:5px;
-	color: white;
 	background-color: rgb(150,190,186);
 	padding: 15px;
 }
@@ -457,7 +397,6 @@ table#detailsTable.dataTable td {
 	text-align: right;
 }
 #dashboard div.row div.row-date {
-	color: white;
 	text-align: left;
 }
 div.row-positive div.row-amount, div.row-positive div.row-percent {
@@ -491,25 +430,7 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
     padding: 8px 5% 8px 10px;
 }
 
-#loading span, #loading i {
-	position: absolute;
-  	top: 30%;
-  	left: 50%;
- 	margin-top: -25px;
-  	margin-left: -25px;
-	color: rgb(124,179,172);
-}
 
-#loading {
-    position: fixed;
-    width: 100%;
-    top: 100px;
-    left: 0px;
- 	height: calc(100% - 100px);
-    background-color: rgba(19, 52, 59, 0.9);
-    color: rgb(124,179,172);
-    z-index: 999;
-}
 .react-calendar {
 	z-index: 1400;
 	position: absolute;
@@ -610,45 +531,11 @@ button.react-calendar__navigation__label {
     width: 100%;
   }
 
-  #portfolio-makeup > .portfolio-row:first-child {
-    	border-top: 1px #58595b solid;
-  
-  }  
-  #portfolio-makeup span {
-  	display: inline-block;
-  }
-  
-  .portfolio-row {
-  	border-bottom: 1px #58595b solid;
-  	display: block;
-  }
-  
-  .portfolio-row-name {
-  	width: 60%;
-  }
-  .portfolio-row-amount {
-  	width: 35%;
-  }
-  .portfolio-row-bar {
-    width: 100%;
-    padding-left: 10px;
-  }
-  .portfolio-row-bar .portfolio-row-bar-perc {
-  	float: right;
-  	padding-right: 10px;
-  	margin-right: 5%;
-  	font-size: 0.8em;
-  }
-  
+    
 }
 
 @media (max-width: 479px) {
-  #portfolio-makeup {
-  	font-size: 12pt;
-  	padding: 0;
-  }
   
-
   .heading-1 {
     font-size: 35px;
   }

@@ -1,0 +1,91 @@
+#portfolio-makeup, #transactions {
+	width: 100%;
+	text-align: left;
+	padding: 0 10%;
+	font-size: 16pt;
+	line-height: 30px;
+	font-weight: 100;
+}
+
+#portfolio-makeup span {
+	display: inline-block;
+}
+
+.portfolio-row {
+	cursor: pointer;
+}
+
+.portfolio-row:hover, .portfolio-row.expanded, .details {
+	background-color: #9DBDB8;
+}
+
+.portfolio-row-name {
+	width: 30%;
+	padding: 10px;
+}
+
+.portfolio-row-amount {
+	text-align: right;
+	width: 15%;
+	padding: 10px;
+}
+
+.portfolio-row-bar {
+	width: 50%;
+	padding-left: 20px;
+}
+
+#portfolio-makeup span.bar {
+	display: inline-block;
+	height: 10px;
+	position: relative;
+	overflow: hidden;
+	padding-right: 10px;
+	z-index: 900;
+}
+
+#portfolio-makeup span.bar.small {
+	height: 6px;
+	margin-bottom: 3px;
+}
+
+#portfolio-makeup span.portfolio-row-bar-perc {
+	padding-left: 10px;
+	display: inline-block;
+}
+
+@media ( max-width : 767px) {
+	#portfolio-makeup>.portfolio-row:first-child {
+		border-top: 1px #58595b solid;
+	}
+	#portfolio-makeup span {
+		display: inline-block;
+	}
+	.portfolio-row {
+		border-bottom: 1px #58595b solid;
+		display: block;
+	}
+	.portfolio-row-name {
+		width: 60%;
+	}
+	.portfolio-row-amount {
+		width: 35%;
+	}
+	.portfolio-row-bar {
+		width: 100%;
+		padding-left: 10px;
+	}
+	.portfolio-row-bar .portfolio-row-bar-perc {
+		float: right;
+		padding-right: 10px;
+		margin-right: 5%;
+		font-size: 0.8em;
+	}
+}
+
+@media ( max-width : 479px) {
+	#portfolio-makeup {
+		font-size: 12pt;
+		padding: 0;
+	}
+}

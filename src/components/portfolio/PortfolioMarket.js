@@ -3,6 +3,8 @@ import NumberFormat from '../NumberFormat.js';
 import { Palette, Markets } from '../Constants.js';
 import MarketTable from './MarketTable.js';
 
+import './PortfolioMarket.css';
+
 class PortfolioMarket extends Component {
 	
 	state = {}
