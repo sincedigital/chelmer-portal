@@ -123,8 +123,8 @@ class Dashboard extends Component {
 				stroke={stroke}
 			/>
 			<text x={30} y={210} textAnchor="left" fill={fill} style={{"fontSize": "16px"}}>{payload.name}</text>
-			<text x={30} y={230} textAnchor="left" fill="white" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
-			<text x={30} y={250} textAnchor="left" fill="white" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
+			<text x={30} y={230} textAnchor="left" fill="black" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
+			<text x={30} y={250} textAnchor="left" fill="black" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
 		</g>);
 	}
 	
