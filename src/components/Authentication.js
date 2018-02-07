@@ -19,8 +19,8 @@ const Authentication = {
 			});
 		},
 		clearAuthenticationState() {
-			sessionStorage.clearItem("chelmer-token");
-			sessionStorage.clearItem("chelmer-username");
+			sessionStorage.removeItem("chelmer-token");
+			sessionStorage.removeItem("chelmer-username");
 		},
 		checkAuthentication(success, failure) {
 			failure = failure || {};
