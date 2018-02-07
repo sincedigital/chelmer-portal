@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import windowSize from 'react-window-size';
 
 import Modal from '../Modal.js';
 import DataTable from '../DataTable.js';
 import NumberFormat from '../NumberFormat.js';
 import HoldingPerformance from './HoldingPerformance.js';
+
+import './MarketTable.css';
 
 class MarketTable extends Component {
 	
@@ -67,114 +70,135 @@ class MarketTable extends Component {
 		const relativeWidth = percentage / this.maxPercentage * 100;
 		const barColour = this.props.barColour;
 		
-		const thespan = (<div>{percentage.toFixed(2)}%<span className="bar" style={{"marginLeft": "10px", "backgroundColor": barColour, "width": relativeWidth+'%'}}></span></div>);
+		const thespan = (<div>{percentage.toFixed(2)}%<span className="bar small" style={{"marginLeft": "10px", "backgroundColor": barColour, "width": relativeWidth+'%'}}></span></div>);
 		
 		return thespan;
 	}
 	
 	render() {
+		
 		const part = this.props.data;
-				
+		
 		const data = part.holdings;
-		
-		const columns = [];
-		
-		//Name
-		columns.push({
-			header: "ASSET NAME",
-			sortable: true,
-			initialSorted: true,
-			displayFunction: holding => holding.name,
-			sorter: (a, b) => a.name.localeCompare(b.name),
-			style: {
-				width: "578px"
-			},
-			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<p>Details to be loaded from API</p>)});}
-		});
-	
-		//Current
-		columns.push({
-			header: "CURRENT (NZD)",
-			headerClassName: "dt-head-right",
-			sortable: true,
-			initialSorted: false,
-			displayFunction: holding => (<NumberFormat value={holding.value} places={2} prefix="$" />),
-			sorter: (a, b) => a.value - b.value,
-			style: {
-				width: "160px",
-				"textAlign": "right"
-			}
-		});
-			
-/*		//Performance
-		columns.push({
-			header: "PERFORMANCE",
-			headerClassName: "dt-head-right",
-			sortable: false,
-			initialSorted: false,
-			displayFunction: holding => (<HoldingPerformance holding={holding} performance={this.state.performance} />),
-			style: {
-				"width": "380px"
-			}
-		});*/
-		
-		columns.push({
-			header: "COST PRICE",
-			headerStyle: {
-				whiteSpace: "nowrap"
-			},
-			sortable: true,
-			initialSorted: false, 
-			displayFunction: holding => (<NumberFormat value={holding.costPrice} places={2} prefix="$" />),
-			sorter: (a, b) => a.costPrice - b.costPrice,
-			style: {
-				width: "100px",
-				"textAlign": "right"
-			},
-			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
-		});
 
-		columns.push({
-			header: "CURRENT PRICE",
-			headerStyle: {
-				whiteSpace: "nowrap"
-			},
-			sortable: true,
-			initialSorted: false, 
-			displayFunction: holding => this.showChange(holding.costPrice, holding.currentPrice),
-			sorter: (a, b) => a.currentPrice - b.currentPrice,
-			style: {
-				width: "100px",
-				"textAlign": "right"
-			},
-			clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
-		});
-			
-		//Percentage
-		columns.push({
-			header: "% OF PORTFOLIO",
-			sortable: true,
-			initialSorted: false,
-			displayFunction: holding => this.createBar(holding.value),
-			sorter: (a, b) => a.value - b.value,		//Sort is the same as above
-			style: {
-				width: "278px"
+		if (this.props.windowWidth <= 497) {
+			return (<div className="Funds">
+			{
+				data.map((holding, index)=>{
+					return (
+						<div className="Fund" key={index}>
+							<div className="FundName">{holding.name}</div>
+							<div className="FundValue"><NumberFormat value={holding.value} places={2} prefix="$" /></div>
+							<div className="FundBuy"><i className="fas fa-cart-plus"></i><NumberFormat value={holding.costPrice} places={2} prefix="$" /></div>
+							<div className="FundSell"><i className="fas fa-dollar-sign"></i>{this.showChange(holding.costPrice, holding.currentPrice)}</div>
+							<div style={{"clear": "both"}}></div>
+							<div className="FundPercentage">{this.createBar(holding.value)}</div>
+						</div>
+					);
+				})
 			}
-		});
+			</div>);
+		} else {
 			
-		return (
-			<div>
-			<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer" />	
-			{ this.state.details ? (<Modal shouldCloseOnOverlayClick={true} onRequestClose={() => this.setState({details : false})} showing={this.state.details} allowNavigation={true}>
-        	<h1 onClick={() => this.setState({details : false})}>{this.state.name}</h1>
-        	{this.state.modalContent}
-        	</Modal>) : null }
-					
+			const columns = [];
+			
+			//Name
+			columns.push({
+				header: "ASSET NAME",
+				sortable: true,
+				initialSorted: true,
+				displayFunction: holding => holding.name,
+				sorter: (a, b) => a.name.localeCompare(b.name),
+				style: {
+					width: "578px"
+				},
+				clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<p>Details to be loaded from API</p>)});}
+			});
+		
+			//Current
+			columns.push({
+				header: "CURRENT (NZD)",
+				headerClassName: "dt-head-right",
+				sortable: true,
+				initialSorted: false,
+				displayFunction: holding => (<NumberFormat value={holding.value} places={2} prefix="$" />),
+				sorter: (a, b) => a.value - b.value,
+				style: {
+					width: "160px",
+					"textAlign": "right"
+				}
+			});
 				
-			</div>
-	        
-		);
+	/*		//Performance
+			columns.push({
+				header: "PERFORMANCE",
+				headerClassName: "dt-head-right",
+				sortable: false,
+				initialSorted: false,
+				displayFunction: holding => (<HoldingPerformance holding={holding} performance={this.state.performance} />),
+				style: {
+					"width": "380px"
+				}
+			});*/
+			
+			columns.push({
+				header: "COST PRICE",
+				headerStyle: {
+					whiteSpace: "nowrap"
+				},
+				sortable: true,
+				initialSorted: false, 
+				displayFunction: holding => (<NumberFormat value={holding.costPrice} places={2} prefix="$" />),
+				sorter: (a, b) => a.costPrice - b.costPrice,
+				style: {
+					width: "100px",
+					"textAlign": "right"
+				},
+				clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
+			});
+	
+			columns.push({
+				header: "CURRENT PRICE",
+				headerStyle: {
+					whiteSpace: "nowrap"
+				},
+				sortable: true,
+				initialSorted: false, 
+				displayFunction: holding => this.showChange(holding.costPrice, holding.currentPrice),
+				sorter: (a, b) => a.currentPrice - b.currentPrice,
+				style: {
+					width: "100px",
+					"textAlign": "right"
+				},
+				clickFunction: holding => {this.setState({details: true, name: holding.name, modalContent: (<HoldingPerformance holding={holding} performance={this.state.performance} />)});}
+			});
+				
+			//Percentage
+			columns.push({
+				header: "% OF PORTFOLIO",
+				sortable: true,
+				initialSorted: false,
+				displayFunction: holding => this.createBar(holding.value),
+				sorter: (a, b) => a.value - b.value,		//Sort is the same as above
+				style: {
+					width: "278px"
+				}
+			});
+				
+			return (
+				<div>
+				<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer" />	
+				{ this.state.details ? (<Modal shouldCloseOnOverlayClick={true} onRequestClose={() => this.setState({details : false})} showing={this.state.details} allowNavigation={true}>
+	        	<h1 onClick={() => this.setState({details : false})}>{this.state.name}</h1>
+	        	{this.state.modalContent}
+	        	</Modal>) : null }
+						
+					
+				</div>
+		        
+			);
+		}
 	}
 }
 
-export default MarketTable;
+export default windowSize(MarketTable);
