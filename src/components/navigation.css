@@ -2,3 +2,50 @@
 	width: 30px;
 	height: 30px;
 }
+
+.nav-link {
+  display: inline-block;
+  margin-top: 3px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  color: #76777A;
+  cursor: pointer;
+}
+
+.nav-link span.icon {
+	text-align: center;
+	display: block;
+}
+
+.svg-icon {
+	stroke:#76777A;
+	fill: #EAEAE5;
+}
+.svg-icon.filled {
+	fill: #76777A;
+}
+
+.nav-link:hover .svg-icon, .nav-link.active .svg-icon  {
+	stroke: #96beba;
+}
+.nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled  {
+	fill: #96beba;
+}
+.svg-mask {
+	stroke: #EAEAE5;
+	fill: #EAEAE5; 
+}
+
+
+.nav-link:hover, .nav-link.active {
+ 
+	border-bottom: 3px solid #96beba;
+	color: #96beba;
+}

@@ -170,38 +170,6 @@ body {
 }
 
 
-.nav-link:hover .svg-icon, .nav-link.active .svg-icon  {
-	stroke: #96beba;
-}
-.nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled  {
-	fill: #96beba;
-}
-.svg-mask {
-	stroke: #13343b;
-	fill: #13343b; 
-}
-
-.nav-link {
-  display: inline-block;
-/*  height: 122%;*/
-  margin-top: 3px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 auto;
-  -ms-flex: 0 auto;
-  flex: 0 auto;
-  -webkit-transform: translate(0px, 0px);
-  -ms-transform: translate(0px, 0px);
-  transform: translate(0px, 0px);
-  color: #fff;
-  cursor: pointer;
-}
-
-.nav-link:hover, .nav-link.active {
-  border-bottom: 3px solid #96beba;
-  color: #96beba;
-}
 
 #dateHandler {
 	cursor: pointer;
@@ -309,10 +277,10 @@ body {
   float: right;
 }
 
-.body {
+/* .body {
   background-color: #13343b;
 }
-
+ */
 table#detailsTable {
 	padding-top: 30px;
 	width: 100%;
