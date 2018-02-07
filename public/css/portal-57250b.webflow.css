@@ -445,6 +445,11 @@ table#detailsTable.dataTable td {
   
 }
 
+#portfolio-makeup span.bar.small {
+	height: 6px;
+	margin-bottom: 3px;
+}
+
 #portfolio-makeup span.portfolio-row-bar-perc {
 	padding-left: 10px;
 	display: inline-block;

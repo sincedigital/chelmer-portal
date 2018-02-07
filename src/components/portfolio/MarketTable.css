@@ -1,0 +1,36 @@
+.Funds {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: #ccc;
+}
+.Fund {
+	font-size: 14px;
+	border-bottom: solid white 1px;
+}
+.FundName {
+	color: white;
+}
+.FundValue {
+	text-align: right;
+	font-size: 16px;
+	float: right;
+}
+.FundBuy, .FundSell {
+	display: inline-block;
+	float: left;
+	margin-right: 8px;
+}
+.FundBuy i, .FundSell i {
+	margin-right: 3px;
+}
+.FundSell div {
+	display: inline-block;
+}
+.FundPercentage {
+	width: 50%;
+}
+.Fund .bar {
+	float: left;
+	margin-right: 4px;
+	top: 12px;
+}
