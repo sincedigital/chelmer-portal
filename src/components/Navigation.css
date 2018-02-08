@@ -1,3 +1,9 @@
+/*
+
+	Turquoise: #3c7069
+	Blue: #13343b
+
+*/
 .navsvg {
 	width: 30px;
 	height: 30px;
@@ -25,20 +31,20 @@
 }
 
 .svg-icon {
-	stroke: #76777A;
+	stroke: #3c7069;
 	fill: #EAEAE5;
 }
 
 .svg-icon.filled {
-	fill: #76777A;
+	fill: #3c7069;
 }
 
 .nav-link:hover .svg-icon, .nav-link.active .svg-icon {
-	stroke: #96beba;
+	stroke: #13343b;
 }
 
 .nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled {
-	fill: #96beba;
+	fill: #13343b;
 }
 
 .svg-mask {
@@ -47,8 +53,8 @@
 }
 
 .nav-link:hover, .nav-link.active {
-	border-bottom: 3px solid #96beba;
-	color: #96beba;
+	border-bottom: 3px solid #13343b;
+	color: #13343b;
 }
 
 .nav {

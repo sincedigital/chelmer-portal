@@ -15,7 +15,8 @@ const Portfolios = [
 	
   ];
 
-const Palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641', '#9539e0'];
+//const Palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641', '#9539e0'];
+const Palette = ['#7cb3ac', '#58595b', '#a45d5d', '#5da470', '#a47b5d', '#8dc641'];
 	
 const GreenShades = ['#B2CFCC', '#A9C9C6', '#94C3C0', '#96BEBA', '#89ADAA', '#7B9C99', '#6E8B88', '#607977', '#526866'];
 

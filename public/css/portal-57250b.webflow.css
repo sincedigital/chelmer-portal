@@ -256,33 +256,6 @@ table#detailsTable.dataTable td {
 	padding-right: 5px;
 }
 
-.range-labels {
-  margin: 50px 0px;
-  padding: 0;
-  list-style: none;
-}
-.range-labels li {
-  color: #b2b2b2;
-   cursor: pointer;
-}
-.range-labels li::before {
-  position: absolute;
-  top: -25px;
-  right: 0;
-  left: 0;
-  content: "";
-  margin: 0 auto;
-  width: 9px;
-  height: 9px;
-  background: #b2b2b2;
-  border-radius: 50%;
-}
-.range-labels .active {
-  color: #37adbf;
-}
-.range-labels .selected::before {
-  background: #37adbf;
-}
 
 
 .utility-page-wrap {
@@ -430,38 +403,6 @@ table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
     padding: 8px 5% 8px 10px;
 }
 
-
-.react-calendar {
-	z-index: 1400;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	background-color: rgb(19, 52, 59) !important;
-}
-
-.react-calendar button {
-	color: #cccccc;
-}
-.react-calendar button:disabled {
-	background-color: rgb(19, 52, 59) !important;
-	color: #555555;
-}
-
-.react-calendar button.react-calendar__month-view__days__day--weekend:not([disabled]), .react-calendar__month-view__weekdays__weekday:not([disabled]) {
-	color: white;
-}
-.react-calendar button:hover {
-	background-color: rgb(40, 70, 76) !important;
-}
-button.react-calendar__tile--active:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]) {
-	background-color: rgb(40, 70, 76);
-}
-button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hover:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]):hover {
-	background-color: #346870 !important;
-}
-button.react-calendar__navigation__label {
-	background-color: rgb(19, 52, 59) !important;
-}
 @media (max-width: 991px) {
 	#dashboard {
 		width: 100%;

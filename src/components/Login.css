@@ -5,7 +5,6 @@ div#login {
   margin: 0;
   height: 100%;
 	
-  background: #13343b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,10 +14,10 @@ div#login {
 div#login form {
   background: white;
   width: 40%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 3px 3px 19px rgba(0, 0, 0, 0.4);
   position: relative;
   color: #333;
-  border-radius: 10px;
+  border-radius: 2px;
   margin-top: 50px;
 }
 @media (max-width: 767px) {
@@ -27,12 +26,12 @@ div#login form {
   }
 }
 div#login form header {
-  background: rgb(124,179,172);
+  background: #3c7069;
   padding: 30px 20px;
   color: white;
   font-size: 1.2em;
   font-weight: 600;
-  border-radius: 10px 10px 0 0;
+  border-radius: 2px 2px 0 0;
 }
 div#login form label {
   margin-left: 20px;
@@ -50,9 +49,9 @@ div#login form label span {
 }
 div#login form input {
   display: block;
-  width: 78%;
+  width: calc(100% - 50px);
   margin-left: 20px;
-  padding: 5px 20px;
+  padding: 5px 10px;
   font-size: 1em;
   border-radius: 3px;
   outline: none;
@@ -71,20 +70,19 @@ div#login form button {
   transform: translate(-50%, 0);
   font-family: inherit;
   color: white;
-  background: rgb(124,179,172);
+  background: #3c7069;;
   outline: none;
   border: none;
   padding: 5px 15px;
   font-size: 1.3em;
   font-weight: 400;
   border-radius: 3px;
-  box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   width: initial;
 }
 div#login form button:hover {
-  background: rgb(150,190,186);
+  background: #254743;
 }
 
 .alert-danger {
