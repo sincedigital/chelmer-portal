@@ -1,6 +1,30 @@
+.body {
+	background-color: #EAEAE5;
+	color: black;
+}
 .padding10l {
 	padding-left:10px;
 }
 .width100 {
 	width: 100%;
+}
+
+#loading span, #loading i {
+	position: absolute;
+  	top: 30%;
+  	left: 50%;
+ 	margin-top: -25px;
+  	margin-left: -25px;
+	color: rgb(124,179,172);
+}
+
+#loading {
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    left: 0px;
+ 	height: calc(100% - 100px);
+    background-color: rgba(234,234,229, 0.9);
+    color: rgb(124,179,172);
+    z-index: 999;
 }
