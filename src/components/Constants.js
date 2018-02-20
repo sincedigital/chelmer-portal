@@ -9,6 +9,7 @@ const Chelmer = {
 
 const Portfolios = [
 	{name: "Mr Michael Smith", portfolio: 990041720},
+	{name: "Mr Unknown Unknown", portfolio: 30987},
 	{name: "Ms Sherry Wang", portfolio: 990046340},
 	{name: "Mr William Boggs", portfolio: 990011110},
 	{name: "William & Nina Boggs", portfolio: 990026967}
@@ -26,7 +27,9 @@ const Markets = {
 		"NZSE":	"New Zealand Equities",
 		"ASX":	"Australian Equities",
 		"AUUT":	"Australian Unit Trusts",
-		"NZUT":	"New Zealand Unit Trusts"
+		"NZUT":	"New Zealand Unit Trusts",
+		"NYSE": "US Equities",
+		"LSE": "UK Equities"
 }
 
 export { Chelmer, Portfolios, Palette, GreenShades, Markets };

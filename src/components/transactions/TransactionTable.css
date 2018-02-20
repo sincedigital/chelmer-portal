@@ -1,0 +1,34 @@
+.Transactions {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: #3c7069;
+}
+.Transaction {
+	font-size: 14px;
+	border-bottom: solid white 1px;
+}
+.Transaction i {
+	margin-right: 3px;
+}
+.TransactionDate {
+	font-weight: 600;
+	float: left;
+}
+.TransactionAmount {
+	font-weight: 600;
+	float: right;
+}
+.TransactionAccount {
+	clear: both;
+	text-align: left;
+}
+.TransactionType, .TransactionStatus, .TransactionUnitCost {
+	display: inline-block;
+	float: left;
+	margin-right: 5px;
+}
+.Transaction::after {
+	clear: both;
+	content: "";
+	display: table;
+}

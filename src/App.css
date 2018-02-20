@@ -28,3 +28,10 @@
     color: rgb(124,179,172);
     z-index: 999;
 }
+
+@media ( max-width : 712px) {
+	#loading {
+	    top: 50px;
+	 	height: calc(100% - 50px);
+	}
+}

@@ -16,7 +16,11 @@ import DateFilters from './components/DateFilters.js';
 import NoTransactions from './components/transactions/NoTransactions.js';
 import TransactionTable from './components/transactions/TransactionTable.js';
 
+import Select from 'react-select';
+import './components/react-select.css';
+
 import './App.css';
+import './TransactionsPage.css';
 
 class TransactionsPage extends Component {
 
@@ -25,7 +29,10 @@ class TransactionsPage extends Component {
 			timeout: false,
 			loginRequired: false,
 			showDates: false,
-			transactions: []
+			transactions: [],
+			filteredTransactions: [],
+			accounts: [],
+			selectedAccounts: []
 	};
 	
 	constructor(props) {
@@ -41,6 +48,7 @@ class TransactionsPage extends Component {
 		this.toRelativeDate = this.toRelativeDate.bind(this);
 		this.toDate = this.toDate.bind(this);
 		this.toggleDates = this.toggleDates.bind(this);
+		this.filterTransactions = this.filterTransactions.bind(this);
 		
 		this.toDateRange(this.state.startDate, this.state.endDate, true);
 	}
@@ -68,7 +76,55 @@ class TransactionsPage extends Component {
 	
 	acceptTransactions(data) {
 		console.log(data);
-		this.setState({"transactions": data.data, "loading": false, "timeout": false});
+		
+		//Update the accounts list
+		const accounts = new Set();
+		data.data.map((transaction,index)=>{
+			accounts.add(transaction.asset.name);
+			return null;
+		});
+		const accountList = [];
+		accounts.forEach(a=>accountList.push(a));
+		accountList.sort();
+
+		const transactions = data.data;
+		transactions.sort((a, b) => b.tradeDate.localeCompare(a.tradeDate));
+
+		this.setState({"transactions": transactions, "loading": false, "timeout": false, "accounts": accountList, "filteredTransactions": this.applyFilter({transactions: transactions})});
+	}
+	
+	applyFilter(data) {
+		const transactions = data.transactions || this.state.transactions;
+		const selectedAccounts = data.selectedAccounts === undefined ? this.state.selectedAccounts : data.selectedAccounts;
+		const { accounts } = this.state;
+
+		if (!selectedAccounts || selectedAccounts.length === 0) {
+			return transactions;
+		}
+
+		const filtered = [];
+		
+		
+		const accountSet = new Set();
+		
+		//Create a set of account names
+		selectedAccounts.split(",").map((idx, index)=>{
+			accountSet.add(accounts[idx]);
+			return null;
+		});
+		
+		console.log("Accounts by name:");
+		console.log(accountSet);
+		
+		transactions.map((trans,index)=>{
+			if (accountSet.has(trans.asset.name)) {
+				filtered.push(trans);
+			}
+			return null;
+		});
+		
+		console.log(filtered);
+		return filtered;
 	}
 	
 	toRelativeDate(months) {
@@ -86,11 +142,25 @@ class TransactionsPage extends Component {
 		this.setState({"showDates": !this.state.showDates});
 	}
 	
+	filterTransactions(selectedAccounts) {
+		this.setState({"selectedAccounts": selectedAccounts, "filteredTransactions": this.applyFilter({selectedAccounts: selectedAccounts})});
+	}
+	
 	render() {
 		  if (this.state.loginRequired) {
 			  return (<Redirect to={this.props.match.url} />);
 		  }
-
+		  
+		  const options = [];
+		  this.state.accounts.map((acct,index)=>{
+			 options.push({label: acct, value: index});
+			 return null;
+		  });
+		  
+		  console.log("At render:");
+		  console.log(this.state.filteredTransactions);
+		  
+		  
 	    return (
 	      <div className="App">
 	        <Navigation url={this.props.match.url} />
@@ -102,8 +172,19 @@ class TransactionsPage extends Component {
 	                <div className="text-block">NZD</div>
 	              </div>
 	              <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat fullMonthName={true} date={this.state.startDate} /> - <DateFormat fullMonthName={true} date={this.state.endDate} /></span> <i id="dateHandler" className="far fa-calendar-alt padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
+	              { this.state.transactions.length === 0 ? "" : <Select
+	              	closeOnSelect={false}
+	              	multi
+	              	rtl={false}
+	              	onChange={this.filterTransactions}
+	                options={options}
+	                placeholder="All Accounts"
+	                value={this.state.selectedAccounts}
+	              	simpleValue
+	              	removeSelected={false}
+	                /> }
 	              <DateFilters showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View transactions for" />
-	              { this.state.transactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.transactions} />}
+	              { this.state.filteredTransactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.filteredTransactions} />}
 	            </div>
 	          </div>
 	        </div>

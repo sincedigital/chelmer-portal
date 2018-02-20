@@ -38,6 +38,11 @@ class DataTable extends Component {
 		this.state.data = this.props.data;
 		this.setSorting = this.setSorting.bind(this);
 	}
+	
+	componentWillReceiveProps(props) {
+		this.setState({"data": props.data});
+	}
+
 
 	setSorting(index) {
 		const column = this.props.columns[index];
@@ -64,7 +69,7 @@ class DataTable extends Component {
 			<thead>
 				<tr role="row">
 					{ this.props.columns.map((column, index) => {
-						return (<th className={ column.headerClassName + (column.sortable ? (" " + (column.initialSorted ? (column.sortForward ? "sorting_asc" : "sorting_desc") : "sorting")) : "")} style={column.headerStyle} key={column.header} onClick={ column.sortable ? (e)=>this.setSorting(index) : null}>{column.header}</th>);
+						return (<th className={ (column.headerClassName||'') + (column.sortable ? (" " + (column.initialSorted ? (column.sortForward ? "sorting_asc" : "sorting_desc") : "sorting")) : "")} style={column.headerStyle} key={column.header} onClick={ column.sortable ? (e)=>this.setSorting(index) : null}>{column.header}</th>);
 					})}
 				</tr>
 			</thead>
