@@ -208,6 +208,7 @@ class Dashboard extends Component {
 	        		</div>
             	</div>
             	</div>
+            	<div id="right">
             	<div id="assetgraph">
             		<PieChart width={400} height={300}>
             			<Pie data={pieData} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
@@ -220,8 +221,9 @@ class Dashboard extends Component {
 	        					<Cell key={"ocell-" + index} fill={entry.colour} />
 	        				))}
 	        			</Pie>
-        				<Legend layout="vertical" align="right" verticalAlign="top"/>
+        				<Legend layout="vertical" align="right" verticalAlign="top" wrapperStyle={{"top": "15px"}}/>
             		</PieChart>
+            	</div>
             	</div>
             </div>
          </div>

@@ -3,7 +3,16 @@
 	float: left;
 	padding-left: 10px;
 }
-
+@media ( max-width : 712px) {
+	#dashboard>div {
+		margin-bottom: 20px;
+		clear: both;
+		width: 100%;
+	}
+}
+#dashboard>div>div {
+	margin: 0 auto;
+}
 #networth {
 	width: 300px;
 }

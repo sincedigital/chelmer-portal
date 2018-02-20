@@ -40,7 +40,7 @@ class Navigation extends Component {
 			<div data-collapse="small" data-animation="default" data-duration="400" className={navClass}>
 			    <div className="nav-container w-container">
 			      <nav className="nav-menu w-clearfix w-nav-menu">
-			      <img alt="" src="images/logo_dark_220x90.png" className="w-hidden-tiny "/>
+			      <img alt="" src="images/logo_dark_220x90.png" className="nav-logo"/>
 			      <div className="nav-links">
 			      
 			      <Link to="/dashboard" className={ dashClass } ><span className="icon">

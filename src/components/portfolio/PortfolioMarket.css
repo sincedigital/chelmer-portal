@@ -54,7 +54,7 @@
 	display: inline-block;
 }
 
-@media ( max-width : 767px) {
+@media ( max-width : 860px) {
 	#portfolio-makeup>.portfolio-row:first-child {
 		border-top: 1px #58595b solid;
 	}

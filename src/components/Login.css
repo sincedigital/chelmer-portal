@@ -20,10 +20,12 @@ div#login form {
   border-radius: 2px;
   margin-top: 50px;
 }
-@media (max-width: 767px) {
+@media (max-width: 860px) {
   div#login form {
   	width: 80%;
+  	margin-top: 15px;
   }
+  
 }
 div#login form header {
   background: #3c7069;
@@ -61,6 +63,9 @@ div#login form .help {
   margin-left: 20px;
   font-size: 0.8em;
   color: #777;
+  width: calc(100% - 50px);
+  line-height: 15px;
+  margin-top: 6px;
 }
 div#login form button {
   position: relative;

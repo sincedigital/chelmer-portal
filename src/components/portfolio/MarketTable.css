@@ -1,14 +1,14 @@
 .Funds {
 	margin-left: 20px;
 	margin-right: 20px;
-	color: #ccc;
+	color: #3c7069;
 }
 .Fund {
 	font-size: 14px;
 	border-bottom: solid white 1px;
 }
 .FundName {
-	color: white;
+	color: rgb(19, 52, 59);
 }
 .FundValue {
 	text-align: right;

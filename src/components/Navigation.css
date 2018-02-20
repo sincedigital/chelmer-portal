@@ -116,7 +116,7 @@ a.w-nav-link {
 	}
 }
 
-@media ( max-width : 767px) {
+@media ( max-width : 860px) {
 	.navbar {
 		display: inline-block;
 		width: 100%;
@@ -132,9 +132,12 @@ a.w-nav-link {
 		float: none;
 		font-size: 12px;
 	}
+	.nav-container{
+		width: 100%;
+	}
 }
 
-@media ( max-width : 479px) {
+@media ( max-width : 712px) {
 	div.nav-links {
 		padding: 0;
 		width: 100%;
@@ -143,6 +146,9 @@ a.w-nav-link {
 	.nav {
 		display: none;
 		height: inherit;
+	}
+	.nav-logo {
+		display: none;
 	}
 	.nav.Showing {
 		display: block;

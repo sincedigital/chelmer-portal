@@ -47,13 +47,13 @@ class MarketTable extends Component {
 		var iconClass;
 		var color;
 		if (currentPrice >= costPrice) {
-			iconClass = "fas fa-level-up-alt";
+			iconClass = "fas fa-play fa-rotate-270";
 			color = "green";
 		} else {
-			iconClass = "fas fa-level-down-alt";
+			iconClass = "fas fa-play fa-rotate-90";
 			color = "red";
 		}
-		return (<div><NumberFormat value={currentPrice} places={2} prefix="$" />&nbsp;<i style={{color: color}} className={iconClass}></i></div>);
+		return (<div><NumberFormat value={currentPrice} places={2} prefix="$" />&nbsp;<i style={{color: color, fontSize: "10px"}} className={iconClass}></i></div>);
 	}
 	
 	calculatePercentage(amount) {
@@ -81,7 +81,7 @@ class MarketTable extends Component {
 		
 		const data = part.holdings;
 
-		if (this.props.windowWidth <= 497) {
+		if (this.props.windowWidth <= 712) {
 			return (<div className="Funds">
 			{
 				data.map((holding, index)=>{
@@ -89,7 +89,7 @@ class MarketTable extends Component {
 						<div className="Fund" key={index}>
 							<div className="FundName">{holding.name}</div>
 							<div className="FundValue"><NumberFormat value={holding.value} places={2} prefix="$" /></div>
-							<div className="FundBuy"><i className="fas fa-cart-plus"></i><NumberFormat value={holding.costPrice} places={2} prefix="$" /></div>
+							<div className="FundBuy"><i className="fas fa-tags"></i><NumberFormat value={holding.costPrice} places={2} prefix="$" /></div>
 							<div className="FundSell"><i className="fas fa-dollar-sign"></i>{this.showChange(holding.costPrice, holding.currentPrice)}</div>
 							<div style={{"clear": "both"}}></div>
 							<div className="FundPercentage">{this.createBar(holding.value)}</div>
@@ -187,7 +187,7 @@ class MarketTable extends Component {
 				
 			return (
 				<div>
-				<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer" />	
+				<DataTable id="detailsTable" data={data} columns={columns} className="dataTable no-footer light" />	
 				{ this.state.details ? (<Modal shouldCloseOnOverlayClick={true} onRequestClose={() => this.setState({details : false})} showing={this.state.details} allowNavigation={true}>
 	        	<h1 onClick={() => this.setState({details : false})}>{this.state.name}</h1>
 	        	{this.state.modalContent}

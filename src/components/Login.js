@@ -55,10 +55,10 @@ class LoginPage extends Component {
     			{this.state.failedLogin && <div className="alert alert-danger" role="alert">
 	  			  Invalid username or password. Please try again.
 	  			</div>}
-    			<label>Username <span>*</span></label>
+    			<label>Username</label>
     			<input type="text" name="username" id="loginUsername" onChange={(e)=>this.setState({"name": e.target.value})} />
     			<div className="help">Use your Chelmer Fusion username</div>
-    			<label>Password <span>*</span></label>
+    			<label>Password</label>
     			<input type="password" name="password" id="loginPassword" onChange={(e)=>this.setState({"pwd": e.target.value})} />
     			<div className="help">Use the password supplied to authenticate to the Fusion portal</div>
     			<button type="submit" id="loginSubmit">{this.state.buttonText}</button> 
