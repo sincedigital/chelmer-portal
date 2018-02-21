@@ -6,7 +6,8 @@ const Chelmer = {
 	transactions: "/api/v1/aggregation/transactions",
 	performance: "/api/v1/reporting/performance/PRReturnByAsset"
 }
-
+ 
+/*
 const Portfolios = [
 	{name: "Mr Michael Smith", portfolio: 990041720},
 	{name: "Mr Unknown Unknown", portfolio: 30987},
@@ -15,6 +16,7 @@ const Portfolios = [
 	{name: "William & Nina Boggs", portfolio: 990026967}
 	
   ];
+*/
 
 //const Palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641', '#9539e0'];
 const Palette = ['#7cb3ac', '#58595b', '#a45d5d', '#5da470', '#a47b5d', '#8dc641'];
@@ -32,4 +34,4 @@ const Markets = {
 		"LSE": "UK Equities"
 }
 
-export { Chelmer, Portfolios, Palette, GreenShades, Markets };
+export { Chelmer, Palette, GreenShades, Markets };

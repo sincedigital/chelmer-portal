@@ -57,6 +57,9 @@ const Authentication = {
 		},
 		getLoginName() {
 			return sessionStorage.getItem("chelmer-username");
+		},
+		logout() {
+			sessionStorage.clear();
 		}
 };
 
