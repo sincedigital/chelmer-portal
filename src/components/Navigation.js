@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Authentication from './Authentication.js';
 import './Navigation.css';
 
 class Navigation extends Component {
 	
-	state = {}
+	state = {
+	}
 	
 	constructor(props) {
 		super(props);
 		
 		this.toggleMobileNav = this.toggleMobileNav.bind(this);
+		this.logout = this.logout.bind(this);
 	}
 	
 	toggleMobileNav() {
 		this.setState({"mobileShowing": !this.state.mobileShowing});
+	}
+	
+	logout(e) {
+		Authentication.logout();
+
+		//Force a redraw
+		this.setState({"logout": true});
 	}
 	
 	render() {
@@ -26,6 +36,7 @@ class Navigation extends Component {
 		const trnsClass = basicClass + (url === '/transactions' ? ' active' : '');
 		const docsClass = basicClass + (url === '/documents' ? ' active' : '');
 		const settClass = basicClass + (url === '/settings' ? ' active' : '');
+		const userClass = basicClass;
 		
 		var navClass = "nav";
 		if (this.state.mobileShowing) {
@@ -35,6 +46,7 @@ class Navigation extends Component {
 		return (
 				<div>
 			<div id="MobileNav">
+				<img src="images/logo_dark_81x25.png" className="nav-logo-mobile" />
 				<i className="fas fa-bars" onClick={this.toggleMobileNav}></i>
 			</div>
 			<div data-collapse="small" data-animation="default" data-duration="400" className={navClass}>
@@ -87,7 +99,18 @@ class Navigation extends Component {
 			</svg>
 			      </span>
 			      
-			      SETTINGS</Link>
+			      SWITCH</Link>
+			      <Link to="/login" onClick={this.logout} className={userClass}><span className="icon">
+			      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="navsvg">
+			 <g>
+			  <path className="svg-icon filled" strokeWidth="0" style={{stroke: "none"}} d="M 18.298225,0.36220423 A 18.297447,18.297688 0 0 0 8.6034246e-8,18.65921 18.297447,18.297688 0 0 0 18.298225,36.958654 18.297447,18.297688 0 0 0 36.596449,18.65921 18.297447,18.297688 0 0 0 18.298225,0.36220423 Z m 0.118708,6.37510137 a 8.3212292,8.2415919 0 0 1 8.321594,8.2394884 8.3212292,8.2415919 0 0 1 -8.321594,8.241927 8.3212292,8.2415919 0 0 1 -8.321596,-8.241927 8.3212292,8.2415919 0 0 1 8.321596,-8.2394884 z M 11.394051,23.159896 c 1.99192,1.713391 4.527032,2.570155 7.022882,2.572594 2.452131,0 5.04644,-0.821116 6.904116,-2.513769 0.242736,-0.01355 2.478664,0.585679 2.478664,0.585679 1.919597,0.511401 3.385048,2.099009 3.717996,4.150308 -2.977768,4.035369 -7.790712,6.607557 -13.160159,6.661638 -5.351931,-0.03388 -10.0766482,-2.587504 -13.1007769,-6.661638 0.3099322,-1.97797 1.8229615,-3.698681 3.7773914,-4.150308 0,0 2.1199515,-0.627968 2.3598865,-0.644504 z" />
+			 </g>
+			</svg>
+			      </span>
+			      LOGOUT</Link>
+			      
+			      
+			          
 			      </div>
 			      <div className="userlist">
 			      <ul>

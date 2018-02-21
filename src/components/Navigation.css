@@ -178,16 +178,31 @@ a.w-nav-link {
 	}
 	#MobileNav {
 		display: block;
-		text-align: right;
-		margin: 4px 10px 4px 0;
+		width: 100%;
 		font-size: 20px;
 	}
+	#MobileNav::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
 	#MobileNav i {
+		margin: 10px 20px 4px 0;
 		cursor: pointer;
+		float: right;
+	}
+	#MobileNav img {
+		margin-top: 10px;
 	}
 	.nav-link span.icon {
 		text-align: left;
 		float: left;
 		margin-right: 16px;
+	}
+	.main-content-section {
+		margin-top: 0px;
+	}
+	.main-content {
+		padding: 10px 0;
 	}
 }
