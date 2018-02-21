@@ -9,7 +9,7 @@ import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
-import { Portfolios, Palette, Markets } from './components/Constants.js';
+import { Palette, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
 
 import './Dashboard.css';
@@ -36,27 +36,37 @@ class Dashboard extends Component {
 		this.acceptYTDPerformance = this.acceptYTDPerformance.bind(this);
 		this.activateSegment = this.activateSegment.bind(this);
 		this.drawHighlight = this.drawHighlight.bind(this);
+		this.loadPerformance = this.loadPerformance.bind(this);
 		
 		this.load();
 	}
 
 	load() {
-		const now = new Date();
-		
 		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
-			ToAPIDate(now),
+			ToAPIDate(new Date()),
 			this.acceptPortfolio,
 			()=>{this.setState({loginRequired: true})},
 			()=>{this.setState({"timeout": true})}
 		);
 		
+		const portfolio = Remote.getCurrentPortfolio();
+		if (portfolio) {
+			this.loadPerformance;
+		} else {
+			//Non-UI
+			this.state.performanceLoadRequested = false;
+		}
+	}
+	
+	loadPerformance() {
+		//Non-UI
+		this.state.performanceLoadRequested = true;
+		
+		const now = new Date();
 		const month = new Date();
 		month.setDate(1);
-		
+
 		Remote.getPerformance(
-			Portfolios[0].portfolio, 
 			ToAPIDate(month),
 			ToAPIDate(now),
 			this.acceptMTDPerformance,
@@ -69,19 +79,18 @@ class Dashboard extends Component {
 		year.setDate(1);
 		
 		Remote.getPerformance(
-			Portfolios[0].portfolio, 
 			ToAPIDate(year),
 			ToAPIDate(now),
 			this.acceptYTDPerformance,
 			()=>{this.setState({loginRequired: true})},
 			()=>{this.setState({"timeout": true})}
 		);
-
-		
 	}
 	
 	acceptPortfolio(data) {
 		this.setState({"portfolio": PortfolioFromHoldings(data), "loading": false, "timeout": false});
+		if (!this.state.performanceLoadRequested) 
+			this.loadPerformance();
 	}
 
 	acceptMTDPerformance(data) {
