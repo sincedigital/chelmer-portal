@@ -19,8 +19,6 @@ class DocumentsPage extends Component {
 		super(props);
 		
 		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
 			new Date().toISOString().substring(0, 10),
 			this.acceptPortfolio.bind(this),
 			()=>{this.setState({loginRequired: true})}

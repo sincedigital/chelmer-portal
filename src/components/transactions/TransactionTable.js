@@ -21,6 +21,13 @@ class TransactionTable extends Component {
 		this.setState({"transactions": props.transactions});
 	}
 
+	unicodeCheck(str) {
+		return str.replace(/\\u(\w\w\w\w)/g,function(a,b) {
+		    var charcode = parseInt(b,16);
+		    return String.fromCharCode(charcode);
+		  });
+	}
+	
 	render() {
 		if (this.props.windowWidth <= 712) {
 			return (<div className="Transactions">
@@ -49,7 +56,9 @@ class TransactionTable extends Component {
 			style: {
 				width: "678px"
 			},
-			clickFunction: transaction => console.log(transaction.asset.name)
+			className: transaction => transaction.documents.length > 0 ? "WithDocument" : "",
+			clickActive: transaction => transaction.documents.length > 0,
+			clickFunction: transaction => window.open(transaction.documents[0].path)
 		});
 	
 		//Type
@@ -108,7 +117,7 @@ class TransactionTable extends Component {
 			headerClassName: "dt-head-right",
 			sortable: true,
 			initialSorted: false,
-			displayFunction: transaction => transaction.currency.symbol + transaction.price,
+			displayFunction: transaction => this.unicodeCheck(transaction.currency.symbol) + transaction.price,
 			sorter: (a, b) => a.price - b.price,
 			style: {
 				width: "80px",
@@ -122,7 +131,7 @@ class TransactionTable extends Component {
 			headerClassName: "dt-head-right",
 			sortable: true,
 			initialSorted: false,
-			displayFunction: transaction => NumberFormat({"value": transaction.trnAmount, "places": 2, "prefix": transaction.currency.symbol}),
+			displayFunction: transaction => NumberFormat({"value": transaction.trnAmount, "places": 2, "prefix": this.unicodeCheck(transaction.currency.symbol)}),
 			sorter: (a, b) => a.trnAmount - b.trnAmount,		//Sort is the same as above
 			style: {
 				width: "108px",
