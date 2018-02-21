@@ -9,7 +9,6 @@ import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
-import { Portfolios } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
 import PortfolioMarket from './components/portfolio/PortfolioMarket.js';
 import DateFilters from './components/DateFilters.js';
@@ -46,8 +45,6 @@ class PortfolioPage extends Component {
 			this.setState({"loading": true, "showDates": false});
 		}
 		Remote.getHoldings(
-			//TODO make portfolio adjustable
-			Portfolios[0].portfolio, 
 			ToAPIDate(date),
 			this.acceptPortfolio,
 			()=>{this.setState({loginRequired: true})},
@@ -95,7 +92,6 @@ class PortfolioPage extends Component {
 		const end = ToAPIDate(endDate);
 		
 		Remote.getPerformance(
-				Portfolios[0].portfolio, 
 				start,
 				end,
 				(data)=>{this.storePerformance(data, label);},

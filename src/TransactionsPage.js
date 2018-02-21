@@ -9,7 +9,6 @@ import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';
 import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
-import { Portfolios } from './components/Constants.js';
 
 import DateFilters from './components/DateFilters.js';
 
@@ -65,7 +64,6 @@ class TransactionsPage extends Component {
 		}
 		
 		Remote.getTransactions(
-			Portfolios[0].portfolio, 
 			start.toISOString().substring(0, 10),
 			end.toISOString().substring(0, 10),
 			this.acceptTransactions,
@@ -156,9 +154,6 @@ class TransactionsPage extends Component {
 			 options.push({label: acct, value: index});
 			 return null;
 		  });
-		  
-		  console.log("At render:");
-		  console.log(this.state.filteredTransactions);
 		  
 		  
 	    return (
