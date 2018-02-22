@@ -1,0 +1,24 @@
+ul.PortfolioTabs {
+	border-bottom: solid 1px #3c7069;
+	margin: 0 0 10px;
+	padding: 0;
+	width: 60%;
+	min-width: 900px;
+}
+ul.PortfolioTabs li {
+	float: left;
+	display: inline-block;
+	border: solid 1px rgba(255,255,255,0);
+	border-bottom: none;
+	bottom: -1px;
+	position: relative;
+	list-style: none;
+	padding: 6px 12px;
+	cursor: pointer;
+}
+ul.PortfolioTabs li.Selected {
+	border-color: #3c7069;
+	border-radius: 5px 5px 0 0;
+	background-color: rgb(234, 234, 229);
+}
+

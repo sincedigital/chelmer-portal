@@ -7,6 +7,7 @@ import NumberFormat from './components/NumberFormat.js';
 import Modal from './components/Modal.js';
 import Navigation from './components/Navigation.js';
 import Loading from './components/Loading.js';
+import PortfolioTabs from './components/PortfolioTabs.js';
 import Footer from './components/Footer.js';
 import Remote from './components/Remote.js';
 import { Palette, Markets } from './components/Constants.js';
@@ -199,6 +200,7 @@ class Dashboard extends Component {
             		</div>
             	</div>
             </div>
+            <PortfolioTabs />
             <div id="dashboard">
             	<div id="left">
             	<div id="networth">
