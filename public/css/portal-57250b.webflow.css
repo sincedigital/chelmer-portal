@@ -249,7 +249,6 @@ table#detailsTable.dataTable tbody tr {
 }
 table#detailsTable.dataTable th {
 	font-size: 12pt;
-	padding-right: 5px;
 }
 table#detailsTable.dataTable td {
 	padding-right: 5px;
@@ -398,9 +397,6 @@ div.row-negative div.row-amount, div.row-negative div.row-percent {
   	font-size: 0.8em;
   }
 	
-table#detailsTable.dataTable thead th, table#detailsTable.dataTable thead td {
-    padding: 8px 5% 8px 10px;
-}
 
 @media (max-width: 991px) {
 	#dashboard {
