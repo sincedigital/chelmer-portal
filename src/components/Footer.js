@@ -8,7 +8,7 @@ const Footer = (props) => {
 		  </div>
 		  <div className="footer-bottom">
 		    <div className="footer-bottom-wrap">
-		      <div className="legal w-hidden-small w-hidden-tiny">© 2018 Since Digital. All Rights Reserved.</div>
+		      <div className="legal w-hidden-small w-hidden-tiny">© 2018 SinceDigital. All Rights Reserved.</div>
 		    </div>
 		  </div>
 		  <div className="w-embed">
