@@ -173,7 +173,7 @@ class TransactionsPage extends Component {
 	              	rtl={false}
 	              	onChange={this.filterTransactions}
 	                options={options}
-	                placeholder="All Accounts"
+	                placeholder="Filter by instrument"
 	                value={this.state.selectedAccounts}
 	              	simpleValue
 	              	removeSelected={false}
