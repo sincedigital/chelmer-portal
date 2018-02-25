@@ -118,7 +118,7 @@ class MarketTable extends Component {
 			//Current
 			columns.push({
 				header: "CURRENT (NZD)",
-				headerClassName: "dt-head-right",
+				headerClassName: "dt-head-right dt-nowrap",
 				sortable: true,
 				initialSorted: false,
 				displayFunction: holding => (<NumberFormat value={holding.value} places={2} prefix="$" />),
@@ -143,9 +143,7 @@ class MarketTable extends Component {
 			
 			columns.push({
 				header: "COST PRICE",
-				headerStyle: {
-					whiteSpace: "nowrap"
-				},
+				headerClassName: "dt-head-right dt-nowrap",
 				sortable: true,
 				initialSorted: false, 
 				displayFunction: holding => (<NumberFormat value={holding.costPrice} places={2} prefix="$" />),
@@ -159,9 +157,7 @@ class MarketTable extends Component {
 	
 			columns.push({
 				header: "CURRENT PRICE",
-				headerStyle: {
-					whiteSpace: "nowrap"
-				},
+				headerClassName: "dt-head-right dt-nowrap",
 				sortable: true,
 				initialSorted: false, 
 				displayFunction: holding => this.showChange(holding.costPrice, holding.currentPrice),

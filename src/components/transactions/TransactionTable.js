@@ -114,7 +114,7 @@ class TransactionTable extends Component {
 		//Price
 		columns.push({
 			header: "UNIT PRICE",
-			headerClassName: "dt-head-right",
+			headerClassName: "dt-head-right dt-nowrap",
 			sortable: true,
 			initialSorted: false,
 			displayFunction: transaction => this.unicodeCheck(transaction.currency.symbol) + transaction.price,
