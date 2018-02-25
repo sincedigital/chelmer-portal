@@ -1,9 +1,19 @@
+.PortfolioTabsOuter {
+	width: 60%;
+	min-width: 900px;
+	
+}
+.PortfolioTabsContainer {
+	width: 100%;
+	overflow: scroll;
+}
 ul.PortfolioTabs {
 	border-bottom: solid 1px #3c7069;
 	margin: 0 0 10px;
 	padding: 0;
-	width: 60%;
-	min-width: 900px;
+	min-width: 100%;
+	white-space: nowrap;
+	position: relative;
 }
 ul.PortfolioTabs li {
 	float: left;
@@ -15,10 +25,25 @@ ul.PortfolioTabs li {
 	list-style: none;
 	padding: 6px 12px;
 	cursor: pointer;
+	white-space: nowrap;
 }
 ul.PortfolioTabs li.Selected {
 	border-color: #3c7069;
 	border-radius: 5px 5px 0 0;
 	background-color: rgb(234, 234, 229);
 }
-
+ul.PortfolioTabs::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+@media ( max-width : 712px) {
+	.PortfolioTabsOuter {
+		width: calc(100% - 80px);
+		min-width: 0;
+		margin: 0 40px 20px 20px;
+	}
+	ul.PortfolioTabs {
+		
+	}
+}
