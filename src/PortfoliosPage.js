@@ -124,7 +124,7 @@ class PortfolioPage extends Component {
                 <div className="text-block">NZD</div>
               </div>
               <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat date={this.state.portfolio.date} fullMonthName={true}/></span> <i id="dateHandler" className="far fa-calendar-alt padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
-              <DateFilters header="View portfolio as at ..." showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} relativeSuffix=" ago" showCurrent={true}/>
+              <DateFilters header="View portfolio as at ..." includeToday={true} showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} relativeSuffix=" ago" showCurrent={true}/>
             </div>
           </div>
           <div id="portfolio-makeup">

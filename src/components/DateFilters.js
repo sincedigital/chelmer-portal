@@ -18,18 +18,23 @@ const DateFilters = (props) => {
 		<div className={outerClassName}>
 		<div className="Dates">
 		<div className="DatesContainer">
+		<div className="DatesCalendar">
+		<h1>{props.selectHeader || 'Or select date'}</h1>
 		<div className="calendar-outer">
 		<Calendar value={props.range ? null : (props.selectedDate || new Date())} locale="en-NZ" maxDate={new Date()} nextLabel={nextIcon} next2Label={next2Icon} prevLabel={prevIcon} prev2Label={prev2Icon} onChange={props.onAbsolute} selectRange={props.range} returnValue={props.range ? "range" : "start"} /></div>
+        </div>
+        </div>
+        <div className="DatesQuickPick">
 		<h1>{props.header || 'Select Date'}</h1>
 		<ul className="range-labels">
-        <li onClick={(e)=>props.onRelative(1)}>{props.relativePrefix}1 month{props.relativeSuffix}</li>
+		{ props.includeToday ? (<li onClick={(e)=>props.onRelative(0)}>Today</li>) : "" }
+		<li onClick={(e)=>props.onRelative(1)}>{props.relativePrefix}1 month{props.relativeSuffix}</li>
         <li onClick={(e)=>props.onRelative(3)}>{props.relativePrefix}3 months{props.relativeSuffix}</li>
         <li onClick={(e)=>props.onRelative(6)}>{props.relativePrefix}6 months{props.relativeSuffix}</li>
         <li onClick={(e)=>props.onRelative(12)}>{props.relativePrefix}1 year{props.relativeSuffix}</li>
         <li onClick={(e)=>props.onRelative(24)}>{props.relativePrefix}2 years{props.relativeSuffix}</li>
         <li onClick={(e)=>props.onRelative(36)}>{props.relativePrefix}3 years{props.relativeSuffix}</li>
         <li onClick={(e)=>props.onRelative(60)}>{props.relativePrefix}5 years{props.relativeSuffix}</li>
-        { props.includeCurrent ? (<li onClick={(e)=>props.onRelative(0)}>{props.relativePrefix}Current</li>) : null }
       </ul>
       </div>
       </div>
