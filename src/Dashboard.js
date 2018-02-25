@@ -72,7 +72,7 @@ class Dashboard extends Component {
 			ToAPIDate(now),
 			this.acceptMTDPerformance,
 			()=>{this.setState({loginRequired: true})},
-			()=>{this.setState({"timeout": true})}
+			()=>{}
 		);
 		
 		const year = new Date();
@@ -84,7 +84,7 @@ class Dashboard extends Component {
 			ToAPIDate(now),
 			this.acceptYTDPerformance,
 			()=>{this.setState({loginRequired: true})},
-			()=>{this.setState({"timeout": true})}
+			()=>{}
 		);
 	}
 	
