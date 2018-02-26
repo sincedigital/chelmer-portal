@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { PieChart, Pie, Cell, Legend, Sector } from 'recharts';
 import './App.css';
 
 import NumberFormat from './components/NumberFormat.js';
@@ -7,6 +6,7 @@ import NumberFormat from './components/NumberFormat.js';
 import PageWrap from './components/PageWrap.js';
 import Remote from './components/Remote.js';
 import NetWorth from './components/dashboard/NetWorth.js';
+import AssetGraph from './components/dashboard/AssetGraph.js';
 import AllocationGraph from './components/dashboard/AllocationGraph.js';
 import { Palette, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
@@ -33,8 +33,6 @@ class Dashboard extends Component {
 		this.acceptPortfolio = this.acceptPortfolio.bind(this);
 		this.acceptMTDPerformance = this.acceptMTDPerformance.bind(this);
 		this.acceptYTDPerformance = this.acceptYTDPerformance.bind(this);
-		this.activateSegment = this.activateSegment.bind(this);
-		this.drawHighlight = this.drawHighlight.bind(this);
 		this.loadPerformance = this.loadPerformance.bind(this);
 		this.portfolioChanged = this.portfolioChanged.bind(this);
 		
@@ -107,41 +105,7 @@ class Dashboard extends Component {
 		const length = data.data.length;
 		this.setState({"ytd": data.data[length-1]});
 	}
-	
-	activateSegment(data, index) {
-		this.setState({"activeSegment": index});
-	}
-	
-	drawHighlight(props) {
-		const { cx, cy, innerRadius, outerRadius, startAngle, endAngle,
-		    fill, payload, stroke } = props;
-		    
-		    
-		return (<g>
-			<Sector 
-				cx={cx}
-			    cy={cy}
-			    startAngle={startAngle}
-			    endAngle={endAngle}
-			    innerRadius={outerRadius + 6}
-			    outerRadius={outerRadius + 10}
-			    fill={fill} />
-			<Sector 
-				cx={cx}
-			    cy={cy}
-			    startAngle={startAngle}
-			    endAngle={endAngle}
-			    innerRadius={innerRadius}
-			    outerRadius={outerRadius}
-			    fill={fill}
-				stroke={stroke}
-			/>
-			<text x={30} y={230} textAnchor="left" fill={fill} style={{"fontSize": "16px"}}>{payload.name}</text>
-			<text x={30} y={250} textAnchor="left" fill="black" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
-			<text x={30} y={270} textAnchor="left" fill="black" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
-		</g>);
-	}
-	
+		
   render() {
 	  const wait = (<i className="fas fa-circle-notch fa-spin"></i>);
 	  
@@ -201,21 +165,7 @@ class Dashboard extends Component {
             <AllocationGraph mandate={80} actual={72} />
            </div>
            <div id="right">
-           	<div id="assetgraph">
-             <PieChart width={400} height={300}>
-              <Pie data={pieData} nameKey="name" dataKey="percentage" cx="40%" cy="40%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
-               { pieData.map((entry, index)=>(
-            	<Cell key={"cell-" + index}	fill={entry.colour} />
-               ))}
-              </Pie>
-              <Pie data={outerPie} nameKey="name" dataKey="percentage" cx="40%" cy="40%" startAngle={450} endAngle={90} innerRadius={70} outerRadius={80} legendType="none" onMouseEnter={this.activateSegment} activeIndex={this.state.activeSegment} activeShape={this.drawHighlight}>
-	           { outerPie.map((entry, index)=>(
-	        	<Cell key={"ocell-" + index} fill={entry.colour} />
-	           ))}
-	          </Pie>
-        	  <Legend layout="vertical" align="right" verticalAlign="top" wrapperStyle={{"top": "35px"}}/>
-             </PieChart>
-            </div>
+            <AssetGraph innerPie={pieData} outerPie={outerPie} />
            </div>
           </div>
          </PageWrap>
