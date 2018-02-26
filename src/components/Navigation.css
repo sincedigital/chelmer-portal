@@ -10,7 +10,7 @@
 }
 
 .nav-link {
-	width: 110px;
+	width: 130px;
 	text-align: center;
 	display: inline-block;
 	margin-top: 3px;
@@ -96,7 +96,8 @@
 }
 
 div.nav-links {
-	padding-left: 25%;
+	margin: 0 auto;
+	width: 660px;
 }
 
 a.w-nav-link {
