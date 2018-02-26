@@ -102,10 +102,6 @@ class Navigation extends Component {
 			      
 			          
 			      </div>
-			      <div className="userlist">
-			      <ul>
-			      </ul>
-			      </div>
 			      </nav>
 			    </div>
 			  </div>
