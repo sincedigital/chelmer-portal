@@ -4,11 +4,7 @@ import './App.css';
 
 import NumberFormat from './components/NumberFormat.js';
 
-import Modal from './components/Modal.js';
-import Navigation from './components/Navigation.js';
-import Loading from './components/Loading.js';
-import PortfolioTabs from './components/PortfolioTabs.js';
-import Footer from './components/Footer.js';
+import PageWrap from './components/PageWrap.js';
 import Remote from './components/Remote.js';
 import { Palette, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
@@ -38,6 +34,7 @@ class Dashboard extends Component {
 		this.activateSegment = this.activateSegment.bind(this);
 		this.drawHighlight = this.drawHighlight.bind(this);
 		this.loadPerformance = this.loadPerformance.bind(this);
+		this.portfolioChanged = this.portfolioChanged.bind(this);
 		
 		this.load();
 	}
@@ -94,6 +91,11 @@ class Dashboard extends Component {
 			this.loadPerformance();
 	}
 
+	portfolioChanged() {
+		this.setState({"loading": true});
+		this.load();
+	}
+	
 	acceptMTDPerformance(data) {
 		const length = data.data.length;
 		this.setState({"mtd": data.data[length-1]});
@@ -190,61 +192,45 @@ class Dashboard extends Component {
 	  });
 	  
 	 return (
-      <div className="App">
-        <Navigation url={this.props.match.url} />
-        <div className="main-content-section">
-        	{ this.state.loading === true && this.state.timeout === false ? <Loading /> : null }
-           	<div className="hero-wrap">
-            	<div className="main-content">
-            		<div className="div-block w-clearfix">
-            		</div>
-            	</div>
+		 <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
+		  <div id="dashboard">
+           <div id="left">
+            <div id="networth">
+             <h1>Net Worth</h1>
+             <h2>Today</h2>
+             <div className="headline"><NumberFormat places={2} value={this.state.portfolio.total} prefix="$" /></div>
+             <div className="networth-table">
+              <div>This Month</div>
+              <div>{thisMonthProfitLoss}</div>
+              <div>{thisMonthPercentage}</div>
+             </div>
+             <div className="networth-table">
+	          <div>YTD</div>
+	          <div>{thisYearProfitLoss}</div>
+	          <div>{thisYearPercentage}</div>
+	         </div>
             </div>
-            <PortfolioTabs />
-            <div id="dashboard">
-            	<div id="left">
-            	<div id="networth">
-            		<h1>Net Worth</h1>
-            		<h2>Today</h2>
-            		<div className="headline"><NumberFormat places={2} value={this.state.portfolio.total} prefix="$" /></div>
-            		<div className="networth-table">
-            			<div>This Month</div>
-            			<div>{thisMonthProfitLoss}</div>
-            			<div>{thisMonthPercentage}</div>
-            		</div>
-            		<div className="networth-table">
-	        			<div>YTD</div>
-	        			<div>{thisYearProfitLoss}</div>
-	        			<div>{thisYearPercentage}</div>
-	        		</div>
-            	</div>
-            	</div>
-            	<div id="right">
-            	<div id="assetgraph">
-            		<PieChart width={400} height={300}>
-            			<Pie data={pieData} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
-            				{ pieData.map((entry, index)=>(
-            					<Cell key={"cell-" + index}	fill={entry.colour} />
-            				))}
-            			</Pie>
-            			<Pie data={outerPie} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={70} outerRadius={80} legendType="none" onMouseEnter={this.activateSegment} activeIndex={this.state.activeSegment} activeShape={this.drawHighlight}>
-	        				{ outerPie.map((entry, index)=>(
-	        					<Cell key={"ocell-" + index} fill={entry.colour} />
-	        				))}
-	        			</Pie>
-        				<Legend layout="vertical" align="right" verticalAlign="top" wrapperStyle={{"top": "15px"}}/>
-            		</PieChart>
-            	</div>
-            	</div>
+           </div>
+           <div id="right">
+           	<div id="assetgraph">
+             <PieChart width={400} height={300}>
+              <Pie data={pieData} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
+               { pieData.map((entry, index)=>(
+            	<Cell key={"cell-" + index}	fill={entry.colour} />
+               ))}
+              </Pie>
+              <Pie data={outerPie} nameKey="name" dataKey="percentage" cx="50%" cy="30%" startAngle={450} endAngle={90} innerRadius={70} outerRadius={80} legendType="none" onMouseEnter={this.activateSegment} activeIndex={this.state.activeSegment} activeShape={this.drawHighlight}>
+	           { outerPie.map((entry, index)=>(
+	        	<Cell key={"ocell-" + index} fill={entry.colour} />
+	           ))}
+	          </Pie>
+        	  <Legend layout="vertical" align="right" verticalAlign="top" wrapperStyle={{"top": "15px"}}/>
+             </PieChart>
             </div>
-         </div>
-        <Footer />
-        <Modal showing={this.state.timeout} allowNavigation={true}>
-	    	<h1>Could not contact Chelmer</h1>
-	    	<p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>
-	    </Modal>
-      </div>
-    );
+           </div>
+          </div>
+         </PageWrap>
+	 );
   }
 }
 

@@ -4,7 +4,8 @@ const Chelmer = {
 	sessionValidate: "/security/validate/sessions/",
 	holdings: "/api/v1/aggregation/portfolio/holdings",
 	transactions: "/api/v1/aggregation/transactions",
-	performance: "/api/v1/reporting/performance/PRReturnByAsset"
+	performance: "/api/v1/reporting/performance/PRReturnByAsset",
+	portfolios: "/api/v1/client/portfolio"
 }
  
 /*

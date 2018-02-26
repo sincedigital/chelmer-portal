@@ -1,12 +1,11 @@
 import React from 'react';
+import PortfolioTabs from './PortfolioTabs.js';
 
 const Footer = (props) => {
   return (
-		<div>
-		  <div className="footer-top">
-		    <div className="footer-top-wrap w-hidden-small w-hidden-tiny"></div>
-		  </div>
-		  <div className="footer-bottom">
+		<div className="Footer">
+		  <div className="footer-top"> 
+    		<PortfolioTabs onUpdate={props.onPortfolioChanged} />
 		    <div className="footer-bottom-wrap">
 		      <div className="legal w-hidden-small w-hidden-tiny">© 2018 SinceDigital. All Rights Reserved.</div>
 		    </div>

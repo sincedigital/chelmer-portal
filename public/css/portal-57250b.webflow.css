@@ -215,7 +215,14 @@ body {
 }
 
 .footer-bottom-wrap {
-  width: 80%;
+  	width: 80%;
+	min-width: 900px;
+}
+@media ( max-width : 712px) {
+	.footer-bottom-wrap {
+		width: calc(100% - 80px);
+		min-width: 0;
+	}
 }
 
 .legal {
@@ -396,8 +403,24 @@ div.row-negative div.row-amount, div.row-negative div.row-percent {
   #detailsTable {
   	font-size: 0.8em;
   }
+html, body, #wrapper, #root, .App, .ContentOuter {
+	height: 100% !important;
+}
+.ContentWrap {
+	min-height:100%;
+	height: auto !important; // the magic!
+	height:100%;
+	margin-bottom:-100px; // the height of our footer + margin
 	
-
+}
+.FooterPush {
+	clear:both;
+	height:100px; // the height of our footer + margin
+}
+.Footer {
+	margin-top: 20px;
+	height: 100px;
+}
 @media (max-width: 991px) {
 	#dashboard {
 		width: 100%;

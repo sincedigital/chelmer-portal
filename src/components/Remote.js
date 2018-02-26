@@ -2,9 +2,13 @@ import { Chelmer } from './Constants.js';
 import Authentication from './Authentication.js';
 
 const Remote = {
+	/* Local caches */
+	clientPortfolios: null,
+	/* NB others use session/localStorage */
+	
+	
 	getHoldings: function(date, handler, unauthorised, timeout) {
 		const requestedId = this.getCurrentPortfolio();
-		console.log("ID from local: " + requestedId);
 		if (requestedId) {
 			const data = this.getHoldingsFromCache(requestedId, date);
 			if (data != null) {
@@ -31,7 +35,27 @@ const Remote = {
 			handler(this.addHoldingsToCache(date, data, id));
 		}, unauthorised, timeout);
 	},
+	
+	getClientPortfolios: function(handler, unauthorised, timeout) {
+		const data = this.clientPortfolios;
+		
+		if (data != null) {
+			setTimeout(()=>handler(data), 400);
+			return;
+		}
+		
+		const url = Chelmer.baseUrl + Chelmer.portfolios 
+			+ "?sessionId=" + Authentication.getSessionToken()
+			+ "&requestedOnBehalfOf=" + Authentication.getLoginName();
+		
+		this.remoteRequest(url, data=>{this.clientPortfolios = data; handler(data);}, unauthorised, timeout);
+	},
 
+	logout: function() {
+		sessionStorage.clear();
+		this.clientPortfolios = null;
+	},
+	
 	getPerformance: function(start, end, handler, unauthorised, timeout) {
 		const id = this.getCurrentPortfolio();
 		const data = this.getPerformanceFromCache(id, start, end);

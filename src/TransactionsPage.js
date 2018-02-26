@@ -5,9 +5,7 @@ import Modal from './components/Modal.js';
 
 import DateFormat from './components/DateFormat.js';
 
-import Navigation from './components/Navigation.js';
-import Loading from './components/Loading.js';
-import Footer from './components/Footer.js';
+import PageWrap from './components/PageWrap.js';
 import Remote from './components/Remote.js';
 
 import DateFilters from './components/DateFilters.js';
@@ -36,11 +34,6 @@ class TransactionsPage extends Component {
 	
 	constructor(props) {
 		super(props);
-
-		this.state.endDate = new Date();
-		var date = new Date();
-		date.setMonth(date.getMonth()-6);
-		this.state.startDate = date;
 		
 		this.acceptTransactions = this.acceptTransactions.bind(this);
 		this.toDateRange = this.toDateRange.bind(this);
@@ -48,19 +41,33 @@ class TransactionsPage extends Component {
 		this.toDate = this.toDate.bind(this);
 		this.toggleDates = this.toggleDates.bind(this);
 		this.filterTransactions = this.filterTransactions.bind(this);
+		this.portfolioChanged = this.portfolioChanged.bind(this);
+		this.load = this.load.bind(this);
 		
-		this.toDateRange(this.state.startDate, this.state.endDate, true);
+		this.load(true);
+	}
+
+	load(initial) {
+		const end = new Date();
+		const start = new Date();
+		start.setMonth(start.getMonth()-6);
+		this.toDateRange(start, end, initial);
 	}
 	
 	toDateRange(start, end, initial) {
-		if (!initial) {
-			const state = {
+		console.log(start + "-" + end);
+		if (initial) {
+			this.state.startDate = start;
+			this.state.endDate = end;
+			this.state.loading = true;
+			this.state.showDates = false;
+		} else {
+			this.setState({
 				"startDate": start,
 				"endDate": end,
 				"loading": true,
 				"showDates": false
-			}
-			this.setState(state);
+			});
 		}
 		
 		Remote.getTransactions(
@@ -143,7 +150,11 @@ class TransactionsPage extends Component {
 	filterTransactions(selectedAccounts) {
 		this.setState({"selectedAccounts": selectedAccounts, "filteredTransactions": this.applyFilter({selectedAccounts: selectedAccounts})});
 	}
-	
+
+	portfolioChanged() {
+		this.load();
+	}
+
 	render() {
 		  if (this.state.loginRequired) {
 			  return (<Redirect to={this.props.match.url} />);
@@ -155,12 +166,8 @@ class TransactionsPage extends Component {
 			 return null;
 		  });
 		  
-		  
 	    return (
-	      <div className="App">
-	        <Navigation url={this.props.match.url} />
-	        <div className="main-content-section">
-	        	{ this.state.loading === true && this.state.timeout === false ? <Loading /> : null }
+	   	  <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
 	            <div className="hero-wrap">
 	            <div className="main-content">
 	              <div className="div-block w-clearfix">
@@ -182,13 +189,7 @@ class TransactionsPage extends Component {
 	              { this.state.filteredTransactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.filteredTransactions} />}
 	            </div>
 	          </div>
-	        </div>
-	        <Footer />
-	        <Modal showing={this.state.timeout} allowNavigation={true}>
-	        	<h1>Could not contact Chelmer</h1>
-	        	<p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>
-	        </Modal>
-	      </div>
+	      </PageWrap>
 	    );
   }
 }

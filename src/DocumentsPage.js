@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import Navigation from './components/Navigation.js';
-import Footer from './components/Footer.js';
+
+import PageWrap from './components/PageWrap.js';
 
 import DateFilters from './components/DateFilters.js';
 import './App.css';
@@ -68,11 +68,9 @@ class DocumentsPage extends Component {
 	  }
 
     return (
-      <div className="App">
-        <Navigation url={this.props.match.url} />
-        <DateFilters showing={true} relativeSuffix=" ago" showCurrent={true}/>
-        <Footer />
-      </div>
+      <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={()=>{}} timeout={this.state.timeout}>
+         <DateFilters showing={true} relativeSuffix=" ago" showCurrent={true}/>
+      </PageWrap>
     );
   }
 }

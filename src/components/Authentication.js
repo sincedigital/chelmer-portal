@@ -1,4 +1,5 @@
 import { Chelmer } from './Constants.js';
+import Remote from './Remote.js';
 
 const Authentication = {
 		isAuthenticated() {
@@ -59,7 +60,7 @@ const Authentication = {
 			return sessionStorage.getItem("chelmer-username");
 		},
 		logout() {
-			sessionStorage.clear();
+			Remote.logout()
 		}
 };
 

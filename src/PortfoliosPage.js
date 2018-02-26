@@ -12,7 +12,7 @@ import Remote from './components/Remote.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
 import PortfolioMarket from './components/portfolio/PortfolioMarket.js';
 import DateFilters from './components/DateFilters.js';
-
+import PageWrap from './components/PageWrap.js';
 
 import './App.css';
 
@@ -36,6 +36,7 @@ class PortfolioPage extends Component {
 		this.toDate = this.toDate.bind(this);
 		this.toRelativeDate = this.toRelativeDate.bind(this);
 		this.acceptPortfolio = this.acceptPortfolio.bind(this);
+		this.portfolioChanged = this.portfolioChanged.bind(this);
 		
 		this.toDate(new Date(), true);
 	}
@@ -106,17 +107,19 @@ class PortfolioPage extends Component {
 		performance[label] = data.data;
 		this.setState({"performance": performance});
 	}
-	
+
+	portfolioChanged() {
+		this.setState({"loading": true});
+		this.toDate(new Date(), true);
+	}
+
   render() {
 	  if (this.state.loginRequired) {
 		  return (<Redirect to={this.props.match.url} />);
 	  }
 
     return (
-      <div>
-        <Navigation url={this.props.match.url} />
-        <div className="main-content-section">
-        	{ this.state.loading === true && this.state.timeout === false ? <Loading /> : null }
+   	  <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
             <div className="hero-wrap">
             <div className="main-content">
               <div className="div-block w-clearfix">
@@ -134,13 +137,7 @@ class PortfolioPage extends Component {
         	  );	  		
           })}
           </div>
-        </div>
-        <Footer />
-        <Modal showing={this.state.timeout} allowNavigation={true}>
-        	<h1>Could not contact Chelmer</h1>
-        	<p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>
-        </Modal>
-      </div>
+      </PageWrap>
     );
   }
 }
