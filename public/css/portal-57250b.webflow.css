@@ -410,12 +410,12 @@ html, body, #wrapper, #root, .App, .ContentOuter {
 	min-height:100%;
 	height: auto !important; // the magic!
 	height:100%;
-	margin-bottom:-100px; // the height of our footer + margin
+	margin-bottom:-120px; // the height of our footer + margin
 	
 }
 .FooterPush {
 	clear:both;
-	height:100px; // the height of our footer + margin
+	height:120px; // the height of our footer + margin
 }
 .Footer {
 	margin-top: 20px;
