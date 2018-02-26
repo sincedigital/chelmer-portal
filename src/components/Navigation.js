@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Authentication from './Authentication.js';
+import { TransactionsIcon, DocumentsIcon } from './Icons.js';
 import './Navigation.css';
 
 class Navigation extends Component {
@@ -73,19 +74,14 @@ class Navigation extends Component {
 			      <Link to="/transactions" className={trnsClass}>
 			      <span className="icon">
 			      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="navsvg">
-			 <g>
-			  <path className="svg-icon filled" stroke="none" d="m 6.69374,13.644331 1.1e-4,4.671958 11.74291,0 0,4.04061 -11.74291,0 0,4.41941 -6.84031,-6.48436 z" id="svg_16" />
-			  <path className="svg-icon filled" stroke="none" d="m 23.30626,16.794359 -1.1e-4,-4.671957 -11.74291,0 0,-4.04061 11.74291,0 0,-4.419408 6.84031,6.484358 z" id="svg_17"/>
-			 </g>
+			      <TransactionsIcon className="svg-icon filled" />
 			</svg>
 			      
 			      </span>
 			      TRANSACTIONS</Link>
 			      <Link to="/documents" className={docsClass}><span className="icon">
 			      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="navsvg">
-			 <g>
-			  <path className="svg-icon filled" stroke="none" transform="translate(4, 0)" d="M 3.45312,0.73525679 C 1.54069,0.73525679 0,2.2759468 0,4.1883868 L 0,30.909077 c 0,1.912438 1.54069,3.453128 3.45312,3.453128 l 20.36914,0 c 1.91244,0 3.45313,-1.54069 3.45313,-3.453128 l 0,-19.83202 -10.59961,-10.34180021 -13.22266,0 z m 11.32031,2.56445001 8.83985,9.0918002 -8.83985,0 0,-9.0918002 z m -7.95507,14.1406202 13.63867,0 0,3.66211 -13.63867,0 0,-3.66211 z m 0,6.50391 13.63867,0 0,3.66211 -13.63867,0 0,-3.66211 z" id="svg_16" />
-			 </g>
+			      <DocumentsIcon className="svg-icon filled" transform="translate(4, 0)" />
 			</svg></span>
 			      
 			      DOCUMENTS</Link>
