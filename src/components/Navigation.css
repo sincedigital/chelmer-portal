@@ -96,7 +96,7 @@
 
 div.nav-links {
 	margin: 0 auto;
-	width: 660px;
+	width: 680px;
 }
 
 a.w-nav-link {
@@ -106,37 +106,6 @@ a.w-nav-link {
 
 #MobileNav {
 	display: none;
-}
-
-@media ( max-width : 991px) {
-	.nav-link {
-		height: 122%;
-		margin-left: 0px;
-		padding-right: 10px;
-		padding-left: 10px;
-		font-size: 11px;
-	}
-}
-
-@media ( max-width : 860px) {
-	.navbar {
-		display: inline-block;
-		width: 100%;
-		background-color: rgba(0, 0, 0, .19);
-		text-align: center;
-	}
-	.nav-link {
-		display: inline-block;
-		height: 100%;
-		margin-top: 0px;
-		margin-bottom: 0px;
-		padding-bottom: 20px;
-		float: none;
-		font-size: 12px;
-	}
-	.nav-container{
-		width: 100%;
-	}
 }
 
 @media ( max-width : 712px) {

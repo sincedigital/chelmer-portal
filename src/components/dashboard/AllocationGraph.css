@@ -1,0 +1,14 @@
+.AllocationGraph {
+	padding-top: 25px;
+}
+.AllocationGraph>div {
+	width: 400px;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.AllocationGraph h1 {
+	text-transform: uppercase;
+	padding-top: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
