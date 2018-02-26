@@ -6,6 +6,7 @@ import NumberFormat from './components/NumberFormat.js';
 
 import PageWrap from './components/PageWrap.js';
 import Remote from './components/Remote.js';
+import NetWorth from './components/dashboard/NetWorth.js';
 import AllocationGraph from './components/dashboard/AllocationGraph.js';
 import { Palette, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
@@ -196,24 +197,8 @@ class Dashboard extends Component {
 		 <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
 		  <div id="dashboard">
            <div id="left">
-            <div id="networthOuter">
-            <div id="networth">
-             <h1>Net Worth</h1>
-             <h2>Today</h2>
-             <div className="headline"><NumberFormat places={2} value={this.state.portfolio.total} prefix="$" /></div>
-             <div className="networth-table">
-              <div>This Month</div>
-              <div>{thisMonthProfitLoss}</div>
-              <div>{thisMonthPercentage}</div>
-             </div>
-             <div className="networth-table">
-	          <div>YTD</div>
-	          <div>{thisYearProfitLoss}</div>
-	          <div>{thisYearPercentage}</div>
-	         </div>
-            </div>
-            </div>
-            <AllocationGraph mandate={80} actual={70} />
+            <NetWorth total={this.state.portfolio.total} thisMonthProfitLoss={thisMonthProfitLoss} thisMonthPercentage={thisMonthPercentage} thisYearProfitLoss={thisYearProfitLoss} thisYearPercentage={thisYearPercentage} />
+            <AllocationGraph mandate={80} actual={72} />
            </div>
            <div id="right">
            	<div id="assetgraph">

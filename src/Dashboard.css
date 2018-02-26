@@ -48,25 +48,14 @@
 	text-align: center;
 	margin: 7px 0 17px 0;
 }
-#networth .networth-table {
+.dashboard-table {
 	border-top: solid rgb(19, 52, 59) 1px;
 	clear: both;
 }
-#networth .networth-table div {
+.dashboard-table div {
 	float: left;
 	text-align: left;
 	font-size: 15px;
-}
-#networth .networth-table div:first-child {
-	width: 150px;
-}
-#networth .networth-table div:nth-child(2) {
-	width: 75px;
-	text-align: right;
-}
-#networth .networth-table div:nth-child(3) {
-	width: 75px;
-	text-align: right;
 }
 #assetgraph>div {
 	margin: 0 auto;

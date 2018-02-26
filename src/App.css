@@ -8,7 +8,11 @@
 .width100 {
 	width: 100%;
 }
-
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
 #loading span, #loading i {
 	position: absolute;
   	top: 30%;
