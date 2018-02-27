@@ -1,6 +1,6 @@
 .body {
 	background: #385e9d linear-gradient(to bottom, #64ccc9, #385e9d 90%) top left no-repeat;
-	color: white;
+	color: #eeeeee;
 }
 .padding10l {
 	padding-left:10px;
@@ -50,17 +50,17 @@ HWP Colours
 	Background: rgb(234, 234, 229)
 
 Chelmer Colours
-	White: white;
+	White: #eeeeee;
 	Pale: #bae1df
 	//Normal: #64ccc9
 	Normal: #385e9d rgb(56, 94, 157
 	Dark: #182944
-	Background: rgb(255, 255, 255) rgb(199, 224, 223
+	Background: rgb(238, 238, 238) rgb(199, 224, 223
 	
 Global definitions to allow easy restyling:
 	*/
 .foreground-lightest, .fg-l {
-	color: white;
+	color: #eeeeee;
 }	
 .foreground-pale, .fg-p {
 	color: #bae1df;
@@ -72,13 +72,13 @@ Global definitions to allow easy restyling:
 	color: #182944;
 }
 .background, .bg {
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(238, 238, 238);
 }
 .overlay, .ol {
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(238, 238, 238, 0.9);
 }
 .background-lightest, .bg-l {
-	background-color: white;
+	background-color: #eeeeee;
 }	
 .background-pale, .bg-p {
 	background-color: #bae1df;
@@ -90,7 +90,7 @@ Global definitions to allow easy restyling:
 	background-color: #182944;
 }	
 .hover-background-lightest:hover, .h-bg-l:hover {
-	background-color: white;
+	background-color: #eeeeee;
 }	
 .hover-background-pale:hover, .h-bg-p:hover {
 	background-color: #bae1df;
@@ -102,7 +102,7 @@ Global definitions to allow easy restyling:
 	background-color: #182944;
 }	
 .fill-lightest, .fl-l {
-	fill: white;
+	fill: #eeeeee;
 }	
 .fill-pale, .fl-p {
 	fill: #bae1df;

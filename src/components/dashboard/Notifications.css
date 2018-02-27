@@ -1,7 +1,7 @@
 .Notifications {
 	margin-top: 40px !important;
 	padding-top: 20px;
-	/*background-color: rgba(255, 255, 255, 0.4);*/
+	/*background-color: rgba(238, 238, 238, 0.4);*/
 	width: 400px;
 }
 .Notifications h1 {
@@ -41,7 +41,7 @@
 	margin: 0px 10px;
 	padding: 3px 10px;
 	border-radius: 4px;
-	color: white;
+	color: #eeeeee;
 }
 .NotificationText  {
 	text-align: left;

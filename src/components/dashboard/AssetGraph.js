@@ -53,10 +53,16 @@ class AssetGraph extends Component {
 			    outerRadius={outerRadius}
 			    fill={fill}
 				stroke={stroke}
-			/>
+			/>" +
+			{ payload.undershade !== null ? (<g>
+				<text x={9} y={214} textAnchor="left" fill={payload.undershade} style={{"fontSize": "16px"}}>{payload.name}</text>
+				<text x={11} y={216} textAnchor="left" fill={payload.undershade} style={{"fontSize": "16px"}}>{payload.name}</text>
+				<text x={9} y={216} textAnchor="left" fill={payload.undershade} style={{"fontSize": "16px"}}>{payload.name}</text>
+				<text x={11} y={214} textAnchor="left" fill={payload.undershade} style={{"fontSize": "16px"}}>{payload.name}</text>
+			</g>) : "" }
 			<text x={10} y={215} textAnchor="left" fill={fill} style={{"fontSize": "16px"}}>{payload.name}</text>
-			<text x={10} y={235} textAnchor="left" fill="white" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
-			<text x={10} y={255} textAnchor="left" fill="white" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
+			<text x={10} y={235} textAnchor="left" fill="#eeeeee" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
+			<text x={10} y={255} textAnchor="left" fill="#eeeeee" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
 		</g>);
 	}
 

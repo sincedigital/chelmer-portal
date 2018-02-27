@@ -5,7 +5,7 @@
 }
 .Transaction {
 	font-size: 14px;
-	border-bottom: solid white 1px;
+	border-bottom: solid #eeeeee 1px;
 }
 .Transaction i {
 	margin-right: 3px;
