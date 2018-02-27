@@ -76,4 +76,10 @@
 		stroke: white;
 		stroke-width: 1px
 	}
+	.DocumentDate {
+		padding-left: 10px;
+	}
+	.DocumentDate, .DocumentCompany, .DocumentType {
+		display: block;
+	}
 }
