@@ -1,5 +1,4 @@
 .AllocationGraph {
-	padding-top: 25px;
 }
 .AllocationGraph>div {
 	width: 400px;
@@ -9,8 +8,8 @@
 }
 .AllocationGraph h1 {
 	text-transform: uppercase;
-	padding-top: 20px;
-	margin-top: 10px;
+	padding-top: 15px;
+	margin-top: 0px;
 	margin-bottom: 10px;
 }
 .AllocationGraph .dashboard-table {
