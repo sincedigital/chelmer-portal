@@ -10,8 +10,8 @@
     z-index: 1999;
 }
 .ModalOverlay.AllowNavigation {
-	top: 100px;
-	height: calc(100%-100px);
+	top: 105px;
+	height: calc(100%-105px);
 }
 .Modal {
 	position: fixed;
