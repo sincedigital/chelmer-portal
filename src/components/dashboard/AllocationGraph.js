@@ -54,9 +54,9 @@ class AllocationGraph extends Component {
 				<div>
 				<h1>Risk Profile</h1>
 				<svg width="400" height="180">
-					<path stroke="#ffffff" strokeWidth="4px" fill="#3c7069" d={growth} />
-					<path stroke="#ffffff" strokeWidth="4px" fill="#86a6a2" d={income} />
-					<path strokeWidth="0px" fill="#13343b" d={actual} />
+					<path stroke="#ffffff" strokeWidth="4px" fill="#385e9d" d={growth} />
+					<path stroke="#ffffff" strokeWidth="4px" fill="#bae1df" d={income} />
+					<path strokeWidth="0px" fill="#182944" d={actual} />
 					<text x="65" y="145" fill="white" stroke="none">GROWTH</text>
 					<text x="335" y="145" fill="white" stroke="none" style={{textAnchor: "end"}}>INCOME</text>
 				</svg>

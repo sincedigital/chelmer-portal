@@ -29,14 +29,14 @@
 	fill: white;
 }
 .NotificationDate {
-	color: #3c7069;
+	color: #385e9d;
 	font-size: 16px;
 	float: left;
 	text-transform: uppercase;
 }
 .NotificationsBanner {
 	float: left;
-	background-color: #3c7069;
+	background-color: #385e9d;
 	text-transform: uppercase;
 	margin: 0px 10px;
 	padding: 3px 10px;

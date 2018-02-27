@@ -1,8 +1,8 @@
 /*
 
-	Turquoise: #3c7069
-	Faded Turquoise: #86a6a2
-	Blue: #13343b
+	Turquoise: #385e9d
+	Faded Turquoise: #bae1df
+	Blue: #182944
 
 */
 .navsvg {
@@ -24,30 +24,32 @@
 	-webkit-transform: translate(0px, 0px);
 	-ms-transform: translate(0px, 0px);
 	transform: translate(0px, 0px);
-	color: #76777A;
 	cursor: pointer;
 }
 
+.nav-logo-mobile {
+	margin-left: 20px;
+}
 .nav-link span.icon {
 	text-align: center;
 	display: block;
 }
 
 .svg-icon {
-	stroke: #3c7069;
+	stroke: #385e9d;
 	fill: #EAEAE5;
 }
 
 .svg-icon.filled {
-	fill: #3c7069;
+	fill: #385e9d;
 }
 
 .nav-link:hover .svg-icon, .nav-link.active .svg-icon {
-	stroke: #13343b;
+	stroke: #182944;
 }
 
 .nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled {
-	fill: #13343b;
+	fill: #182944;
 }
 
 .svg-mask {
@@ -56,8 +58,8 @@
 }
 
 .nav-link:hover, .nav-link.active {
-	border-bottom: 3px solid #13343b;
-	color: #13343b;
+	border-bottom: 3px solid #182944;
+	color: #182944;
 }
 
 .nav {
@@ -152,7 +154,7 @@ a.w-nav-link {
 	#MobileNav {
 		display: block;
 		width: 100%;
-		font-size: 20px;
+		font-size: 30px;
 	}
 	#MobileNav::after {
 		content: "";
@@ -160,7 +162,7 @@ a.w-nav-link {
 		display: table;
 	}
 	#MobileNav i {
-		margin: 10px 20px 4px 0;
+		margin: 20px 30px 4px 0;
 		cursor: pointer;
 		float: right;
 	}

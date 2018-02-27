@@ -1,6 +1,6 @@
 .body {
-	background-color: #EAEAE5;
-	color: rgb(19, 52, 59);
+	background-color: rgb(199, 224, 223);
+	color: #182944;
 }
 .padding10l {
 	padding-left:10px;
@@ -19,17 +19,17 @@
   	left: 50%;
  	margin-top: -25px;
   	margin-left: -25px;
-	color: rgb(124,179,172);
+	color: #385e9d;
 }
 
 #loading {
     position: fixed;
     width: 100%;
-    top: 100px;
+    top: 105px;
     left: 0px;
  	height: calc(100% - 100px);
-    background-color: rgba(234,234,229, 0.9);
-    color: rgb(124,179,172);
+    background-color: rgba(199, 224, 223, 0.9);
+    color: #385e9d;
     z-index: 999;
 }
 
@@ -40,69 +40,77 @@
 	}
 }
 
+/* 
 
-/* Colours 
+HWP Colours 
 	White: white
-	Turquoise: #3c7069
-	Faded Turquoise: #86a6a2
-	Blue: #13343b
+	Pale/Faded Turquoise: #86a6a2
+	Normal/Turquoise: #3c7069
+	Dark/Blue: #13343b
 	Background: rgb(234, 234, 229)
 
-
+Chelmer Colours
+	White: white;
+	Pale: #bae1df
+	//Normal: #64ccc9
+	Normal: #385e9d rgb(56, 94, 157
+	Dark: #182944
+	Background: rgb(199, 224, 223) rgb(199, 224, 223) rgb(199, 224, 223)
+	
 Global definitions to allow easy restyling:
 	*/
 .foreground-lightest, .fg-l {
 	color: white;
 }	
 .foreground-pale, .fg-p {
-	color: #86a6a2;
+	color: #bae1df;
 }	
 .foreground-normal, .fg-n {
-	color: #3c7069;
+	color: #385e9d;
 }	
 .foreground-dark, .fg-d {
-	color: #13343b;
+	color: #182944;
 }
 .background, .bg {
-	background-color: rgb(234, 234, 229);
+	background-color: rgb(199, 224, 223);
 }
 .overlay, .ol {
-	background-color: rgba(234, 234, 229, 0.9);
+	background-color: rgba(199, 224, 223, 0.9);
 }
 .background-lightest, .bg-l {
 	background-color: white;
 }	
 .background-pale, .bg-p {
-	background-color: #86a6a2;
+	background-color: #bae1df;
 }	
 .background-normal, .bg-n {
-	background-color: #3c7069;
+	background-color: #385e9d;
 }	
 .background-dark, .bg-d {
-	background-color: #13343b;
+	background-color: #182944;
 }	
 .hover-background-lightest:hover, .h-bg-l:hover {
 	background-color: white;
 }	
 .hover-background-pale:hover, .h-bg-p:hover {
-	background-color: #86a6a2;
+	background-color: #bae1df;
 }	
 .hover-background-normal:hover, .h-bg-n:hover {
-	background-color: #3c7069;
+	background-color: #385e9d;
 }	
 .hover-background-dark:hover, .h-bg-d:hover {
-	background-color: #13343b;
+	background-color: #182944;
 }	
 .fill-lightest, .fl-l {
 	fill: white;
 }	
 .fill-pale, .fl-p {
-	fill: #86a6a2;
+	fill: #bae1df;
 }	
 .fill-normal, .fl-n {
-	fill: #3c7069;
+	fill: #385e9d;
 }	
 .fill-dark, .fl-d {
-	fill: #13343b;
+	fill: #182944;
 }	
 

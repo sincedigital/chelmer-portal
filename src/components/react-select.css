@@ -60,7 +60,7 @@
   background: #fff;
 }
 .Select.is-focused:not(.is-open) > .Select-control {
-  border-color: rgb(60, 112, 111);
+  border-color: rgb(56, 94, 157);
   /*box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(0, 126, 255, 0.1);*/
   background: #fff;
 }
@@ -303,12 +303,12 @@
   border-bottom-left-radius: 4px;
 }
 .Select-option.is-selected {
-  color: rgb(60, 112, 111);
-  background: rgba(60, 112, 111, 0.1) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAYAAAC9QufkAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gIUCCYpvZzJcQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAA8klEQVQoz5XSPy+DURTH8c9zn2K1i0YMJITJ0ETjBYl4uhqI6kbQjl6PblikMUqUxBsw+VfLafJoCf1N997f+Z5zz8nJ6o1i2v/1gSX08ZYmAAeo4xgXyCsTgFvYjeqzWEsl8/0X8BMrAQ6Q4RI3KR6q2I/AUS3gsAT2cI48hXmGDTS77c5rCVzGSUAJ1zgYmmlkkuv1RtGM8xyOAszQ67Y7LeRDIKs3iinM47QUeIdFzMT9OXr+phTmI1qoRG+rAabwip8mOfx2htvoPY/BZeh3252dSDimvFqr5aUED7jHJl6wXfLHNLokGa6wh6e/NucLnbQ4bz+QBcAAAAAASUVORK5CYII=) center right 10px no-repeat;
+  color: rgb(56, 94, 157);
+  background: rgba(56, 94, 157, 0.1) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAYAAAC9QufkAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gIUCCYpvZzJcQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAA8klEQVQoz5XSPy+DURTH8c9zn2K1i0YMJITJ0ETjBYl4uhqI6kbQjl6PblikMUqUxBsw+VfLafJoCf1N997f+Z5zz8nJ6o1i2v/1gSX08ZYmAAeo4xgXyCsTgFvYjeqzWEsl8/0X8BMrAQ6Q4RI3KR6q2I/AUS3gsAT2cI48hXmGDTS77c5rCVzGSUAJ1zgYmmlkkuv1RtGM8xyOAszQ67Y7LeRDIKs3iinM47QUeIdFzMT9OXr+phTmI1qoRG+rAabwip8mOfx2htvoPY/BZeh3252dSDimvFqr5aUED7jHJl6wXfLHNLokGa6wh6e/NucLnbQ4bz+QBcAAAAAASUVORK5CYII=) center right 10px no-repeat;
 }
 .Select-option.is-focused {
-  background-color: rgb(60, 112, 111, 0.05);
-  color: rgb(60, 112, 111);
+  background-color: rgb(56, 94, 157, 0.05);
+  color: rgb(56, 94, 157);
 }
 .Select-option.is-disabled {
   color: #cccccc;
@@ -334,10 +334,10 @@
   margin-left: 5px;
 }
 .Select--multi .Select-value {
-  background-color: rgba(60, 112, 111, 0.08);
+  background-color: rgba(56, 94, 157, 0.08);
   border-radius: 2px;
-  border: 1px solid rgba(60, 112, 111, 0.24);
-  color: rgb(60, 112, 111);
+  border: 1px solid rgba(56, 94, 157, 0.24);
+  color: rgb(56, 94, 157);
   display: inline-block;
   font-size: 0.9em;
   line-height: 1.4;
