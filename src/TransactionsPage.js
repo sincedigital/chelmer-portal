@@ -170,9 +170,6 @@ class TransactionsPage extends Component {
 	   	  <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
 	            <div className="hero-wrap">
 	            <div className="main-content">
-	              <div className="div-block w-clearfix">
-	                <div className="text-block">NZD</div>
-	              </div>
 	              <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat fullMonthName={true} date={this.state.startDate} /> - <DateFormat fullMonthName={true} date={this.state.endDate} /></span> <i id="dateHandler" className="far fa-calendar-alt padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
 	              { this.state.transactions.length === 0 ? "" : <Select
 	              	closeOnSelect={false}

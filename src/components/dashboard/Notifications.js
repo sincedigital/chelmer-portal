@@ -13,7 +13,7 @@ const Notifications = props=>{
 	const date2 = new Date();
 	date2.setDate(date2.getDate()-3);
 	const date3 = new Date();
-	date2.setDate(date2.getDate()-4);
+	date3.setDate(date3.getDate()-4);
 	const data = [
 		{
 			date: date1,

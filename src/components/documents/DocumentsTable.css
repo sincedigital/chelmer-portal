@@ -1,0 +1,79 @@
+.DocumentsTable {
+	width: 60%;
+	min-width: 500px;
+}
+.Document {
+	cursor: pointer;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+	border-top: solid #3c7069 1px;
+	padding-top: 10px;
+}
+.Document:hover {
+	background-color: rgba(255,255,255,0.4);
+}
+.DocumentIcon {
+	fill: white;
+}
+.DocumentIconWrapper {
+	float: left;
+}
+.DocumentIconCircle {
+	fill: #3c7069;
+	stroke-width: 0px
+}
+.DocumentDownload i {
+	font-size: 20px;
+	margin-right: 10px;
+}
+.DocumentName {
+	color: #3c7069;
+	font-weight: 600;
+	font-size: 19px;
+}
+.Document i {
+	color: #3c7069;
+	padding-right: 5px;
+}
+.DocumentDate, .DocumentCompany, .DocumentType {
+	display: inline-block;
+}
+.DocumentCompany, .DocumentType {
+	padding-left: 10px;
+}
+.DocumentDownload {
+	float: right
+}
+
+@media ( max-width : 712px) {
+	.DocumentsTable {
+		width: 90%;
+		min-width: 0;
+		text-align: left;
+	}
+	.Document {
+		cursor: pointer;
+		padding-bottom: 20px;
+		margin-bottom: 10px;
+		border-top: none;
+		padding-top: 0px;
+	}
+	.DocumentDownload {
+		margin-top: -30px;
+	}
+	.DocumentDownload i {
+		color: white !important;
+	}
+	
+	.DocumentIconWrapper {
+		width: 100%;
+		float: none;
+		background-color: #3c7069;
+		border-radius: 2px;
+		height: 40px;
+	}
+	.DocumentIconCircle {
+		stroke: white;
+		stroke-width: 1px
+	}
+}
