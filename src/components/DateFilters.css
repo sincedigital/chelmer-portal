@@ -116,41 +116,38 @@
 	cursor: pointer;
 }
 @media ( max-width : 712px) {
-	.DatesOuter {
-		position: fixed;
-		overflow:hidden;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 0px;
-		background-color: rgb(234, 234, 229, .9);
-/*		margin-bottom: -350px;
-		/* This sets a 1s delay when _returning_ to base state *
-		transition-delay: 1s;
-		-webkit-transition-delay: 1s;*/
-	}
-	.DatesOuter.Showing {
-		height: 0;
-		/* This sets a 0s delay when moving _to_ showing state */
-		transition-delay: 0s;
-		-webkit-transition-delay: 0s;
-	}
-	.Dates {
-		background-color: rgb(234, 234, 229, .9);
-		padding: 10px;
-		z-index: 2300;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 850px;
-		margin-top: -850px;
-		margin-left: 0;
-		margin-right: 0;
-		text-align: left;
-		-webkit-transition: margin-top 500ms ease-in-out;
-		transition: margin-top 500ms ease-in-out;
-	}
+.DatesOuter {
+	position: relative;
+	overflow:hidden;
+	width: 100%;
+	height: 0px;
+	margin-bottom: -720px;
+	/* This sets a 1s delay when _returning_ to base state */
+	transition-delay: 1s;
+	-webkit-transition-delay: 1s;
+}
+.DatesOuter.Showing {
+	height: 720px;
+	/* This sets a 0s delay when moving _to_ showing state */
+	transition-delay: 0s;
+	-webkit-transition-delay: 0s;
+}
+.Dates {
+	background-color: rgb(234, 234, 229, .9);
+	padding: 10px;
+	z-index: 2300;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	margin-top: -720px;
+	-webkit-transition: margin-top 500ms ease-in-out;
+	transition: margin-top 500ms ease-in-out;
+}
 	.DatesOuter.Showing .Dates {
 		margin-top: 0px;
 	}
