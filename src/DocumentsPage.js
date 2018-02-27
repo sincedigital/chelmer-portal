@@ -53,9 +53,15 @@ class DocumentsPage extends Component {
 				company: "Infratil NZ Ltd",
 				url: "http://sincedigital.jumbletree.com/static/docs/a.pdf"
 			},
-		]
+		];
+		
+		this.toggleDates = this.toggleDates.bind(this);
 	}
 	
+	toggleDates() {
+		this.setState({"showDates": !this.state.showDates});
+	}
+
   render() {
 	  if (this.state.loginRequired) {
 		  return (<Redirect to={this.props.match.url} />);
