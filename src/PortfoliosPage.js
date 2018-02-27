@@ -121,7 +121,7 @@ class PortfolioPage extends Component {
 	  }
 
     return (
-   	  <PageWrap withFooter={this.props.windowWidth > 712 || !this.state.showDates} url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
+   	  <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
             <div className="hero-wrap">
             <div className="main-content">
               <div className="div-block w-clearfix">
