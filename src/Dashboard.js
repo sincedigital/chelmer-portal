@@ -8,6 +8,8 @@ import Remote from './components/Remote.js';
 import NetWorth from './components/dashboard/NetWorth.js';
 import AssetGraph from './components/dashboard/AssetGraph.js';
 import AllocationGraph from './components/dashboard/AllocationGraph.js';
+import Notifications from './components/dashboard/Notifications.js';
+
 import { Palette, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
 
@@ -166,6 +168,7 @@ class Dashboard extends Component {
            </div>
            <div id="right">
             <AssetGraph innerPie={pieData} outerPie={outerPie} />
+            <Notifications />
            </div>
           </div>
          </PageWrap>

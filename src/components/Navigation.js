@@ -81,7 +81,7 @@ class Navigation extends Component {
 			      TRANSACTIONS</Link>
 			      <Link to="/documents" className={docsClass}><span className="icon">
 			      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="navsvg">
-			      <DocumentsIcon className="svg-icon filled" transform="translate(4, 0)" />
+			      <DocumentsIcon className="svg-icon filled" />
 			</svg></span>
 			      
 			      DOCUMENTS</Link>

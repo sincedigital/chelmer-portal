@@ -1,0 +1,48 @@
+.Notifications {
+	margin-top: 40px !important;
+	padding-top: 20px;
+	background-color: rgba(255, 255, 255, 0.4);
+	width: 400px;
+}
+.Notifications h1 {
+	text-transform: uppercase;
+	margin: 0;
+}
+.Notifications .Entry {
+	cursor: pointer;
+	clear: both;
+}
+.Notifications .Entries {
+	padding-bottom: 10px;
+}
+
+.Entry:first-child .TimeLine, .Entry:first-child .NotificationText {
+	padding-top: 15px;
+}
+.Notifications .TimeLine {
+	width: 50px;
+	min-height: 50px;
+	height: auto;
+	float: left;
+}
+.NotificationsIcon {
+	fill: white;
+}
+.NotificationDate {
+	color: #3c7069;
+	font-size: 16px;
+	float: left;
+	text-transform: uppercase;
+}
+.NotificationsBanner {
+	float: left;
+	background-color: #3c7069;
+	text-transform: uppercase;
+	margin: 0px 10px;
+	padding: 3px 10px;
+	border-radius: 4px;
+	color: white;
+}
+.NotificationText  {
+	text-align: left;
+}
