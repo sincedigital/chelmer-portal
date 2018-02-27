@@ -5,7 +5,7 @@
 	width: 400px;
 	margin: 0 auto;
 	padding-bottom: 10px;
-	background-color: rgba(255, 255, 255, 0.4);
+	/*background-color: rgba(255, 255, 255, 0.4);*/
 }
 .AllocationGraph h1 {
 	text-transform: uppercase;

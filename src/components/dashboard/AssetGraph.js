@@ -4,6 +4,8 @@ import { PieChart, Pie, Cell, Legend, Sector } from 'recharts';
 
 import NumberFormat from '../NumberFormat.js';
 
+import './AssetGraph.css';
+
 class AssetGraph extends Component {
 	
 	state = {}

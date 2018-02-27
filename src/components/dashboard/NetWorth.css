@@ -9,3 +9,64 @@
 	width: 75px;
 	text-align: right;
 }
+#networthOuter {
+	width: 400px;
+	margin: 0 auto;
+	/*background-color: rgba(255, 255, 255, 0.4);*/
+}
+#networth {
+	margin: 0 auto;
+	padding: 15px 0 45px 0;
+	width: 300px;
+}
+#networth h1 {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 24px;
+	float: left;
+	text-align: left;
+	margin:0;
+	padding: 0;
+}
+#networth h2 {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 20px;
+	text-align: right;
+	margin:0;
+	padding: 0;
+	line-height: 23px;
+}
+#networth .headline {
+	clear: both;
+	font-size: 24px;
+	text-align: center;
+	margin: 7px 0 17px 0;
+}
+
+@media ( max-width : 712px) {
+	#networth h1 {
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 24px;
+		float: none;
+		text-align: left;
+		margin:0;
+		padding: 0;
+	}
+	#networth h2 {
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 20px;
+		text-align: left;
+		margin:0;
+		padding: 0;
+		line-height: 23px;
+	}
+	#networth .headline {
+		float: right;
+		font-size: 24px;
+		text-align: center;
+		margin: -27px 0 17px 0;
+	}
+}
