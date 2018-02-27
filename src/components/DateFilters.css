@@ -34,6 +34,7 @@
 .DatesContainer {
 	width: 700px;
 	margin: -15px auto;
+	position: relative;
 }
 .DatesCalendar {
 	position: relative;
@@ -41,7 +42,7 @@
 	float: right;
 }
 .DatesQuickPick {
-	margin-left: 400px;
+
 }
 .calendar-outer {
 	position: relative;
@@ -77,6 +78,8 @@
 	font-size: 18px;
 	text-transform: uppercase;
 	clear: none;
+	margin-top: 0px;
+	padding-top: 10px;
 }
 
 

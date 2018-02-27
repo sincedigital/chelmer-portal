@@ -1,46 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import './DateFilters.css';
+import windowSize from 'react-window-size';
 
-const DateFilters = (props) => { 
-	const nextIcon = (<i className="fa fa-angle-right"></i>);
-	const next2Icon = (<i className="fa fa-angle-double-right"></i>);
-	const prevIcon = (<i className="fa fa-angle-left"></i>);
-	const prev2Icon = (<i className="fa fa-angle-double-left"></i>);
-
-	var outerClassName = "DatesOuter"
-	if (props.showing) {
-		outerClassName += " Showing";
+class DateFilters extends Component {
+	
+	state = {};
+	constructor(props) {
+		super(props);
+		
+		this.state.calendarShowing = true;
 	}
-
-	return (
+	
+	render () {
+		const nextIcon = (<i className="fa fa-angle-right"></i>);
+		const next2Icon = (<i className="fa fa-angle-double-right"></i>);
+		const prevIcon = (<i className="fa fa-angle-left"></i>);
+		const prev2Icon = (<i className="fa fa-angle-double-left"></i>);
+	
+		var outerClassName = "DatesOuter"
+		if (this.props.showing) {
+			outerClassName += " Showing";
+		}
+	
+		return (
 			<div style={{"width": "100%"}}>
-		<div className={outerClassName}>
-		<div className="Dates">
-		<div className="DatesContainer">
-		<div className="DatesCalendar">
-		<h1>{props.selectHeader || 'Or select date'}</h1>
-		<div className="calendar-outer">
-		<Calendar value={props.range ? null : (props.selectedDate || new Date())} locale="en-NZ" maxDate={new Date()} nextLabel={nextIcon} next2Label={next2Icon} prevLabel={prevIcon} prev2Label={prev2Icon} onChange={props.onAbsolute} selectRange={props.range} returnValue={props.range ? "range" : "start"} /></div>
-        </div>
-        </div>
-        <div className="DatesQuickPick">
-		<h1>{props.header || 'Select Date'}</h1>
-		<ul className="range-labels">
-		{ props.includeToday ? (<li onClick={(e)=>props.onRelative(0)}>Today</li>) : "" }
-		<li onClick={(e)=>props.onRelative(1)}>{props.relativePrefix}1 month{props.relativeSuffix}</li>
-        <li onClick={(e)=>props.onRelative(3)}>{props.relativePrefix}3 months{props.relativeSuffix}</li>
-        <li onClick={(e)=>props.onRelative(6)}>{props.relativePrefix}6 months{props.relativeSuffix}</li>
-        <li onClick={(e)=>props.onRelative(12)}>{props.relativePrefix}1 year{props.relativeSuffix}</li>
-        <li onClick={(e)=>props.onRelative(24)}>{props.relativePrefix}2 years{props.relativeSuffix}</li>
-        <li onClick={(e)=>props.onRelative(36)}>{props.relativePrefix}3 years{props.relativeSuffix}</li>
-        <li onClick={(e)=>props.onRelative(60)}>{props.relativePrefix}5 years{props.relativeSuffix}</li>
-      </ul>
-      </div>
-      </div>
-      </div>
-      </div>
+			 <div className={outerClassName}>
+			  <div className="Dates">
+			   <div className="DatesContainer">
+			    <div className="DatesCalendar">
+			     <h1>{this.props.selectHeader || 'Or select date'}</h1>
+			     <div className="calendar-outer">
+			      <Calendar value={this.props.range ? null : (this.props.selectedDate || new Date())} locale="en-NZ" maxDate={new Date()} nextLabel={nextIcon} next2Label={next2Icon} prevLabel={prevIcon} prev2Label={prev2Icon} onChange={this.props.onAbsolute} selectRange={this.props.range} returnValue={this.props.range ? "range" : "start"} /></div>
+	             </div>
+	        <div className="DatesQuickPick">
+			<h1>{this.props.header || 'Select Date'}</h1>
+			<ul className="range-labels">
+			{ this.props.includeToday ? (<li onClick={(e)=>this.props.onRelative(0)}>Today</li>) : "" }
+			<li onClick={(e)=>this.props.onRelative(1)}>{this.props.relativePrefix}1 month{this.props.relativeSuffix}</li>
+	        <li onClick={(e)=>this.props.onRelative(3)}>{this.props.relativePrefix}3 months{this.props.relativeSuffix}</li>
+	        <li onClick={(e)=>this.props.onRelative(6)}>{this.props.relativePrefix}6 months{this.props.relativeSuffix}</li>
+	        <li onClick={(e)=>this.props.onRelative(12)}>{this.props.relativePrefix}1 year{this.props.relativeSuffix}</li>
+	        <li onClick={(e)=>this.props.onRelative(24)}>{this.props.relativePrefix}2 years{this.props.relativeSuffix}</li>
+	        <li onClick={(e)=>this.props.onRelative(36)}>{this.props.relativePrefix}3 years{this.props.relativeSuffix}</li>
+	        <li onClick={(e)=>this.props.onRelative(60)}>{this.props.relativePrefix}5 years{this.props.relativeSuffix}</li>
+	      </ul>
+	      </div>
+          </div>
+	      </div>
+	      </div>
+	      </div>
       );
+	}
 }
 
-export default DateFilters;
+export default windowSize(DateFilters);
