@@ -1,5 +1,5 @@
 .body {
-	background-color: rgb(199, 224, 223);
+	background-color: rgb(255, 255, 255);
 	color: #182944;
 }
 .padding10l {
@@ -28,7 +28,7 @@
     top: 105px;
     left: 0px;
  	height: calc(100% - 100px);
-    background-color: rgba(199, 224, 223, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     color: #385e9d;
     z-index: 999;
 }
@@ -55,7 +55,7 @@ Chelmer Colours
 	//Normal: #64ccc9
 	Normal: #385e9d rgb(56, 94, 157
 	Dark: #182944
-	Background: rgb(199, 224, 223) rgb(199, 224, 223) rgb(199, 224, 223)
+	Background: rgb(255, 255, 255) rgb(255, 255, 255)
 	
 Global definitions to allow easy restyling:
 	*/
@@ -72,10 +72,10 @@ Global definitions to allow easy restyling:
 	color: #182944;
 }
 .background, .bg {
-	background-color: rgb(199, 224, 223);
+	background-color: rgb(255, 255, 255);
 }
 .overlay, .ol {
-	background-color: rgba(199, 224, 223, 0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 }
 .background-lightest, .bg-l {
 	background-color: white;

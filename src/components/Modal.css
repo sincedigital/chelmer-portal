@@ -5,8 +5,8 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(199, 224, 223, 0.9);
-    color: rgb(19, 52, 59);/* rgb(124,179,172); */
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgb(56, 94, 157);/* rgb(124,179,172); */
     z-index: 1999;
 }
 .ModalOverlay.AllowNavigation {
@@ -16,9 +16,9 @@
 .Modal {
 	position: fixed;
 	border-radius: 10px;
-	border: solid rgb(63, 111, 120) 1px;
+	border: solid #182944 1px;
 	padding: 30px;
-	background-color: #9DBDB8;
+	background-color: #bae1df;
 	margin: auto;
 }
 

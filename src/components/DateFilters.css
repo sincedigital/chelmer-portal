@@ -15,7 +15,7 @@
 	-webkit-transition-delay: 0s;
 }
 .Dates {
-	background-color: rgba(199, 224, 223, .9);
+	background-color: rgba(255, 255, 255, .9);
 	padding: 10px;
 	z-index: 2300;
 	position: relative;
@@ -64,7 +64,7 @@
 	padding-left: 5px;
 	border: solid #385e9d 1px;
 	background-color: #385e9d;
-	color: rgb(199, 224, 223);
+	color: rgb(255, 255, 255);
 	border-radius: 3px;
 	margin-bottom: 2px;
 	text-align: center;
@@ -133,7 +133,7 @@
 	-webkit-transition-delay: 0s;
 }
 .Dates {
-	background-color: rgba(199, 224, 223, .9);
+	background-color: rgba(255, 255, 255, .9);
 	padding: 10px;
 	z-index: 2300;
 	position: fixed;
@@ -193,7 +193,7 @@
 		border-left: none;
 		border-right: none;
 		background-color: #385e9d;
-		color: rgb(199, 224, 223);
+		color: rgb(255, 255, 255);
 		border-radius: 0px;
 		margin-bottom: 2px;
 		text-align: center;
@@ -231,7 +231,7 @@
 
 /* Calendar restyling */
 /* 
-	Background: rgb(199, 224, 223) 
+	Background: rgb(255, 255, 255) 
 	Hover: rgb(250, 250, 244)
 */
 /*
@@ -243,14 +243,14 @@
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	background-color: rgb(199, 224, 223) !important;
+	background-color: rgb(255, 255, 255) !important;
 }
 
 .react-calendar button {
 	color: #385e9d;
 }
 .react-calendar button:disabled {
-	background-color: rgb(199, 224, 223) !important;
+	background-color: rgb(255, 255, 255) !important;
 	color: #555555;
 }
 
@@ -267,8 +267,8 @@ button.react-calendar__tile--active:active, button.react-calendar__tile--active:
 	background-color: rgb(250, 250, 244) !important;
 }
 button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hover:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]):hover {
-	background-color: rgb(199, 224, 223) !important;
+	background-color: rgb(255, 255, 255) !important;
 }
 button.react-calendar__navigation__label {
-	background-color: rgb(199, 224, 223) !important;
+	background-color: rgb(255, 255, 255) !important;
 }

@@ -35,7 +35,7 @@ ul.PortfolioTabs li {
 ul.PortfolioTabs li.Selected {
 	border-color: #385e9d;
 	border-radius: 0 0 5px 5px;
-	background-color: rgb(199, 224, 223);
+	background-color: rgb(255, 255, 255);
 }
 ul.PortfolioTabs::after {
 	content: "";
