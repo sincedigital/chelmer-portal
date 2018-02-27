@@ -19,9 +19,9 @@
 }
 
 .AllocationGraph .dashboard-table div:first-child {
-	width: 225px;
+	width: 150px;
 }
 .AllocationGraph .dashboard-table div:nth-child(2) {
-	width: 75px;
+	width: 150px;
 	text-align: right;
 }

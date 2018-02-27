@@ -164,10 +164,10 @@ class Dashboard extends Component {
 		  <div id="dashboard">
            <div id="left">
             <NetWorth total={this.state.portfolio.total} thisMonthProfitLoss={thisMonthProfitLoss} thisMonthPercentage={thisMonthPercentage} thisYearProfitLoss={thisYearProfitLoss} thisYearPercentage={thisYearPercentage} />
-            <AllocationGraph mandate={80} actual={72} />
+            <AssetGraph innerPie={pieData} outerPie={outerPie} />
            </div>
            <div id="right">
-            <AssetGraph innerPie={pieData} outerPie={outerPie} />
+            <AllocationGraph mandate={80} actual={72.4} />
             <Notifications />
            </div>
           </div>

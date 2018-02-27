@@ -62,11 +62,11 @@ class AllocationGraph extends Component {
 				</svg>
 		         <div className="dashboard-table">
 		          <div>Target Allocation</div>
-		          <div><NumberFormat places={0} value={this.props.mandate} suffix="%" /> / <NumberFormat places={0} value={100-this.props.mandate} suffix="%" /></div>
+		          <div><NumberFormat places={1} value={this.props.mandate} suffix="%" /> / <NumberFormat places={1} value={100-this.props.mandate} suffix="%" /></div>
 		         </div>
 		         <div className="dashboard-table clearfix">
 		          <div>Current Allocation</div>
-		          <div><NumberFormat places={0} value={this.props.actual} suffix="%" /> / <NumberFormat places={0} value={100-this.props.actual} suffix="%" /></div>
+		          <div><NumberFormat places={1} value={this.props.actual} suffix="%" /> / <NumberFormat places={1} value={100-this.props.actual} suffix="%" /></div>
 		         </div>
 		      	</div>
 			</div>
