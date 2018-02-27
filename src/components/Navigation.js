@@ -47,13 +47,13 @@ class Navigation extends Component {
 		return (
 				<div>
 			<div id="MobileNav">
-				<img src="images/chelmer-logo-long.png" className="nav-logo-mobile" />
+				<img src="images/chelmer-logo-long-white.png" className="nav-logo-mobile" />
 				<i className="fas fa-bars" onClick={this.toggleMobileNav}></i>
 			</div>
 			<div data-collapse="small" data-animation="default" data-duration="400" className={navClass}>
 			    <div className="nav-container w-container">
 			      <nav className="nav-menu w-clearfix w-nav-menu">
-			      <img alt="" src="images/chelmer-logo-block.png" className="nav-logo"/>
+			      <img alt="" src="images/chelmer-logo-block-white.png" className="nav-logo"/>
 			      <div className="nav-links">
 			      
 			      <Link to="/dashboard" className={ dashClass } ><span className="icon">

@@ -26,10 +26,10 @@
 	float: left;
 }
 .NotificationsIcon {
-	fill: white;
+	fill: #385e9d;
 }
 .NotificationDate {
-	color: #385e9d;
+	color: #bae1df;
 	font-size: 16px;
 	float: left;
 	text-transform: uppercase;

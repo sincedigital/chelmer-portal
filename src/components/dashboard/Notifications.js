@@ -66,7 +66,7 @@ const Notifications = props=>{
 const TimeLineIcon = props=>{
 	return (<svg width="50" height="50">
 		<g>
-			<circle cx="25" cy="20" r="15" fill="#385e9d" strokeWidth="0px" />
+			<circle cx="25" cy="20" r="15" fill="white" strokeWidth="0px" />
 			<g transform="translate(16,10) scale(.55, .55)">
 			{props.children}
 			</g>
