@@ -30,6 +30,7 @@ ul.PortfolioTabs li {
 	padding: 6px 12px;
 	cursor: pointer;
 	white-space: nowrap;
+	z-index: 1301;
 }
 ul.PortfolioTabs li.Selected {
 	border-color: #3c7069;
@@ -46,8 +47,11 @@ ul.PortfolioTabs::after {
 		width: calc(100% - 80px);
 		min-width: 0;
 		margin: 0 40px 20px 20px;
+		z-index: 1000;
+		position: relative;
 	}
 	ul.PortfolioTabs {
-		
+		z-index: 1000;
+		position: relative;
 	}
 }

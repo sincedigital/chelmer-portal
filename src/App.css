@@ -39,3 +39,70 @@
 	 	height: calc(100% - 50px);
 	}
 }
+
+
+/* Colours 
+	White: white
+	Turquoise: #3c7069
+	Faded Turquoise: #86a6a2
+	Blue: #13343b
+	Background: rgb(234, 234, 229)
+
+
+Global definitions to allow easy restyling:
+	*/
+.foreground-lightest, .fg-l {
+	color: white;
+}	
+.foreground-pale, .fg-p {
+	color: #86a6a2;
+}	
+.foreground-normal, .fg-n {
+	color: #3c7069;
+}	
+.foreground-dark, .fg-d {
+	color: #13343b;
+}
+.background, .bg {
+	background-color: rgb(234, 234, 229);
+}
+.overlay, .ol {
+	background-color: rgba(234, 234, 229, 0.9);
+}
+.background-lightest, .bg-l {
+	background-color: white;
+}	
+.background-pale, .bg-p {
+	background-color: #86a6a2;
+}	
+.background-normal, .bg-n {
+	background-color: #3c7069;
+}	
+.background-dark, .bg-d {
+	background-color: #13343b;
+}	
+.hover-background-lightest:hover, .h-bg-l:hover {
+	background-color: white;
+}	
+.hover-background-pale:hover, .h-bg-p:hover {
+	background-color: #86a6a2;
+}	
+.hover-background-normal:hover, .h-bg-n:hover {
+	background-color: #3c7069;
+}	
+.hover-background-dark:hover, .h-bg-d:hover {
+	background-color: #13343b;
+}	
+.fill-lightest, .fl-l {
+	fill: white;
+}	
+.fill-pale, .fl-p {
+	fill: #86a6a2;
+}	
+.fill-normal, .fl-n {
+	fill: #3c7069;
+}	
+.fill-dark, .fl-d {
+	fill: #13343b;
+}	
+

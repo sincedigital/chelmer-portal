@@ -19,7 +19,7 @@ const PageWrap = props=>{
 		          </div>
 		          <div className="FooterPush"></div>
 		         </div>
-		         <Footer onPortfolioChanged={props.onPortfolioChanged} />
+		         {props.withFooter ? (<Footer onPortfolioChanged={props.onPortfolioChanged} />) : ""}
 		         <Modal showing={props.timeout} allowNavigation={true}>
 		  	    <h1>Could not contact Chelmer</h1>
 		  	    <p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>

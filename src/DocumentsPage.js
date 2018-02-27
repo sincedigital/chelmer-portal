@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import windowSize from 'react-window-size';
 
 import DateFormat from './components/DateFormat.js';
 
@@ -68,11 +69,11 @@ class DocumentsPage extends Component {
 	  }
 
     return (
-   	  <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
+   	  <PageWrap withFooter={this.props.windowWidth > 712 || !this.state.showDates} url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
           <div className="hero-wrap">
           <div className="main-content">
             <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat fullMonthName={true} date={this.state.startDate} /> - <DateFormat fullMonthName={true} date={this.state.endDate} /></span> <i id="dateHandler" className="far fa-calendar-alt padding10l" aria-hidden="true" onClick={this.toggleDates}></i></strong> </p>
-            <DateFilters showing={this.state.showDates} selectHeader="Or select range" onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View documents for" />
+            <DateFilters hide={this.toggleDates} showing={this.state.showDates} selectHeader="Or select range" onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View documents for" />
             { this.state.filteredDocuments.length === 0 ? <NoDocuments /> : <DocumentsTable documents={this.state.filteredDocuments} />}
           </div>
         </div>
@@ -81,4 +82,4 @@ class DocumentsPage extends Component {
   }
 }
 
-export default DocumentsPage;
+export default windowSize(DocumentsPage);

@@ -50,18 +50,18 @@ class LoginPage extends Component {
 
     return (
     	<div id="login">
-    		<form id="loginForm" onSubmit={this.submitForm}>
-    			<header>Login</header>
+    		<form id="loginForm" className="bg-l fg-d" onSubmit={this.submitForm}>
+    			<header className="bg-n fg-l">Login</header>
     			{this.state.failedLogin && <div className="alert alert-danger" role="alert">
 	  			  Invalid username or password. Please try again.
 	  			</div>}
     			<label>Username</label>
     			<input type="text" name="username" id="loginUsername" onChange={(e)=>this.setState({"name": e.target.value})} />
-    			<div className="help">Use your Chelmer Fusion username</div>
+    			<div className="help fg-n">Use your Chelmer Fusion username</div>
     			<label>Password</label>
     			<input type="password" name="password" id="loginPassword" onChange={(e)=>this.setState({"pwd": e.target.value})} />
-    			<div className="help">Use the password supplied to authenticate to the Fusion portal</div>
-    			<button type="submit" id="loginSubmit">{this.state.buttonText}</button> 
+    			<div className="help fg-n">Use the password supplied to authenticate to the Fusion portal</div>
+    			<button type="submit" id="loginSubmit" className="fg-l bg-n h-bg-d">{this.state.buttonText}</button> 
     		</form>
     	</div>
     );

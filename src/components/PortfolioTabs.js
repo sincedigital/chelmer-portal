@@ -59,7 +59,7 @@ class PortfolioTabs extends Component {
 			
 		if (containerWidth < inner) {
 			this.setState({calculatedWidth: inner, volatileUpdate: false});
-			setTimeout(()=>{console.log("Scroll to " + (selectedx1 - 40)); this.container.scrollLeft = selectedx1 - 40;}, 400);
+			setTimeout(()=>{if (this.container) this.container.scrollLeft = selectedx1 - 40;}, 400);
 		}	
 	}
 	
@@ -85,7 +85,7 @@ class PortfolioTabs extends Component {
 		const currentPortfolio = this.state.selected;
 		const containerClassName = "PortfolioTabsContainer" + (this.state.calculatedWidth !== "100%" ? "" : " NoScroll");
 		
-		return (<div className="PortfolioTabsOuter"><div className={containerClassName} ref={el=>{this.container = el;}}>
+		return (<div className="PortfolioTabsOuter" id="PortfolioTabs"><div className={containerClassName} ref={el=>{this.container = el;}}>
 			<ul className="PortfolioTabs" style={{width: this.state.calculatedWidth}}>
 		{ 
         	Object.keys(portfolioCache).map((key) => {

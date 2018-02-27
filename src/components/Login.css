@@ -12,11 +12,9 @@ div#login {
 }
 
 div#login form {
-  background: white;
   width: 40%;
   box-shadow: 3px 3px 19px rgba(0, 0, 0, 0.4);
   position: relative;
-  color: #333;
   border-radius: 2px;
   margin-top: 50px;
 }
@@ -28,9 +26,7 @@ div#login form {
   
 }
 div#login form header {
-  background: #3c7069;
   padding: 30px 20px;
-  color: white;
   font-size: 1.2em;
   font-weight: 600;
   border-radius: 2px 2px 0 0;
@@ -41,13 +37,6 @@ div#login form label {
   margin-top: 30px;
   margin-bottom: 5px;
   position: relative;
-}
-div#login form label span {
-  color: rgb(124,179,172);
-  font-size: 2em;
-  position: absolute;
-  left: 2.3em;
-  top: -10px;
 }
 div#login form input {
   display: block;
@@ -62,7 +51,6 @@ div#login form input {
 div#login form .help {
   margin-left: 20px;
   font-size: 0.8em;
-  color: #777;
   width: calc(100% - 50px);
   line-height: 15px;
   margin-top: 6px;
@@ -74,8 +62,6 @@ div#login form button {
   left: 50%;
   transform: translate(-50%, 0);
   font-family: inherit;
-  color: white;
-  background: #3c7069;;
   outline: none;
   border: none;
   padding: 5px 15px;
@@ -85,9 +71,6 @@ div#login form button {
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   width: initial;
-}
-div#login form button:hover {
-  background: #254743;
 }
 
 .alert-danger {

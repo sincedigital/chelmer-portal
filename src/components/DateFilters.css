@@ -17,7 +17,7 @@
 .Dates {
 	background-color: rgb(234, 234, 229, .9);
 	padding: 10px;
-	z-index: 1300;
+	z-index: 2300;
 	position: relative;
 	width: 100%;
 	height: 350px;
@@ -42,7 +42,7 @@
 	float: right;
 }
 .DatesQuickPick {
-
+	float: left;
 }
 .calendar-outer {
 	position: relative;
@@ -110,6 +110,127 @@
 .range-labels .selected::before {
   background: #37adbf;
 }
+.DatesClose {
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+}
+@media ( max-width : 712px) {
+	.DatesOuter {
+		position: fixed;
+		overflow:hidden;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0px;
+		background-color: rgb(234, 234, 229, .9);
+/*		margin-bottom: -350px;
+		/* This sets a 1s delay when _returning_ to base state *
+		transition-delay: 1s;
+		-webkit-transition-delay: 1s;*/
+	}
+	.DatesOuter.Showing {
+		height: 0;
+		/* This sets a 0s delay when moving _to_ showing state */
+		transition-delay: 0s;
+		-webkit-transition-delay: 0s;
+	}
+	.Dates {
+		background-color: rgb(234, 234, 229, .9);
+		padding: 10px;
+		z-index: 2300;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 850px;
+		margin-top: -850px;
+		margin-left: 0;
+		margin-right: 0;
+		text-align: left;
+		-webkit-transition: margin-top 500ms ease-in-out;
+		transition: margin-top 500ms ease-in-out;
+	}
+	.DatesOuter.Showing .Dates {
+		margin-top: 0px;
+	}
+	.DatesClose {
+		color: white;
+		margin-right: 10px;
+		margin-top: 10px;
+	}
+	.DatesContainer {
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		position: relative;
+		z-index: 2400;
+	}
+	.DatesCalendar {
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+		float: none;
+		background-color: #3c7069;
+		height: 320px;
+	}
+	.DatesQuickPick {
+		float: left;
+		background-color: #3c7069;
+		color: white;
+		padding-bottom: 50px;
+	}
+	.Dates ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	.Dates ul li {
+		margin: 0 auto;
+		width: 100%;
+		font-size: 16px;
+		padding: 5px 0;
+		list-style: none;
+		padding-left: 5px;
+		border-top: solid #86a6a2 3px;
+		border-left: none;
+		border-right: none;
+		background-color: #3c7069;
+		color: rgb(234, 234, 229);
+		border-radius: 0px;
+		margin-bottom: 2px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.Dates ul li:hover {
+		background-color: #13343b;
+	}
+	.Dates h1 {
+		text-align: center;
+		color: white;
+		font-size: 18px;
+		text-transform: uppercase;
+		clear: none;
+		margin-top: 0px;
+		padding-top: 10px;
+	}
+	
+	
+	.DatesQuickPick {
+		float: none;
+		padding-bottom: 0px;
+	}	
+	.CalendarOuter {
+		float: none;
+	}
+	.calendar-outer {
+		width: 350px;
+		margin: 0 auto;
+		float: none;
+	}
+}
+
+
 
 /* Calendar restyling */
 /* 
@@ -121,7 +242,7 @@
 	Blue: #13343b
 */
 .react-calendar {
-	z-index: 1400;
+	z-index: 2400;
 	position: absolute;
 	top: 0px;
 	left: 0px;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import windowSize from 'react-window-size';
+
 import Modal from './components/Modal.js';
 
 import DateFormat from './components/DateFormat.js';
@@ -119,7 +121,7 @@ class PortfolioPage extends Component {
 	  }
 
     return (
-   	  <PageWrap url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
+   	  <PageWrap withFooter={this.props.windowWidth > 712 || !this.state.showDates} url={this.props.match.url} loading={this.state.loading === true && this.state.timeout === false} onPortfolioChanged={this.portfolioChanged} timeout={this.state.timeout}>
             <div className="hero-wrap">
             <div className="main-content">
               <div className="div-block w-clearfix">
@@ -127,7 +129,7 @@ class PortfolioPage extends Component {
                 <div className="text-block">NZD</div>
               </div>
               <p className="subhead-1"><strong className="bold-text"><span id="date"><DateFormat date={this.state.portfolio.date} fullMonthName={true}/></span> <i id="dateHandler" className="far fa-calendar-alt padding10l" aria-hidden="true" onClick={this.toggleFilters}></i></strong> </p>
-              <DateFilters header="View portfolio as at ..." includeToday={true} showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} relativeSuffix=" ago" showCurrent={true}/>
+              <DateFilters hide={this.toggleFilters} header="View portfolio as at ..." includeToday={true} showing={this.state.showDates} onRelative={this.toRelativeDate} onAbsolute={this.toDate} relativeSuffix=" ago" showCurrent={true}/>
             </div>
           </div>
           <div id="portfolio-makeup">
@@ -142,4 +144,4 @@ class PortfolioPage extends Component {
   }
 }
 
-export default PortfolioPage;
+export default windowSize(PortfolioPage);
