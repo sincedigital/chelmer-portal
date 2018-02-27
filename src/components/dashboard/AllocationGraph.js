@@ -52,7 +52,7 @@ class AllocationGraph extends Component {
 		return (
 			<div className="AllocationGraph">
 				<div>
-				<h1>Asset Allocation</h1>
+				<h1>Risk Profile</h1>
 				<svg width="400" height="180">
 					<path stroke="#ffffff" strokeWidth="4px" fill="#3c7069" d={growth} />
 					<path stroke="#ffffff" strokeWidth="4px" fill="#86a6a2" d={income} />
