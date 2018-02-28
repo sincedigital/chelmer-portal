@@ -29,6 +29,10 @@
 .FundSell div i {
 	margin-left: 5px;
 }
+i.fa-play {
+	margin-bottom: 2px;
+	margin-left: 5px;
+} 
 .FundPercentage {
 	width: 50%;
 }
