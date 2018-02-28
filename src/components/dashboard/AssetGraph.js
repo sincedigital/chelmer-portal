@@ -79,12 +79,12 @@ class AssetGraph extends Component {
            	<div id="assetgraph">
            	<h1>Asset Allocation</h1>
             <PieChart width={400} height={270}>
-             <Pie data={this.state.innerPie} nameKey="name" dataKey="percentage" cx="42%" cy="33%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
+             <Pie data={this.state.innerPie} nameKey="name" dataKey="percentage" cx={100} cy="33%" startAngle={450} endAngle={90} innerRadius={50} outerRadius={60} legendType="square">
               { this.state.innerPie.map((entry, index)=>(
            	   <Cell key={"cell-" + index}	fill={entry.colour} />
               ))}
              </Pie>
-             <Pie data={this.state.outerPie} nameKey="name" dataKey="percentage" cx="42%" cy="33%" startAngle={450} endAngle={90} innerRadius={70} outerRadius={80} legendType="none" onClick={this.activateSegment} onMouseEnter={this.activateSegment} activeIndex={this.state.activeSegment} activeShape={this.drawHighlight}>
+             <Pie data={this.state.outerPie} nameKey="name" dataKey="percentage" cx={100} cy="33%" startAngle={450} endAngle={90} innerRadius={70} outerRadius={80} legendType="none" onClick={this.activateSegment} onMouseEnter={this.activateSegment} activeIndex={this.state.activeSegment} activeShape={this.drawHighlight}>
 	           { this.state.outerPie.map((entry, index)=>(
 	        	<Cell key={"ocell-" + index} fill={entry.colour} stroke="#bae1df" />
 	           ))}
