@@ -22,7 +22,9 @@ const Portfolios = [
 //const Palette = ['#3995e0', '#5ab6cd', '#5bcdac', '#5ec542', '#8dc641', '#9539e0'];
 //HWP const Palette = ['#7cb3ac', '#58595b', '#a45d5d', '#5da470', '#a47b5d', '#8dc641'];
 //HWP dark const Palette = ['#48233c', '#046a70', '#700427', '#157004', '#182944', '#705804'];
-const Palette = ['#335a99', '#b4c9ec', '#11346f', '#bae1df', '#1d4890', '#819ece' ];
+//const Palette = ['#335a99', '#b4c9ec', '#11346f', '#bae1df', '#1d4890', '#819ece' ];
+const Palette = ['#6dc0d5', '#a4b9dc', '#11346f', '#819ece', '#211f64', '#3b5c96' ];
+
 const UnderShades = [null, null, null, null, null, null];
 const GreenShades = ['#B2CFCC', '#A9C9C6', '#94C3C0', '#96BEBA', '#89ADAA', '#7B9C99', '#6E8B88', '#607977', '#526866'];
 
