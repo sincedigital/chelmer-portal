@@ -12,7 +12,7 @@
 	overflow-x: hidden;
 }
 ul.PortfolioTabs {
-	border-top: solid 1px #385e9d;
+	border-top: solid 1px #eeeeee;
 	margin: 10px 0 0;
 	padding: 0;
 	min-width: 100%;
@@ -33,9 +33,9 @@ ul.PortfolioTabs li {
 	z-index: 1301;
 }
 ul.PortfolioTabs li.Selected {
-	border-color: #385e9d;
+	border-color: #eeeeee;
 	border-radius: 0 0 5px 5px;
-	background-color: rgb(199, 224, 223);
+	background-color: #385e9d;
 }
 ul.PortfolioTabs::after {
 	content: "";

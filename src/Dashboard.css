@@ -15,7 +15,7 @@
 	margin: 0 auto;
 }
 .dashboard-table {
-	border-top: solid rgb(19, 52, 59) 1px;
+	border-top: solid #eeeeee 1px;
 	clear: both;
 }
 .dashboard-table div {

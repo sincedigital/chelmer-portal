@@ -1,6 +1,6 @@
 .body {
-	background-color: rgb(199, 224, 223);
-	color: #182944;
+	background: #385e9d linear-gradient(to bottom, #64ccc9, #385e9d 90%) top left no-repeat;
+	color: #eeeeee;
 }
 .padding10l {
 	padding-left:10px;
@@ -28,9 +28,9 @@
     top: 105px;
     left: 0px;
  	height: calc(100% - 100px);
-    background-color: rgba(199, 224, 223, 0.9);
+    background: rgba(100, 204, 201, 0.9) linear-gradient(to bottom, rgba(94, 189, 195, 0.9), rgba(100, 204, 201, 0.9) 90%) top left no-repeat;
     color: #385e9d;
-    z-index: 999;
+    z-index: 5999;
 }
 
 @media ( max-width : 712px) {
@@ -50,17 +50,17 @@ HWP Colours
 	Background: rgb(234, 234, 229)
 
 Chelmer Colours
-	White: white;
+	White: #eeeeee;
 	Pale: #bae1df
 	//Normal: #64ccc9
 	Normal: #385e9d rgb(56, 94, 157
 	Dark: #182944
-	Background: rgb(199, 224, 223) rgb(199, 224, 223) rgb(199, 224, 223)
+	Background: rgb(238, 238, 238) rgb(199, 224, 223
 	
 Global definitions to allow easy restyling:
 	*/
 .foreground-lightest, .fg-l {
-	color: white;
+	color: #eeeeee;
 }	
 .foreground-pale, .fg-p {
 	color: #bae1df;
@@ -72,13 +72,13 @@ Global definitions to allow easy restyling:
 	color: #182944;
 }
 .background, .bg {
-	background-color: rgb(199, 224, 223);
+	background-color: rgb(238, 238, 238);
 }
 .overlay, .ol {
-	background-color: rgba(199, 224, 223, 0.9);
+	background-color: rgba(238, 238, 238, 0.9);
 }
 .background-lightest, .bg-l {
-	background-color: white;
+	background-color: #eeeeee;
 }	
 .background-pale, .bg-p {
 	background-color: #bae1df;
@@ -90,7 +90,7 @@ Global definitions to allow easy restyling:
 	background-color: #182944;
 }	
 .hover-background-lightest:hover, .h-bg-l:hover {
-	background-color: white;
+	background-color: #eeeeee;
 }	
 .hover-background-pale:hover, .h-bg-p:hover {
 	background-color: #bae1df;
@@ -99,10 +99,10 @@ Global definitions to allow easy restyling:
 	background-color: #385e9d;
 }	
 .hover-background-dark:hover, .h-bg-d:hover {
-	background-color: #182944;
+	background-color: #284e8d;
 }	
 .fill-lightest, .fl-l {
-	fill: white;
+	fill: #eeeeee;
 }	
 .fill-pale, .fl-p {
 	fill: #bae1df;

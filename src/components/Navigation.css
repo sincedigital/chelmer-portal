@@ -49,7 +49,8 @@
 }
 
 .nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled {
-	fill: #182944;
+	fill: #eeeeee;
+	stroke: #eeeeee;
 }
 
 .svg-mask {
@@ -58,8 +59,8 @@
 }
 
 .nav-link:hover, .nav-link.active {
-	border-bottom: 3px solid #182944;
-	color: #182944;
+	border-bottom: 3px solid #eeeeee;
+	color: #eeeeee;
 }
 
 .nav {
@@ -99,9 +100,18 @@
 
 div.nav-links {
 	margin: 0 auto;
-	width: 680px;
+	width: 780px;
 }
 
+/* Sort logo crashes */
+@media (max-width : 1490px) {
+	.nav-container {
+		width: 100%;
+	}	
+}
+@media (max-width: 1130px) {
+	
+}
 a.w-nav-link {
 	padding-left: 18px;
 	padding-right: 18px;

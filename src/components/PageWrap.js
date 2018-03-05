@@ -21,8 +21,8 @@ const PageWrap = props=>{
 		         </div>
 		         <Footer onPortfolioChanged={props.onPortfolioChanged} />
 		         <Modal showing={props.timeout} allowNavigation={true}>
-		  	    <h1>Could not contact Chelmer</h1>
-		  	    <p>The Chelmer portal is currently down, so we are unable to retrieve your portfolio information.  Please try again later.</p>
+		  	    <h1>Could not contact the server</h1>
+		  	    <p>The Chelmer portal is currently undergoing maintenance, so we are unable to retrieve your portfolio information.  Please try again later.</p>
 		  	   </Modal>
 	        </div>
 

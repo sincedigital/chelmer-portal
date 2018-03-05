@@ -6,20 +6,20 @@
 	cursor: pointer;
 	padding-bottom: 20px;
 	margin-bottom: 10px;
-	border-top: solid #385e9d 1px;
+	border-top: solid #eeeeee 1px;
 	padding-top: 10px;
 }
 .Document:hover {
-	background-color: rgba(255,255,255,0.4);
+	background-color: rgba(100, 204, 201, 0.3);
 }
 .DocumentIcon {
-	fill: white;
+	fill: #385e9d;
 }
 .DocumentIconWrapper {
 	float: left;
 }
 .DocumentIconCircle {
-	fill: #385e9d;
+	fill: #eeeeee;
 	stroke-width: 0px
 }
 .DocumentDownload i {
@@ -27,12 +27,12 @@
 	margin-right: 10px;
 }
 .DocumentName {
-	color: #385e9d;
+	color: #eeeeee;
 	font-weight: 600;
 	font-size: 19px;
 }
 .Document i {
-	color: #385e9d;
+	color: #bae1df;
 	padding-right: 5px;
 }
 .DocumentDate, .DocumentCompany, .DocumentType {
@@ -62,18 +62,18 @@
 		margin-top: -30px;
 	}
 	.DocumentDownload i {
-		color: white !important;
+		color: #385e9d !important;
 	}
 	
 	.DocumentIconWrapper {
 		width: 100%;
 		float: none;
-		background-color: #385e9d;
+		background-color: #eeeeee;
 		border-radius: 2px;
 		height: 40px;
 	}
 	.DocumentIconCircle {
-		stroke: white;
+		stroke: #385e9d;
 		stroke-width: 1px
 	}
 	.DocumentDate {

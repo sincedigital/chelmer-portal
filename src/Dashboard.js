@@ -10,7 +10,7 @@ import AssetGraph from './components/dashboard/AssetGraph.js';
 import AllocationGraph from './components/dashboard/AllocationGraph.js';
 import Notifications from './components/dashboard/Notifications.js';
 
-import { Palette, Markets } from './components/Constants.js';
+import { Palette, UnderShades, Markets } from './components/Constants.js';
 import { ToAPIDate, PortfolioFromHoldings } from './components/Functions.js';
 
 import './Dashboard.css';
@@ -139,7 +139,7 @@ class Dashboard extends Component {
 	  
 	  this.state.portfolio.parts.map((entry, index)=>{
 		 const colour = Palette[index % Palette.length];
-		 
+		 const undershade = UnderShades[index % Palette.length];
 		 pieData.push({
 			 name: Markets[entry.name],
 			 percentage: entry.percentage,
@@ -152,7 +152,8 @@ class Dashboard extends Component {
 				 name: holding.name,
 				 percentage: holding.percentage,
 				 "holdingValue": holding.value,
-				 colour: colour
+				 colour: colour,
+				 undershade: undershade
 			 });
 			 return null;
 		 });

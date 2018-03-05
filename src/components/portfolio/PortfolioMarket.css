@@ -56,13 +56,13 @@
 
 @media ( max-width : 860px) {
 	#portfolio-makeup>.portfolio-row:first-child {
-		border-top: 1px #58595b solid;
+		border-top: 1px #eeeeee solid;
 	}
 	#portfolio-makeup span {
 		display: inline-block;
 	}
 	.portfolio-row {
-		border-bottom: 1px #58595b solid;
+		border-bottom: 1px #eeeeee solid;
 		display: block;
 	}
 	.portfolio-row-name {
