@@ -1,5 +1,6 @@
 import { Chelmer } from './Constants.js';
 import Authentication from './Authentication.js';
+import { ToAPIDate } from './Functions.js';
 
 const Remote = {
 	/* Local caches */
@@ -109,7 +110,17 @@ const Remote = {
 	},
 	
 	getAvailablePortfolios: function() {
-		return this.getCache("holdings-cache");
+		const cache = this.getCache("holdings-cache");
+		const initialDate = ToAPIDate(new Date());
+		const available = [];
+		
+		Object.keys(cache).map(key=>{
+			if (key.endsWith(initialDate)) {
+				available[key] = cache[key];
+			}
+		});
+		
+		return available;
 	},
 	
 	/**
