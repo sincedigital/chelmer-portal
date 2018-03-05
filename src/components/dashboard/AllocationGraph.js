@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import NumberFormat from '../NumberFormat.js';
 
+import { Palette } from '../Constants.js';
+
 import './AllocationGraph.css';
 
 class AllocationGraph extends Component {
@@ -54,11 +56,11 @@ class AllocationGraph extends Component {
 				<div>
 				<h1>Risk Profile</h1>
 				<svg width="400" height="180">
-					<path stroke="#eeeeee" strokeWidth="4px" fill="#385e9d" d={growth} />
-					<path stroke="#eeeeee" strokeWidth="4px" fill="#bae1df" d={income} />
+					<path stroke="#ffffff" strokeWidth="4px" fill={Palette[0]} d={growth} />
+					<path stroke="#ffffff" strokeWidth="4px" fill={Palette[1]} d={income} />
 					<path strokeWidth="0px" fill="#182944" d={actual} />
-					<text x="65" y="145" fill="#eeeeee" stroke="none">GROWTH</text>
-					<text x="335" y="145" fill="#eeeeee" stroke="none" style={{textAnchor: "end"}}>INCOME</text>
+					<text x="65" y="145" fill="#ffffff" stroke="none">GROWTH</text>
+					<text x="335" y="145" fill="#ffffff" stroke="none" style={{textAnchor: "end"}}>INCOME</text>
 				</svg>
 		         <div className="dashboard-table">
 		          <div>Target Allocation</div>

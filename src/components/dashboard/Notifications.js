@@ -53,7 +53,7 @@ const Notifications = props=>{
 		  	<TimeLineIcon>{notification.type}</TimeLineIcon>
 		  </div>
 		  <div className="NotificationText clearfix" onClick={()=>props.history.push(notification.onClick)}>
-		   <div className="NotificationDate"><DateFormat date={notification.date} /></div><br />
+		   <div className="NotificationDate fg-p"><DateFormat date={notification.date} /></div><br />
 		   <div className="Text">{notification.text}</div>
 		  </div>
 		</div>)

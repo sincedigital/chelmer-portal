@@ -35,33 +35,6 @@
 	display: block;
 }
 
-.svg-icon {
-	stroke: #385e9d;
-	fill: #EAEAE5;
-}
-
-.svg-icon.filled {
-	fill: #385e9d;
-}
-
-.nav-link:hover .svg-icon, .nav-link.active .svg-icon {
-	stroke: #182944;
-}
-
-.nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled {
-	fill: #eeeeee;
-	stroke: #eeeeee;
-}
-
-.svg-mask {
-	stroke: #EAEAE5;
-	fill: #EAEAE5;
-}
-
-.nav-link:hover, .nav-link.active {
-	border-bottom: 3px solid #eeeeee;
-	color: #eeeeee;
-}
 
 .nav {
 	display: -webkit-box;
@@ -74,7 +47,6 @@
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	border-bottom: 1px none hsla(0, 0%, 100%, .53);
 	background-color: transparent;
 }
 

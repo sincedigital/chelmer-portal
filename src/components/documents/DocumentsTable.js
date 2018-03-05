@@ -26,11 +26,11 @@ class DocumentsTable extends Component {
 					</g>
 					</svg>
 					</div>
-					<div className="DocumentDownload"><i className="fas fa-download"></i></div>
-					<div className="DocumentName">{doc.heading}</div>
-					<div className="DocumentDate"><i className="far fa-calendar"></i><DateFormat date={doc.date} /></div>
-					<div className="DocumentCompany"><i className="far fa-building"></i>{doc.company}</div>
-					<div className="DocumentType"><i className="far fa-file"></i>{doc.type}</div>
+					<div className="DocumentDownload"><i className="fg-p fas fa-download"></i></div>
+					<div className="DocumentName fg-l">{doc.heading}</div>
+					<div className="DocumentDate"><i className="fg-p far fa-calendar"></i><DateFormat date={doc.date} /></div>
+					<div className="DocumentCompany"><i className="fg-p far fa-building"></i>{doc.company}</div>
+					<div className="DocumentType"><i className="fg-p far fa-file"></i>{doc.type}</div>
 				</div>
 			))}	
 			</div>

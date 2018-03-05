@@ -1,7 +1,6 @@
 .Notifications {
 	margin-top: 40px !important;
 	padding-top: 20px;
-	/*background-color: rgba(238, 238, 238, 0.4);*/
 	width: 400px;
 }
 .Notifications h1 {
@@ -26,22 +25,18 @@
 	float: left;
 }
 .NotificationsIcon {
-	fill: #385e9d;
 }
 .NotificationDate {
-	color: #bae1df;
 	font-size: 16px;
 	float: left;
 	text-transform: uppercase;
 }
 .NotificationsBanner {
 	float: left;
-	background-color: #385e9d;
 	text-transform: uppercase;
 	margin: 0px 10px;
 	padding: 3px 10px;
 	border-radius: 4px;
-	color: #eeeeee;
 }
 .NotificationText  {
 	text-align: left;

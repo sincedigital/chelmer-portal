@@ -1,0 +1,275 @@
+
+.foreground-lightest, .fg-l {
+	color: #eeeeee;
+}	
+.foreground-pale, .fg-p {
+	color: #bae1df;
+}	
+.foreground-normal, .fg-n {
+	color: #385e9d;
+}	
+.foreground-dark, .fg-d {
+	color: #182944;
+}
+.background, .bg {
+	background-color: rgb(238, 238, 238);
+}
+.overlay, .ol {
+	background-color: rgba(238, 238, 238, 0.9);
+}
+.background-lightest, .bg-l {
+	background-color: #eeeeee;
+}	
+.background-pale, .bg-p {
+	background-color: #bae1df;
+}	
+.background-normal, .bg-n {
+	background-color: #385e9d;
+}	
+.background-dark, .bg-d {
+	background-color: #182944;
+}	
+.hover-background-lightest:hover, .h-bg-l:hover {
+	background-color: #eeeeee;
+}	
+.hover-background-pale:hover, .h-bg-p:hover {
+	background-color: #bae1df;
+}	
+.hover-background-normal:hover, .h-bg-n:hover {
+	background-color: #385e9d;
+}	
+.hover-background-dark:hover, .h-bg-d:hover {
+	background-color: #284e8d;
+}	
+.fill-lightest, .fl-l {
+	fill: #eeeeee;
+}	
+.fill-pale, .fl-p {
+	fill: #bae1df;
+}	
+.fill-normal, .fl-n {
+	fill: #385e9d;
+}	
+.fill-dark, .fl-d {
+	fill: #182944;
+}	
+
+/* App.js */
+
+.body {
+	background: #385e9d linear-gradient(to bottom, #64ccc9, #385e9d 90%) top left no-repeat;
+}
+#loading {
+    background: rgba(100, 204, 201, 0.9) linear-gradient(to bottom, rgba(94, 189, 195, 0.9), rgba(100, 204, 201, 0.9) 90%) top left no-repeat;
+}
+
+/* react-select */
+
+/* PortfolioTabs */
+
+ul.PortfolioTabs {
+	border-top-color: #eeeeee;
+}
+ul.PortfolioTabs li.Selected {
+	border-color: #eeeeee;
+	background-color: #385e9d;
+}
+
+/* Navigation */
+.svg-icon {
+	stroke: #385e9d;
+	fill: #EAEAE5;
+}
+
+.svg-icon.filled {
+	fill: #385e9d;
+}
+.nav-link {
+	color: #385e9d;
+}
+
+.nav-link:hover .svg-icon, .nav-link.active .svg-icon {
+	stroke: #182944;
+}
+
+.nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled {
+	fill: #eeeeee;
+	stroke: #eeeeee;
+}
+
+.svg-mask {
+	stroke: #EAEAE5;
+	fill: #EAEAE5;
+}
+
+.nav-link:hover, .nav-link.active {
+	border-bottom: 3px solid #eeeeee;
+	color: #eeeeee;
+}
+
+/* Modal */
+
+.ModalOverlay {
+    background: rgba(71, 131, 172, .9) linear-gradient(to bottom, rgba(91, 182, 192, 0.9), rgba(71, 131, 172, .9)) top left no-repeat;
+    color: rgb(56, 94, 157);/* rgb(124,179,172); */
+}
+
+.Modal {
+	border: solid #182944 1px;
+	background-color: #bae1df;
+}
+
+/* DateFilters */
+.Dates {
+	background: rgba(71, 131, 172, .9) linear-gradient(to bottom, rgba(91, 182, 192, 0.9), rgba(71, 131, 172, .9)) top left no-repeat;
+}
+.Dates ul li {
+	border: solid #385e9d 1px;
+	background-color: #385e9d;
+	color: rgb(238, 238, 238);
+}
+.Dates ul li:hover {
+	background-color: #182944;
+}
+.Dates h1 {
+	color: rgb(19, 52, 59);
+}
+.range-labels li {
+  color: #58595b;
+}
+.range-labels li::before {
+  background: #b2b2b2;
+}
+.range-labels .active {
+  color: #37adbf;
+}
+.range-labels .selected::before {
+  background: #37adbf;
+}
+@media ( max-width : 712px) {
+	.Dates {
+		background-color: rgba(238, 238, 238, .9);
+	}
+	.DatesClose {
+		color: #eeeeee;
+	}
+	.DatesCalendar {
+		background-color: #385e9d;
+	}
+	.DatesQuickPick {
+		background-color: #385e9d;
+		color: #eeeeee;
+	}
+	.Dates ul li {
+		border-top: solid #bae1df 3px;
+		background-color: #385e9d;
+		color: rgb(238, 238, 238);
+	}
+	.Dates ul li:hover {
+		background-color: #182944;
+	}
+	.Dates h1 {
+		color: #eeeeee;
+	}
+}
+
+
+.react-calendar {
+	z-index: 2400;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: rgb(238, 238, 238) !important;
+}
+
+/* Calendar restyling */
+.react-calendar button {
+	color: #385e9d;
+}
+.react-calendar button:disabled {
+	background-color: rgb(238, 238, 238) !important;
+	color: #555555;
+}
+
+.react-calendar button.react-calendar__month-view__days__day--weekend:not([disabled]), .react-calendar__month-view__weekdays__weekday:not([disabled]) {
+	color: #182944;
+}
+.react-calendar button:hover {
+	background-color: rgb(250, 250, 244) !important;
+}
+button.react-calendar__tile--active:active, button.react-calendar__tile--active:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]) {
+	background-color: rgb(250, 250, 244);
+}
+.react-calendar__tile--active {
+	background-color: rgb(250, 250, 244) !important;
+}
+button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hover:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]):hover {
+	background-color: rgb(238, 238, 238) !important;
+}
+button.react-calendar__navigation__label {
+	background-color: rgb(238, 238, 238) !important;
+}
+
+/* TransactionTable */
+.Transactions {
+	color: #385e9d;
+}
+.Transaction {
+	border-bottom: solid #eeeeee 1px;
+}
+.WithDocument {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAPCAYAAADUFP50AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gIVCAsYdNT0wQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABJklEQVQoz5XSvUoDQRSG4feczUYlKAYsvAR/7kBiq5VIUngDgqWN3oNVwNJbsFEU8acUKxUtU2ghJIXGBM0GhLDZnbGRhNm4Jn7dzDnPMIcZ2Srv2Uqtym+J4pjNlVVqjQa7xRKdbrdX09fPD9KiqmQ8j8vHB/ZPTxj3/X5NEIZFRbhK4AwjRn4wwPba+hBoLdO5HBuFZVQVgG4UUalV/4aiSvn4CBF3IM/zXCgiLM3NExvjHFBvtXipv/XWxhgXGmNotgNiYx341emgIhjb3x+4ar0VYHFhJwwTOwk45vsUFhaJTew0Ndtt7p+f0mEYRRzeXJN8WhVlIptNhyrKTrFEGEVO03sQcHZ3mw6NNRxcnI/0IdQOjD08FovO5vP/QiLCzOQU37sBbVrMVIiZAAAAAElFTkSuQmCC);
+}
+
+/* MarketTable */
+.Fund {
+	border-bottom: solid #eeeeee 1px;
+}
+
+@media ( max-width : 860px) {
+	#portfolio-makeup>.portfolio-row:first-child {
+		border-top: 1px #eeeeee solid;
+	}
+	.portfolio-row {
+		border-bottom: 1px #eeeeee solid;
+	}
+}
+
+/* Documents */
+
+.Document {
+	border-top: solid #eeeeee 1px;
+}
+.Document:hover {
+	background-color: rgba(100, 204, 201, 0.3);
+}
+.DocumentIcon {
+	fill: #385e9d;
+}
+.DocumentIconCircle {
+	fill: #eeeeee;
+}
+@media ( max-width : 712px) {
+	.DocumentDownload i {
+		color: #385e9d !important;
+	}
+	.DocumentIconWrapper {
+		background-color: #eeeeee;
+	}
+	.DocumentIconCircle {
+		stroke: #385e9d;
+	}	
+}
+
+/* Notifications */
+
+.NotificationsIcon {
+	fill: #385e9d;
+}
+
+/*
+.NotificationsBanner {
+	background-color: #385e9d;
+	color: #eeeeee;
+}
+*/

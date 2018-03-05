@@ -30,7 +30,7 @@ class Navigation extends Component {
 	render() {
 		const url = this.props.url;
 		
-		const basicClass = "fg-n nav-link w-nav-link";
+		const basicClass = "nav-link w-nav-link";
 		
 		const dashClass = basicClass + (url === '/dashboard' ? ' active' : '');
 		const portClass = basicClass + (url === '/portfolios' ? ' active' : '');

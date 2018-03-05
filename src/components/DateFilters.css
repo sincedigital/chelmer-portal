@@ -15,7 +15,6 @@
 	-webkit-transition-delay: 0s;
 }
 .Dates {
-	background: rgba(71, 131, 172, .9) linear-gradient(to bottom, rgba(91, 182, 192, 0.9), rgba(71, 131, 172, .9)) top left no-repeat;
 	padding: 10px;
 	z-index: 2300;
 	position: relative;
@@ -62,19 +61,12 @@
 	padding: 2px 0;
 	list-style: none;
 	padding-left: 5px;
-	border: solid #385e9d 1px;
-	background-color: #385e9d;
-	color: rgb(238, 238, 238);
 	border-radius: 3px;
 	margin-bottom: 2px;
 	text-align: center;
 	text-transform: uppercase;
 }
-.Dates ul li:hover {
-	background-color: #182944;
-}
 .Dates h1 {
-	color: rgb(19, 52, 59);
 	font-size: 18px;
 	text-transform: uppercase;
 	clear: none;
@@ -90,7 +82,7 @@
 }
 .range-labels li {
   color: #58595b;
-   cursor: pointer;
+  cursor: pointer;
 }
 .range-labels li::before {
   position: absolute;
@@ -116,43 +108,41 @@
 	cursor: pointer;
 }
 @media ( max-width : 712px) {
-.DatesOuter {
-	position: relative;
-	overflow:hidden;
-	width: 100%;
-	height: 0px;
-	margin-bottom: -720px;
-	/* This sets a 1s delay when _returning_ to base state */
-	transition-delay: 1s;
-	-webkit-transition-delay: 1s;
-}
-.DatesOuter.Showing {
-	height: 720px;
-	/* This sets a 0s delay when moving _to_ showing state */
-	transition-delay: 0s;
-	-webkit-transition-delay: 0s;
-}
-.Dates {
-	background-color: rgba(238, 238, 238, .9);
-	padding: 10px;
-	z-index: 2300;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	height: 720px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: left;
-	margin-top: -720px;
-	-webkit-transition: margin-top 500ms ease-in-out;
-	transition: margin-top 500ms ease-in-out;
-}
+	.DatesOuter {
+		position: relative;
+		overflow:hidden;
+		width: 100%;
+		height: 0px;
+		margin-bottom: -720px;
+		/* This sets a 1s delay when _returning_ to base state */
+		transition-delay: 1s;
+		-webkit-transition-delay: 1s;
+	}
+	.DatesOuter.Showing {
+		height: 720px;
+		/* This sets a 0s delay when moving _to_ showing state */
+		transition-delay: 0s;
+		-webkit-transition-delay: 0s;
+	}
+	.Dates {
+		padding: 10px;
+		z-index: 2300;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 720px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+		margin-top: -720px;
+		-webkit-transition: margin-top 500ms ease-in-out;
+		transition: margin-top 500ms ease-in-out;
+	}
 	.DatesOuter.Showing .Dates {
 		margin-top: 0px;
 	}
 	.DatesClose {
-		color: #eeeeee;
 		margin-right: 10px;
 		margin-top: 10px;
 	}
@@ -168,13 +158,10 @@
 		margin: 0 auto;
 		width: 100%;
 		float: none;
-		background-color: #385e9d;
 		height: 320px;
 	}
 	.DatesQuickPick {
 		float: left;
-		background-color: #385e9d;
-		color: #eeeeee;
 		padding-bottom: 50px;
 	}
 	.Dates ul {
@@ -189,22 +176,15 @@
 		padding: 5px 0;
 		list-style: none;
 		padding-left: 5px;
-		border-top: solid #bae1df 3px;
 		border-left: none;
 		border-right: none;
-		background-color: #385e9d;
-		color: rgb(238, 238, 238);
 		border-radius: 0px;
 		margin-bottom: 2px;
 		text-align: center;
 		text-transform: uppercase;
 	}
-	.Dates ul li:hover {
-		background-color: #182944;
-	}
 	.Dates h1 {
 		text-align: center;
-		color: #eeeeee;
 		font-size: 18px;
 		text-transform: uppercase;
 		clear: none;
@@ -225,50 +205,4 @@
 		margin: 0 auto;
 		float: none;
 	}
-}
-
-
-
-/* Calendar restyling */
-/* 
-	Background: rgb(238, 238, 238) 
-	Hover: rgb(250, 250, 244)
-*/
-/*
-	Turquoise: #385e9d
-	Blue: #182944
-*/
-.react-calendar {
-	z-index: 2400;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	background-color: rgb(238, 238, 238) !important;
-}
-
-.react-calendar button {
-	color: #385e9d;
-}
-.react-calendar button:disabled {
-	background-color: rgb(238, 238, 238) !important;
-	color: #555555;
-}
-
-.react-calendar button.react-calendar__month-view__days__day--weekend:not([disabled]), .react-calendar__month-view__weekdays__weekday:not([disabled]) {
-	color: #182944;
-}
-.react-calendar button:hover {
-	background-color: rgb(250, 250, 244) !important;
-}
-button.react-calendar__tile--active:active, button.react-calendar__tile--active:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]) {
-	background-color: rgb(250, 250, 244);
-}
-.react-calendar__tile--active {
-	background-color: rgb(250, 250, 244) !important;
-}
-button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hover:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]):hover {
-	background-color: rgb(238, 238, 238) !important;
-}
-button.react-calendar__navigation__label {
-	background-color: rgb(238, 238, 238) !important;
 }

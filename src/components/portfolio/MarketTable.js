@@ -82,12 +82,12 @@ class MarketTable extends Component {
 		const data = part.holdings;
 
 		if (this.props.windowWidth <= 712) {
-			return (<div className="Funds">
+			return (<div className="Funds fg-p">
 			{
 				data.map((holding, index)=>{
 					return (
 						<div className="Fund" key={index}>
-							<div className="FundName">{holding.name}</div>
+							<div className="FundName fg-l">{holding.name}</div>
 							<div className="FundValue"><NumberFormat value={holding.value} places={2} prefix="$" /></div>
 							<div className="FundBuy"><i className="fas fa-tags"></i><NumberFormat value={holding.costPrice} places={2} prefix="$" /></div>
 							<div className="FundSell"><i className="fas fa-dollar-sign"></i>{this.showChange(holding.costPrice, holding.currentPrice)}</div>

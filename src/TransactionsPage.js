@@ -183,7 +183,7 @@ class TransactionsPage extends Component {
 	              	simpleValue
 	              	removeSelected={false}
 	                /> }
-	              <DateFilters showing={this.state.showDates} selectHeader="Or select range" onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View transactions for" />
+	              <DateFilters hide={this.toggleDates} showing={this.state.showDates} selectHeader="Or select range" onRelative={this.toRelativeDate} onAbsolute={this.toDate} range={true} relativePrefix="last " header="View transactions for" />
 	              { this.state.filteredTransactions.length === 0 ? <NoTransactions /> : <TransactionTable transactions={this.state.filteredTransactions} />}
 	            </div>
 	          </div>

@@ -1,0 +1,318 @@
+
+.foreground-lightest, .fg-l {
+	color: #eeeeee;
+}	
+.foreground-pale, .fg-p {
+	color: #419cd9;
+}	
+.foreground-normal, .fg-n {
+	color: #22303b;
+}	
+.foreground-dark, .fg-d {
+	color: #22303b;
+}
+.background, .bg {
+	background-color: #22303b;
+}
+.overlay, .ol {
+	background-color: rgba(34, 48, 59, 0.9);
+}
+.background-lightest, .bg-l {
+	background-color: #eeeeee;
+}	
+.background-pale, .bg-p {
+	background-color: #419cd9;
+}	
+.background-normal, .bg-n {
+	background-color: #419cd9;
+}	
+.background-dark, .bg-d {
+	background-color: #22303b;
+}	
+.hover-background-lightest:hover, .h-bg-l:hover {
+	background-color: #eeeeee;
+}	
+.hover-background-pale:hover, .h-bg-p:hover {
+	background-color: #bae1df;
+}	
+.hover-background-normal:hover, .h-bg-n:hover {
+	background-color: #385e9d;
+}	
+.hover-background-dark:hover, .h-bg-d:hover {
+	background-color: #22303b;
+}	
+.fill-lightest, .fl-l {
+	fill: #eeeeee;
+}	
+.fill-pale, .fl-p {
+	fill: #419cd9;
+}	
+.fill-normal, .fl-n {
+	fill: #385e9d;
+}	
+.fill-dark, .fl-d {
+	fill: #182944;
+}	
+
+/* Login.js */
+#loginForm header {
+	background-color: #0a1a26;
+}
+#loginForm button {
+	background-color: #22303b;
+}
+#loginForm button:hover {
+	background-color: #0a1a26;
+}
+/* App.js */
+
+.body {
+	background: #22303b;
+}
+#loading {
+    background: rgba(34, 48, 59, .9);
+}
+#loading i {
+    color: #419cd9;
+}
+
+/* react-select */
+
+/* PortfolioTabs */
+
+ul.PortfolioTabs {
+	border-top-color: #eeeeee;
+}
+ul.PortfolioTabs li.Selected {
+	border-color: #eeeeee;
+	background-color: #22303b;
+}
+
+/* Navigation */
+.svg-icon {
+	stroke: #ffffff;
+	fill: #ffffff;
+}
+
+.svg-icon.filled {
+	fill: #ffffff;
+}
+
+.nav-link {
+	color: #ffffff;
+}
+
+.nav-link:hover .svg-icon, .nav-link.active .svg-icon {
+	stroke: #419cd9;
+}
+
+.nav-link:hover .svg-icon.filled, .nav-link.active .svg-icon.filled {
+	fill: #419cd9;
+	stroke: #419cd9;
+}
+
+.svg-mask {
+	stroke: #EAEAE5;
+	fill: #EAEAE5;
+}
+
+.nav-link:hover, .nav-link.active {
+	border-bottom: 3px solid #419cd9;
+	color: #419cd9;
+}
+
+/* Modal */
+
+.ModalOverlay {
+    background: rgba(34, 48, 59, .9);
+    color: rgb(56, 94, 157);/* rgb(124,179,172); */
+}
+
+.Modal {
+	border: solid #182944 1px;
+	background-color: #bae1df;
+}
+
+/* DateFilters */
+.Dates {
+	background: rgba(34, 48, 59, .9);
+}
+.Dates ul li {
+	border: solid #38454e 1px;
+	background-color: #22303b;
+	color: rgb(238, 238, 238);
+}
+.Dates ul li:hover {
+	background-color: #38454e;
+}
+.Dates h1 {
+	color: #ffffff;
+}
+.range-labels li {
+  color: #58595b;
+}
+.range-labels li::before {
+  background: #b2b2b2;
+}
+.range-labels .active {
+  color: #37adbf;
+}
+.range-labels .selected::before {
+  background: #37adbf;
+}
+@media ( max-width : 712px) {
+	.DatesClose {
+		color: #eeeeee;
+	}
+	.DatesCalendar {
+		background-color: #22303b;
+	}
+	.DatesQuickPick {
+		background-color: #22303b;
+		color: #ffffff;
+	}
+	.Dates ul li {
+		border-top: solid #38454e 3px;
+		border-bottom: none;
+		background-color: #22303b;
+		color: #ffffff;
+		margin-bottom: 0 !important;
+	}
+	.Dates ul li:last-child {
+		border-bottom: solid #38454e 3px;
+	}
+	.Dates ul li:hover {
+		background-color: #38454e;
+	}
+	.Dates h1 {
+		color: #ffffff;
+	}
+}
+
+/*
+Background: #22303b
+Hover: #38454e
+Highlight: #419cd9
+Disabled: #dddddd;
+Text: #ffffff
+*/
+.react-calendar {
+	z-index: 2400;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #22303b !important;
+}
+
+/* Calendar restyling */
+.react-calendar button {
+	color: #ffffff;
+}
+.react-calendar button:disabled {
+	background-color: #22303b !important;
+	color: #38454e;
+}
+.react-calendar button:disabled:hover {
+	background-color: #22303b !important;
+}
+
+.react-calendar button.react-calendar__month-view__days__day--weekend:not([disabled]), .react-calendar__month-view__weekdays__weekday:not([disabled]) {
+	color: #419cd9;
+}
+.react-calendar button:hover {
+	background-color: #38454e !important;
+}
+button.react-calendar__tile--active:active, button.react-calendar__tile--active:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]) {
+	background-color: #419cd9;
+}
+.react-calendar__tile--active {
+	background-color: #419cd9 !important;
+}
+button.react-calendar__tile--active:not([disabled]):hover, button.react-calendar__tile--hover:not([disabled]), button.react-calendar__tile--hasActive:not([disabled]):hover {
+	background-color: #419cd9 !important;
+}
+button.react-calendar__navigation__label {
+	background-color: #22303b !important;
+}
+
+/* TransactionTable */
+.Transactions {
+	color: #ffffff;
+	width: 80%;
+}
+.Transaction {
+	border-bottom: solid #eeeeee 1px;
+}
+.Transaction i {
+	color: #419cd9;
+}
+.Transactions {
+	font-weight: 100;
+}
+.WithDocument {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAQCAYAAADNo/U5AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gMFAyIn59jX2QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABa0lEQVQoz4WSO0gDQRCG/32cdwn4QImxDiJiFW2D2inBQlDstI0gFiIpAjYWlla2toqKQogEKzE2EkQCSho7EXy2JpC73N2sReDimUvyw7Ls7H4z+88ui8UTICKYVh2Agk8KCIdD+C/pEmExOad2M1uQUvNvSoH55VW8vX8yxpgXZ6NT03h+KCjBRUtG1yUACrMLK/j4+vZAbug6FCFQ69sZMMZwnTvBSHTYuztHBxXvS9hI78DQddzkThGNRFRXaGhwAKXHMvb2D2AYOgr5M0gpIDtBt/nzhjciKKWgSQnOeWeIc+6blWrY8kGO42BpLQVd172YZVnIHh1CiGZ3fZAQAunNFLhoWiWXvEqBEGMME+Nj+PuQSinfugWybRuTM0mEQoYXq9VMvDzdQUoZDGmahtdysW1DPIiI4LgOpBSBB4K+Fq9Uq7i4vAIRdR3H51mYpgUWiydQr9vo7+sF56x9BSL8VKro0TT8AicIkZUz+oPQAAAAAElFTkSuQmCC);
+}
+.transactions tbody tr:hover {
+	background-color: #38454e;
+} 
+/* MarketTable */
+.Fund {
+	border-bottom: solid #eeeeee 1px;
+}
+
+@media ( max-width : 860px) {
+	#portfolio-makeup>.portfolio-row:first-child {
+		border-top: 1px #eeeeee solid;
+	}
+	.portfolio-row {
+		border-bottom: 1px #eeeeee solid;
+	}
+}
+
+/* Documents */
+
+.Document {
+	border-top: solid #eeeeee 1px;
+}
+.Document:hover {
+	background-color: #38454e;
+}
+.DocumentIcon {
+	fill: #22303b;
+}
+.DocumentIconCircle {
+	fill: #eeeeee;
+}
+.DocumentsTable i {
+	color: white !important;
+}
+@media ( max-width : 712px) {
+	.DocumentDownload i {
+		color: #22303b !important;
+	}
+	.DocumentIconWrapper {
+		background-color: #eeeeee;
+	}
+	.DocumentIconCircle {
+		stroke: #22303b;
+	}	
+}
+
+/* Notifications */
+
+.NotificationsIcon {
+	fill: #22303b;
+}
+
+/*
+.NotificationsBanner {
+	background-color: #385e9d;
+	color: #eeeeee;
+}
+*/
+.Funds {
+	color: #ffffff;
+}
+.Funds i {
+	color: #419cd9;
+}
