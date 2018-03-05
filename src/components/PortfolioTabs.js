@@ -26,7 +26,7 @@ class PortfolioTabs extends Component {
 		Remote.getClientPortfolios(this.acceptClientPortfolios, ()=>{}, ()=>{});
 	}
 	
-	acceptClientPortfolios(data) {
+	acceptClientPortfolios(data) {		
 		const map = new Map();
 		data.map(portfolio=>{
 			map.set(portfolio.code, portfolio.name);
@@ -44,7 +44,6 @@ class PortfolioTabs extends Component {
 		const containerWidth = this.container.getBoundingClientRect().width;
 		var inner = 0;
 		var selectedx1 = 0, selectedx2 = 0;
-		console.log(this.tabs);
 		this.tabs.map(el=>{
 			const selected = el.classList.contains("Selected");
 			if (selected)
@@ -54,7 +53,6 @@ class PortfolioTabs extends Component {
 				selectedx2 = inner;
 		});
 		
-		console.log(selectedx1 + " - " + selectedx2);
 		//Also check the current one is scrolled into view
 			
 		if (containerWidth < inner) {

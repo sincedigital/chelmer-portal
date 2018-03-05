@@ -284,9 +284,12 @@ button.react-calendar__navigation__label {
 	fill: #eeeeee;
 }
 .DocumentsTable i {
-	color: white !important;
+	color: #419cd9 !important;
 }
 @media ( max-width : 712px) {
+	.Document i {
+		color: 
+	}
 	.DocumentDownload i {
 		color: #22303b !important;
 	}
