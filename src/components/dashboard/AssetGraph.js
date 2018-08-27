@@ -7,17 +7,17 @@ import NumberFormat from '../NumberFormat.js';
 import './AssetGraph.css';
 
 class AssetGraph extends Component {
-	
+
 	state = {
 			"activeSegment": 0
 	}
-	
+
 	constructor(props) {
 		super(props);
 		this.state.innerPie = props.innerPie;
 		this.state.outerPie = props.outerPie;
 
-	
+
 		this.activateSegment = this.activateSegment.bind(this);
 		this.drawHighlight = this.drawHighlight.bind(this);
 	}
@@ -25,18 +25,18 @@ class AssetGraph extends Component {
 	componentWillReceiveProps(props) {
 		this.setState({innerPie: props.innerPie, outerPie: props.outerPie});
 	}
-	
+
 	activateSegment(data, index) {
 		this.setState({"activeSegment": index});
 	}
-	
+
 	drawHighlight(props) {
 		const { cx, cy, innerRadius, outerRadius, startAngle, endAngle,
 		    fill, payload, stroke } = props;
-		    
-		    
+
+
 		return (<g>
-			<Sector 
+			<Sector
 				cx={cx}
 			    cy={cy}
 			    startAngle={startAngle}
@@ -44,7 +44,7 @@ class AssetGraph extends Component {
 			    innerRadius={outerRadius + 6}
 			    outerRadius={outerRadius + 10}
 			    fill={fill} />
-			<Sector 
+			<Sector
 				cx={cx}
 			    cy={cy}
 			    startAngle={startAngle}
@@ -61,8 +61,8 @@ class AssetGraph extends Component {
 				<text x={11} y={214} textAnchor="left" fill={payload.undershade} style={{"fontSize": "16px"}}>{payload.name}</text>
 			</g>) : "" }
 			<text x={10} y={215} textAnchor="left" fill={fill} style={{"fontSize": "16px"}}>{payload.name}</text>
-			<text x={10} y={235} textAnchor="left" fill="#eeeeee" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
-			<text x={10} y={255} textAnchor="left" fill="#eeeeee" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
+			<text x={10} y={235} textAnchor="left" fill="#12223b" ><NumberFormat value={payload.percentage} places={1} suffix="%" /> of portfolio</text>
+			<text x={10} y={255} textAnchor="left" fill="#12223b" >Current value <NumberFormat value={payload.holdingValue} places={2} prefix="$" /></text>
 		</g>);
 	}
 
@@ -72,9 +72,9 @@ class AssetGraph extends Component {
 		const legendSize = count * 14 + (count-1) * 9;
 		const pieSize = 160;
 		const marginTop = (pieSize - legendSize) / 2;
-		
+
 		const top = marginTop + "px";
-		
+
 		return 	(
            	<div id="assetgraph">
            	<h1>Asset Allocation</h1>

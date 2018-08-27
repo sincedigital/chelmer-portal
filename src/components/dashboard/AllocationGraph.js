@@ -5,50 +5,50 @@ import NumberFormat from '../NumberFormat.js';
 import './AllocationGraph.css';
 
 class AllocationGraph extends Component {
-	
+
 	constructor(props) {
 		super(props);
 	}
-	
+
 	segmentPosition(x, y, r, perc) {
-		
+
 		return {
 			x: x,
 			y: y
 		};
 
 	}
-	
+
 	render() {
 		const x = 200;
 		const y = 160;
 		var r = 150;
-		
+
 		var angle = Math.PI / 180. * 1.8 * this.props.mandate;
-		
+
 		var sx = x - Math.cos(angle) * r;
 		var sy = y - Math.sin(angle) * r;
 
-		var growth = "M" + x + " " + y 
-				+ " L" + (x-r) + " " + y 
+		var growth = "M" + x + " " + y
+				+ " L" + (x-r) + " " + y
 				+ " A" + r + " " + r + " 0 0 1 " + sx + " " + sy
 				+ "Z";
 
-		var income = "M" + x + " " + y 
-			+ " L" + sx + " " + sy 
+		var income = "M" + x + " " + y
+			+ " L" + sx + " " + sy
 			+ " A" + r + " " + r + " 0 0 1 " + (x+r) + " " + y
 			+ "Z";
-		
+
 		r = 140;
 		angle = Math.PI / 180. * 1.8 * this.props.actual;
 		sx = x - Math.cos(angle) * r;
 		sy = y - Math.sin(angle) * r;
-		
-		var actual = "M" + (x-10) + " " + (y-2) 
-			+ "L" + sx + " " + sy 
+
+		var actual = "M" + (x-10) + " " + (y-2)
+			+ "L" + sx + " " + sy
 			+ "L" + (x+10) + " " + (y-2)
 			+ "Z";
-		
+
 		return (
 			<div className="AllocationGraph">
 				<div>
@@ -57,8 +57,8 @@ class AllocationGraph extends Component {
 					<path stroke="#eeeeee" strokeWidth="4px" fill="#385e9d" d={growth} />
 					<path stroke="#eeeeee" strokeWidth="4px" fill="#bae1df" d={income} />
 					<path strokeWidth="0px" fill="#182944" d={actual} />
-					<text x="65" y="145" fill="#eeeeee" stroke="none">GROWTH</text>
-					<text x="335" y="145" fill="#eeeeee" stroke="none" style={{textAnchor: "end"}}>INCOME</text>
+					<text x="65" y="145" fill="#000" stroke="none">GROWTH</text>
+					<text x="335" y="145" fill="#000" stroke="none" style={{textAnchor: "end"}}>INCOME</text>
 				</svg>
 		         <div className="dashboard-table">
 		          <div>Target Allocation</div>

@@ -1,7 +1,7 @@
 .PortfolioTabsOuter {
 	width: 80%;
 	min-width: 900px;
-	
+
 }
 .PortfolioTabsContainer {
 	width: 100%;
@@ -31,11 +31,17 @@ ul.PortfolioTabs li {
 	cursor: pointer;
 	white-space: nowrap;
 	z-index: 1301;
+	transition-duration: 200ms;
+	border-radius: 0 0 5px 5px;
 }
 ul.PortfolioTabs li.Selected {
 	border-color: #eeeeee;
-	border-radius: 0 0 5px 5px;
+	color: #fff;
 	background-color: #385e9d;
+}
+ul.PortfolioTabs li:hover {
+	color: #fff;
+	background-color: #739de2;
 }
 ul.PortfolioTabs::after {
 	content: "";

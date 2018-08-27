@@ -62,23 +62,23 @@ class Navigation extends Component {
 
 			      <Link to="/dashboard" className={ dashClass } ><span className="icon">
 				      <img alt="" src="images/chelmer_icons-01.png" className="nav-icon"/>
-			      </span>DASHBOARD</Link>
+			      </span><p>DASHBOARD</p></Link>
 
 			      <Link to="/portfolios" className={ portClass }><span className="icon">
 				        <img alt="" src="images/chelmer_icons-02.png" className="nav-icon"/>
-			      </span>PORTFOLIOS</Link>
+			      </span><p>PORTFOLIOS</p></Link>
 			      <Link to="/transactions" className={trnsClass}>
 			      <span className="icon">
   			  		<img alt="" src="images/chelmer_icons-03.png" className="nav-icon"/>
 			      </span>
-			      TRANSACTIONS</Link>
+			      <p>TRANSACTIONS</p></Link>
 			      <Link to="/documents" className={docsClass}><span className="icon">
 			        <img alt="" src="images/chelmer_icons-04.png" className="nav-icon"/></span>
-			      DOCUMENTS</Link>
+			      <p>DOCUMENTS</p></Link>
 			      <Link to="/login" onClick={this.logout} className={userClass}><span className="icon">
-			       <img alt="" src="images/chelmer_icons-01.png" className="nav-icon"/>
+			       <img alt="" src="images/chelmer_icons-05.png" className="nav-icon"/>
 			      </span>
-			      LOGOUT</Link>
+			      <p>LOGOUT</p></Link>
 
 
 

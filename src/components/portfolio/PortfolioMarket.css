@@ -13,10 +13,11 @@
 
 .portfolio-row {
 	cursor: pointer;
+	transition-duration: 200ms;
 }
 
 .portfolio-row:hover, .portfolio-row.expanded, .details {
-	background-color: #9DBDB8;
+	background-color: #9bc0fc;
 }
 
 .portfolio-row-name {

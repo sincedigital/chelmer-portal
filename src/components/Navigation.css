@@ -12,20 +12,17 @@
 
 .nav-links {
 	display: flex;
+	width: auto;
 
 }
 
 .nav-link {
-	width: 130px;
-	font-size: 0.7em;
-	letter-spacing: 2px;
+	width: auto;
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin-top: 3px;
-	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 0;
 	-webkit-box-flex: 0;
 	-webkit-flex: 0 auto;
 	-ms-flex: 0 auto;
@@ -37,6 +34,12 @@
 	color: #fff;
 	opacity: 0.5;
 	transition-duration: 300ms;
+}
+
+.nav-link p {
+	font-size: 0.6em;
+	letter-spacing: 2px;
+	width: 100%;
 }
 
 .nav-link:hover {
@@ -53,7 +56,7 @@
 }
 
 .logo-container {
-	width: 180px;
+	width: 140px;
 }
 
 .logo-container img {
@@ -85,7 +88,6 @@
 	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
-	padding-top: 30px;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
@@ -99,21 +101,25 @@
 .nav-container {
 	width: 80%;
 	height: 100%;
+	display: flex;
+	justify-content: space-between;
 	max-width: none;
 	margin-right: 0px;
 	margin-left: 0px;
 }
 
 .nav-menu {
-	display: inline-block;
-	width: 100%;
+	width: 1200px;
 	margin-top: 0px;
 	padding-top: 0px;
 	float: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .nav-icon {
-	width: 45px;
+	width: 40px;
 	height: auto;
 }
 
@@ -122,8 +128,7 @@
 }
 
 div.nav-links {
-	margin: 0 auto;
-	width: 780px;
+	width: 600px;
 }
 
 /* Sort logo crashes */
@@ -136,15 +141,15 @@ div.nav-links {
 
 }
 a.w-nav-link {
-	padding-left: 18px;
-	padding-right: 18px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 #MobileNav {
 	display: none;
 }
 
-@media ( max-width : 712px) {
+@media ( max-width : 865px) {
 	div.nav-links {
 		padding: 0;
 		width: 100%;
@@ -153,6 +158,9 @@ a.w-nav-link {
 	.nav {
 		display: none;
 		height: inherit;
+	}
+	.nav-menu {
+		display: inline-block;
 	}
 	.nav-logo {
 		display: none;
@@ -175,12 +183,14 @@ a.w-nav-link {
 		margin-top: 0px;
 		margin-bottom: 0px;
 		padding: 11px 8px;
-		font-size: 0.8em;
 		float: none;
 		-webkit-box-flex: 1;
 		-webkit-flex: 1;
 		-ms-flex: 1;
 		flex: 1;
+	}
+	.nav-link p{
+		font-size: 0.8em;
 	}
 	.navbar {
 		display: inline-block;
@@ -220,7 +230,8 @@ a.w-nav-link {
 		margin-right: 16px;
 	}
 	.main-content-section {
-		margin-top: 0px;
+		padding-top: 40px;
+		margin-top: 0;
 	}
 	.main-content {
 		padding: 10px 0;
