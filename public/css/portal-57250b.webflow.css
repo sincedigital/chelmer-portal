@@ -1,5 +1,6 @@
 h1 {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
 	font-size: 23px;
 	font-style: normal;
 	font-variant: normal;
@@ -7,7 +8,8 @@ h1 {
 	line-height: 23px;
 }
 h3 {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
 	font-size: 17px;
 	font-style: normal;
 	font-variant: normal;
@@ -15,7 +17,8 @@ h3 {
 	line-height: 23px;
 }
 p {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -23,7 +26,8 @@ p {
 	line-height: 23px;
 }
 blockquote {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
 	font-size: 17px;
 	font-style: normal;
 	font-variant: normal;
@@ -31,7 +35,8 @@ blockquote {
 	line-height: 23px;
 }
 pre {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
 	font-size: 11px;
 	font-style: normal;
 	font-variant: normal;
@@ -40,7 +45,8 @@ pre {
 }
 
 body {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+
   color: white;
   font-size: 14px;
   line-height: 23px;
@@ -350,7 +356,7 @@ table#detailsTable.dataTable td {
 	padding: 15px;
 }
 .w-col-dashboard + .w-col-dashboard {
-	margin-top: 30px;	
+	margin-top: 30px;
 }
 
 .w-col-dashboard h1 {
@@ -410,7 +416,7 @@ html, body, #wrapper, #root, .App, .ContentOuter {
 	height: auto !important; // the magic!
 	height:100%;
 	margin-bottom:-120px; // the height of our footer + margin
-	
+
 }
 .FooterPush {
 	clear:both;
@@ -451,7 +457,7 @@ html, body, #wrapper, #root, .App, .ContentOuter {
   #detailsTable {
   	font-size: 0.7em;
   }
-	
+
 	table#detailsTable.dataTable th {
 		font-size: 9pt;
 	}
@@ -488,11 +494,11 @@ html, body, #wrapper, #root, .App, .ContentOuter {
     width: 100%;
   }
 
-    
+
 }
 
 @media (max-width: 479px) {
-  
+
   .heading-1 {
     font-size: 35px;
   }
