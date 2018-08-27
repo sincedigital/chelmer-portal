@@ -5,21 +5,21 @@ import Authentication from './Authentication.js';
 
 
 class LoginPage extends Component {
-	
+
 	state = {
 		buttonText: "Login",
 		failedLogin: false
 	};
-	
+
 	constructor(props) {
 		super(props);
 		this.submitForm = this.submitForm.bind(this);
-	
+
 	};
-	
+
 	submitForm(event) {
 		event.preventDefault();
-		
+
 		Authentication
 		.login(this.state.name, this.state.pwd)
 		.then((response) => {
@@ -36,22 +36,27 @@ class LoginPage extends Component {
 				var url = this.state.referrer || '/dashboard';
 				if (url === '/login' || url === '/')
 					url = '/dashboard';
-		
+
 				this.setState({"redirectTo": url});
 			}
 		});
 	}
-	
-	
+
+
   render() {
 	  if (this.state.redirectTo) {
 		  return (<Redirect to={this.state.redirectTo} />);
-	  } 
+	  }
 
     return (
     	<div id="login">
     		<form id="loginForm" className="bg-l fg-d" onSubmit={this.submitForm}>
-    			<header className="bg-n fg-l">Login</header>
+    			<header id="login-header">
+					<div className="login-logo-wrapper">
+						<img src="images/chelmer-name-mobile.png" className="login-logo" />
+					</div>
+					Login to continue
+				</header>
     			{this.state.failedLogin && <div className="alert alert-danger" role="alert">
 	  			  Invalid username or password. Please try again.
 	  			</div>}
@@ -61,7 +66,7 @@ class LoginPage extends Component {
     			<label>Password</label>
     			<input type="password" name="password" id="loginPassword" onChange={(e)=>this.setState({"pwd": e.target.value})} />
     			<div className="help fg-n">Use the password supplied to authenticate to the Fusion portal</div>
-    			<button type="submit" id="loginSubmit" className="fg-l bg-n h-bg-d">{this.state.buttonText}</button> 
+    			<button type="submit" id="loginSubmit" className="fg-l bg-n h-bg-d">{this.state.buttonText}</button>
     		</form>
     	</div>
     );

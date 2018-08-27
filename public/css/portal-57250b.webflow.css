@@ -112,14 +112,17 @@ body {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: Roboto, sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 20px;
   font-weight: 700;
+  color: #48c6d4;
 }
 
 .subhead-1 {
   font-size: 18px;
   line-height: 26px;
   font-weight: 300;
+  margin-bottom: 20px;
 }
 
 .nav-link span.icon {

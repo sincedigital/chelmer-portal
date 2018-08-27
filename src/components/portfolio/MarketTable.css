@@ -1,14 +1,14 @@
 .Funds {
 	margin-left: 20px;
 	margin-right: 20px;
-	color: #bae1df;
+	color: #42bab7;
 }
 .Fund {
 	font-size: 14px;
 	border-bottom: solid #eeeeee 1px;
 }
 .FundName {
-	color: #eeeeee;
+	color: #204a90;
 }
 .FundValue {
 	text-align: right;
@@ -32,7 +32,7 @@
 i.fa-play {
 	margin-bottom: 2px;
 	margin-left: 5px;
-} 
+}
 .FundPercentage {
 	width: 50%;
 }

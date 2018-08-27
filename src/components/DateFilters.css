@@ -15,8 +15,8 @@
 	-webkit-transition-delay: 0s;
 }
 .Dates {
-	background: rgba(71, 131, 172, .9) linear-gradient(to bottom, rgba(91, 182, 192, 0.9), rgba(71, 131, 172, .9)) top left no-repeat;
-	padding: 10px;
+	background: #385e9d;
+	padding: 30px 15px;
 	z-index: 2300;
 	position: relative;
 	width: 100%;
@@ -25,6 +25,7 @@
 	margin-right: auto;
 	text-align: left;
 	margin-top: -350px;
+	border-radius: 10px;
 	-webkit-transition: margin-top 500ms ease-in-out;
 	transition: margin-top 500ms ease-in-out;
 }
@@ -74,10 +75,12 @@
 	background-color: #182944;
 }
 .Dates h1 {
-	color: rgb(19, 52, 59);
-	font-size: 18px;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 600;
 	text-transform: uppercase;
 	clear: none;
+	text-align: center;
 	margin-top: 0px;
 	padding-top: 10px;
 }
@@ -135,7 +138,7 @@
 .Dates {
 	background-color: rgba(238, 238, 238, .9);
 	padding: 10px;
-	z-index: 2300;
+	z-index: 9000;
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -211,12 +214,12 @@
 		margin-top: 0px;
 		padding-top: 10px;
 	}
-	
-	
+
+
 	.DatesQuickPick {
 		float: none;
 		padding-bottom: 0px;
-	}	
+	}
 	.CalendarOuter {
 		float: none;
 	}
@@ -230,8 +233,8 @@
 
 
 /* Calendar restyling */
-/* 
-	Background: rgb(238, 238, 238) 
+/*
+	Background: rgb(238, 238, 238)
 	Hover: rgb(250, 250, 244)
 */
 /*

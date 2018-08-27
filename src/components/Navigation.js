@@ -56,7 +56,9 @@ class Navigation extends Component {
 			    <div className="nav-container w-container">
 			      <nav className="nav-menu w-clearfix w-nav-menu">
 					  <div className="logo-container">
+						  <Link to="/dashboard">
 						  <img alt="" src="images/chelmer-name-large.png" className="nav-logo"/>
+						  </Link>
 					  </div>
 			      <div className="nav-links">
 

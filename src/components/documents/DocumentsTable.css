@@ -27,12 +27,12 @@
 	margin-right: 10px;
 }
 .DocumentName {
-	color: #eeeeee;
+	color: #42bab7;
 	font-weight: 600;
 	font-size: 19px;
 }
 .Document i {
-	color: #bae1df;
+	color: #42bedf;
 	padding-right: 5px;
 }
 .DocumentDate, .DocumentCompany, .DocumentType {
@@ -64,7 +64,7 @@
 	.DocumentDownload i {
 		color: #385e9d !important;
 	}
-	
+
 	.DocumentIconWrapper {
 		width: 100%;
 		float: none;

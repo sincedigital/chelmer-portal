@@ -4,7 +4,7 @@ div#login {
   padding: 0;
   margin: 0;
   height: 100%;
-	
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,23 +13,27 @@ div#login {
 
 div#login form {
   width: 40%;
-  box-shadow: 3px 3px 19px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
   position: relative;
   border-radius: 2px;
   margin-top: -50px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 @media (max-width: 860px) {
   div#login form {
   	width: 80%;
   	margin-top: 15px;
   }
-  
+
 }
 div#login form header {
   padding: 30px 20px;
   font-size: 1.2em;
-  font-weight: 600;
+  font-weight: 300;
   border-radius: 2px 2px 0 0;
+  text-align: center;
 }
 div#login form label {
   margin-left: 20px;
@@ -64,8 +68,8 @@ div#login form button {
   font-family: inherit;
   outline: none;
   border: none;
-  padding: 5px 15px;
-  font-size: 1.3em;
+  padding: 10px 30px;
+  font-size: 1em;
   font-weight: 400;
   border-radius: 3px;
   cursor: pointer;
@@ -84,4 +88,17 @@ div#login form button {
     margin: 1rem;
     border: 1px solid transparent;
     border-radius: .25rem;
+}
+#login-header {
+    background-color: #385e9d;
+    color: #fff;
+}
+.login-logo-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+.login-logo {
+    width: 120px;
+    height: auto;
 }
