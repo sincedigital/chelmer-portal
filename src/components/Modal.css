@@ -5,7 +5,6 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(71, 131, 172, .9) linear-gradient(to bottom, rgba(91, 182, 192, 0.9), rgba(71, 131, 172, .9)) top left no-repeat;
     color: rgb(56, 94, 157);/* rgb(124,179,172); */
     z-index: 1999;
 }
@@ -16,9 +15,9 @@
 .Modal {
 	position: fixed;
 	border-radius: 4px;
-	border: solid #182944 1px;
+    color: #fff;
 	padding: 30px;
-	background-color: #bae1df;
+	background-color: #385d9d;
 	margin: auto;
 }
 
