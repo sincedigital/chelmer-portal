@@ -1,5 +1,5 @@
 const Chelmer = {
-	baseUrl: "http://chm-qa33-css.chelmer.co.nz/webservice/rest",
+	baseUrl: "http://web-demo3-css.web-apps.co.nz/webservice/rest",
 	login: "/security/login",
 	sessionValidate: "/security/validate/sessions/",
 	holdings: "/api/v1/aggregation/portfolio/holdings",
